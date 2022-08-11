@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <title>First HTML File</title>
     <style>
+
+        body {
+            color: white;
+            background-color: black;
+
+            }
         p {
-            border: 1px solid black;
+            border: 1px solid gray;
             padding: 5px;
             border-radius: 5px;
             margin: 10px;
@@ -29,20 +35,16 @@
     <button id="toggle">Toggle Paragraph</button>
 
     <script>
-        let toggleButton = document.getElementById
-        ("toggle");
+         let toggleButton = document.getElementById("toggle");
         let paragraph = document.getElementById("hideable");
         toggleButton.onclick = function() {
-
-        let clasAttribute = paragraph.getAttribute
-         ("class");
-        if (classAttribute === "hidden") {
-        paragraph.removeAttribute("class");
+            let classAttribute = paragraph.getAttribute("class");
+            if (classAttribute === "hidden") {
+                paragraph.removeAttribute("class");
+            } else {
+                paragraph.setAttribute("class", "hidden");
+            }
         }
-        else {
-            paragraph.setAttribute("class", "hidden");
-        }
-    }
 
     </script>
 
