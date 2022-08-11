@@ -3,33 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Primitive Types Exercise</title>
+    <style>
+        body {
+            color: #dad6d6;
+            background-color: #302d2ded;
+        }
+
+    </style>
 </head>
 <body>
 
 <h1>
     Primitive Types Exercise
 </h1>
+<h2>
+    Also with Functions Exercises using Booleans!
+</h2>
+
 <script>
-        let number1 = 99.9;
-        console.log("number1 is 99.9! The Primitive type of number.");
 
-        var string1 = "false";
-        console.log("string1 is \"false\". The Primitive type of string!");
+//Primitive Types Exercise
+<!--        let number1 = 99.9;-->
+<!--        console.log("number1 is 99.9! The Primitive type of number.");-->
 
-        var boolean1 = false;
-        console.log("boolean1 is false. which is a Boolean!");
+<!--        var string1 = "false";-->
+<!--        console.log("string1 is \"false\". The Primitive type of string!");-->
 
-        var string2 = '0';
-        console.log("string2 is '0'. The Primitive type of String!");
+<!--        var boolean1 = false;-->
+<!--        console.log("boolean1 is false. which is a Boolean!");-->
 
-        let number2 = 0;
-        console.log("number2 is 0. The Primitive type of number!");
+<!--        var string2 = '0';-->
+<!--        console.log("string2 is '0'. The Primitive type of String!");-->
 
-        let boolean2 = true;
-        console.log("boolean2 is true. Which is a Boolean!");
+<!--        let number2 = 0;-->
+<!--        console.log("number2 is 0. The Primitive type of number!");-->
 
-        let string3 = 'true';
-        console.log("string3 is 'true'. The Primitive type of String!");
+<!--        let boolean2 = true;-->
+<!--        console.log("boolean2 is true. Which is a Boolean!");-->
+
+<!--        let string3 = 'true';-->
+<!--        console.log("string3 is 'true'. The Primitive type of String!");-->
 //Functions practice
 
 
@@ -43,12 +56,196 @@
 
 //functions using the Math Object
 
-        function isOdd(number) {
-            return Math.abs(number) % 2 === 1
+<!--        function isOdd(number) {-->
+<!--            return Math.abs(number) % 2 === 1-->
+<!--        }-->
+<!--    let number3 = 20;-->
+<!--    if (number3 % 5 === 00 && number3 % 3 === 0) {-->
+<!--        console.log("That number is divisible by both 5 and 3");-->
+<!--        } else {-->
+<!--            console.log("That number is either not divisible by 5 or not divisible by 3, or both.");-->
+<!--        }-->
+
+    function divisibleByFiveOrThree(number) {
+        return number % 5 === 0 || number % 3 === 0;
+    }
+
+    function divisibleBySevenOrThree(number) {
+       return number % 7 === 0 || number % 3 === 0
+    }
+
+     function divisibleByThreeOrTwo(number) {
+        return number % 3 === 0 || number % 2 === 0
+    }
+
+    function oddAndDivisibleByThree(number) {
+             return number % 2 === 1 && number % 3 === 0
+
+       }
+<!-- Strings Practice -->
+
+    let myName = "Joshua";
+    let myLastName = "Sprouse";
+    let myTitle = "Mr.";
+    //concatenation
+    let myFullName =  myTitle + " " + myName + " " + myLastName;
+    console.log(myFullName);
+
+<!-- Incrementing -->
+
+    let x = 1;
+    x = x + 1;
+    console.log(x);
+
+
+    let sentence = "All the world";
+    sentence = sentence + "'s a stage";
+    console.log(sentence);
+
+    console.log("Shakespeare said: \"All the World's a stage \"");
+
+   // use the backtick (`) to use ("") inside a string
+
+   console.log(`Shakespeare said: "All the World's a stage."`);
+   /*template literals use back ticks in front and back (`) of the concatenated string with a dollar sign
+    $ then open and close curly brace {variable Identifier}*/
+
+   console.log(`${myTitle} ${myName} ${myLastName}`);
+
+<!--    Mini-exercise.  Write a function that takes a person's first, middle, and last names and returns their full name.-->
+<!--Mini exercise. Write a function that takes a house number, street name, city, state, and zip code and returns the full address.-->
+<!--Bonus.  Write a function that takes a number representing the temperature and a boolean representing whether the temperature is Fahrenheit or not.  If it is Fahrenheit, the function converts to Celsius.  Otherwise, it converts to Fahrenheit.  Look up the Fahrenheit to Celsius conversion formula online.-->
+<!--Bonus.  Change your functions for liters-gallons and miles-kilometers so they convert both ways.-->
+
+
+//1st Mini Exercise
+
+       function fullName(firstName, middleName, lastName) {
+           return `${firstName} ${middleName} ${lastName}`;
+           }
+
+//2nd Mini Exercise
+
+        function address(houseNumber, streetName, city, state, zipCode) {
+            return `${houseNumber} ${streetName}, ${city}, ${state} ${zipCode}`;
+
         }
 
 
+//1st Bonus
+        function temperatureConversion(temperature, isFahrenheit) {
+                if (isFahrenheit === true) {
+                    return (temperature -32) * 5/9;
+                } else {
+                    return (temperature * 9/5) + 32;
+                }
+        }
 
+//2nd Bonus
+
+        function unitsOfVolumeConversion(units, isGallon) {
+            if (isGallon === true) {
+                return (units * 3.78541);
+                    } else {
+                        return (units / 3.78541);
+                    }
+            }
+
+            function distanceConversion(distance, isMiles) {
+                if (isMiles === true) {
+                    return distance * 1.6;
+                } else {
+                    return distance / 1.6;
+                }
+            }
+
+//creating strings (Javascript String Methods)
+<!--Create a function that takes a string and returns it in upper case.-->
+<!--Create a function that takes a string and returns it in lower case.-->
+<!--Create a function that takes a string and trims any leading or trailing blank spaces.-->
+<!--Create a function that takes a string and returns the number of characters in that string.-->
+<!--Bonus Challenges:-->
+<!--Create a function that takes a single character and a string and returns the index of the specified character in that string.-->
+<!--Create a function that takes three strings and returns a copy of the first string with the first instance of the second string substituted for the characters of the third string.-->
+<!--Do the same, but replace all instances of the second string with the characters of the third string.-->
+<!--Create a function that takes a string and two numbers and returns the subset of the original string assuming the two numbers are indexes.-->
+//string practice 1
+
+    function allCaps(string) {
+        return string.toUpperCase();
+
+    }
+        console.log(allCaps("Joshua"));
+
+//string practice 2
+
+    function lowerCase(string) {
+        return string.toLowerCase();
+    }
+        console.log(lowerCase("THIS SHOULD BE ALL LOWER CASE"));
+
+//string practice 3
+
+    function noSpaces(string) {
+        return string.trim();
+    }
+        console.log(noSpaces("    Trim this Sentence!    "));
+
+
+//Return the number of Characters in a String
+
+    function numberOfCharacters(string) {
+        return string.length;
+    }
+        console.log(numberOfCharacters("Count this sentence"));
+
+//Return the Index Of a String
+
+    function indexOfCharacter(char, string) {
+        return string.indexOf(char);
+    }
+
+
+//original temperature conversions
+<!--        function celsiusToFahrenheit(C) {-->
+<!--            let F = C * 9/5 + 32-->
+<!--            return F;-->
+<!--        }-->
+
+<!--        function fahrenheitToCelsius(F) {-->
+<!--            let C = (F - 32) * 5/9-->
+<!--            return C;-->
+<!--        }-->
+
+
+
+
+//original units of volume conversion
+
+<!--        function gallonsToLiters(gallons) {-->
+<!--            let liters = gallons * 3.78541-->
+<!--            return liters;-->
+<!--        }-->
+
+
+// == vs. ===
+
+    let numericString = "42";
+    let theAnswer = 42;
+    console.log(numericString === theAnswer);
+    console.log(numericString == theAnswer);
+
+<!--    let someValue = if (dataType(someValue) === "number") {-->
+<!--        console.log ("That's a number"); } else { console.log("That's not a number")}-->
+<!--    }-->
+
+    function isNumber(value) {
+        return typeof value === "number";
+    }
+
+    function dataType(value) {
+        return !(isNaN(value) || typeof value === "boolean");
+    }
 
     </script>
 </body>
