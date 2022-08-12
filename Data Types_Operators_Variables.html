@@ -3,23 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Data Types, Operators, Variables Exercise</title>
+    <style>
+         body {
+        background-color: black;
+        color: white;
+    }
+
+    </style>
 </head>
 <body>
   <h1>
     Data Types, Operators, and Variables Exercise
   </h1>
+  <p>Write a function that takes two values.  If the values can be converted to numbers, the function should return their product.  Otherwise, the function should return false.</p>
+
   <script>
 
   <!--Bonus Challenges:-->
-<!--Create a function that takes a single character and a string and returns the index of the specified character in that string.-->
+<!--Create a function that takes a single character in a string and returns the index of the specified character in that string.-->
 <!--Create a function that takes three strings and returns a copy of the first string with the first instance of the second string substituted for the characters of the third string.-->
 <!--Do the same, but replace all instances of the second string with the characters of the third string.-->
 <!--Create a function that takes a string and two numbers and returns the subset of the original string assuming the two numbers are indexes.-->
 //string practice 1
 
 
-    let animals = ["giraffe", "lion", "dog", "cat"];
-    console.log(animals.replace["giraffe", "zebra"]);
+<!--    let animals = "giraffe", "lion", "dog", "cat";-->
+<!--    console.log(animals.replace("giraffe", "zebra"));-->
+
+    console.log(42 + parseInt("42"));
+    console.log(21.5 + parseFloat("22.5"));
+
+//parseFloat will still parse even with other numeri characters
+
+    console.log(parseFloat ("22.45 and other stuff here"));
+    console.log (typeof parseFloat("22 is a very interesting number"));
+
+//My attempt at Problem 1
+<!--         function letsMultiply(number, number)-->
+<!--        if (parseFloat(number) * parseFloat(number)) {return true-->
+<!--        } else { return false}-->
+<!--    }-->
+
+//attempt 2
+
+<!--        function canWeMultiply(number, number2)-->
+<!--            if (parseFloat isNan(number) || parseFloat isNaN(number2)) {-->
+<!--                return false-->
+<!--                } else {-->
+<!--                    return parseFloat(this) * parseFloat(that);-->
+<!--                    }-->
+<!--                  }-->
+
+
+//The Answer to problem 1
+
+    function multiply(value1, value2) {
+        if (isNaN(value1) || isNaN(value2)) {
+            return false
+            } else {
+                return parseFloat(value1) * parseFloat(value2);
+            }
+    }
+
+<!--Create a function that takes a single character in a string and returns the index of the specified character in that string.-->
+
+
+    function returnAChar(char) {
+        let thisString = "Find the Index of a Character in this String"
+        return thisString.indexOf(char);
+    }
+
+
 
   </script>
 
