@@ -1,5 +1,5 @@
 "use strict";
-console.log("This is the Functions Exersise");
+console.log("This is the Functions Exercise");
 /**
  * TODO:
  * Create a function called 'sayHello' that takes a parameter 'name'.
