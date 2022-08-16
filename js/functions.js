@@ -104,7 +104,7 @@ let pleaseTip = prompt("Percentage you would you like to tip?");
 let tipConversion = pleaseTip / 100
 let tipAmount = billTotal * tipConversion
 
-alert("Your tip is " + tipAmount + " dollars!");
+alert("Your tip is " + tipAmount.toFixed(2) + " dollars!");
 
 /**
  * TODO:

@@ -19,7 +19,7 @@ function sayHello(greeting, name) {
 // the variable number now has Global scope, and you can use it throughout the page
 
 //Here number has local scope
-//the console.log will resule in an error
+//the console.log will result in an error
 //function localOrGlobal() {
 //
 //    let number = 20;
