@@ -71,26 +71,26 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 
 
-let pickAColor = prompt("Pick a Color: Red, Orange, Yellow or Blue.");
-let colorSelection = pickAColor.toLowerCase();
-switch (colorSelection) {
-    case "red":
-        alert("Hot sarse is red!");
-        break;
-    case "orange":
-        alert("Orange is a fruit!");
-        break;
-    case "yellow":
-        alert("Don't eat the yellow snow!");
-        break;
-    case "blue":
-        alert("Blue is super sweet!");
-        break;
-    default:
-        alert("I don't know anything by that!");
-
-
-}
+//let pickAColor = prompt("Pick a Color: Red, Orange, Yellow or Blue.");
+//let colorSelection = pickAColor.toLowerCase();
+//switch (colorSelection) {
+//    case "red":
+//        alert("Hot sarse is red!");
+//        break;
+//    case "orange":
+//        alert("Orange is a fruit!");
+//        break;
+//    case "yellow":
+//        alert("Don't eat the yellow snow!");
+//        break;
+//    case "blue":
+//        alert("Blue is super sweet!");
+//        break;
+//    default:
+//        alert("I don't know anything by that!");
+//
+//
+//}
 
 
 /**
@@ -141,11 +141,11 @@ function calculateTotal(luckyNumber, total) {
 */
 //
 //
-//let luckyNumber1 = .10
-//let luckyNumber2 = .25
-//let luckyNumber3 = .35
-//let luckyNumber4 = .50
-//let luckyNumber5 = 1
+//let luckyNumber1 = .10;
+//let luckyNumber2 = .25;
+//let luckyNumber3 = .35;
+//let luckyNumber4 = .50;
+//let luckyNumber5 = 1;
 //
 //
 //function calculateTotal(luckyNumber, billTotal) {
@@ -167,9 +167,8 @@ function calculateTotal(luckyNumber, total) {
 //    } else {
 //        return "No discount, your total is " + billTotal
 //    }
-//
 //}
-//
+
 //
 //console.log(calculateTotal(0, 100));
 
@@ -189,7 +188,7 @@ function calculateTotal(luckyNumber, total) {
 
 // var luckyNumber = Math.floor(Math.random() * 6);
 //
-//let bill = prompt("Please enter your total bill: ")
+//let billTotal = prompt("Please enter your total bill: ")
 //alert ("Your lucky number was " + luckyNumber + "\n" + "Your Price before discount was " + billTotal + "\n" + "Your price after discount is $" + calculateTotal(luckyNumber, billTotal));
 
 
@@ -241,7 +240,7 @@ function numberPlus100(number) {
 }
 
 function negativeOrPositive(number) {
-    return number < 0 ? number + " is a negative number" : number + " is a positive number" ;
+    return number < 0 ? number + " is a negative number" : number + " is a positive number";
 }
 function getNumber(){
     if (confirm("Do you want to enter a number?")) {
@@ -254,9 +253,9 @@ function analyzeNumber(number) {
         return false;
     }
     if (isNumber(number)){
-    alert(oddOrEven(number));
-    alert(numberPlus100(number));
-    alert(negativeOrPositive(number));
+        alert(oddOrEven(number));
+        alert(numberPlus100(number));
+        alert(negativeOrPositive(number));
     } else {
         alert ("Incorrect input data type.");
     }
