@@ -51,7 +51,7 @@ let allCones = Math.floor(Math.random() * 50) + 50;
 // } while (allCones >= 0 );
 //
 // alert("Yay! All them treats are on the streets!");
-// This si the loop control variable
+// This is the loop control variable
 // initialize it to a starting value
 // let count = 10
 //
