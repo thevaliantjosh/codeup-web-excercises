@@ -71,9 +71,9 @@ let allCones = Math.floor(Math.random() * 50) + 50;
 
 //change the loop control varialbe to "i" to make it even shorter
 
-// for(let i = 10; i >= 0; i--) {
-//     console.log(i);
-// }
+for(let i = 10; i >= 0; i--) {
+    console.log(i);
+}
 
 // let i = 0
 // while (i < 10) {
