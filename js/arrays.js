@@ -53,7 +53,7 @@ let prices = [32.99, 21.99, 6.99, 4.99, 12.99, 8.98, 5.99];
 
 /*forEach loop takes an anonymous function the function we pass to the forEach loop
 has up to three parameters.
-The First Parameter represents the array elements
+*The First Parameter represents the array elements
 The second parameter represents the element index
 The third parameter represents the array itself
 The second and third parameters are optional

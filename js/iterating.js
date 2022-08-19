@@ -1,11 +1,15 @@
-(function(){
+(function() {
     "use strict";
 
+    //alert("Welcome to the Iterating Exercise!");
     /**
      * TODO:
      * Create an array of 4 people's names and store it in a variable called
      * 'names'.
      */
+
+    let names = ["Simon", "Edgar", "Jack", "Kyle", "Bob"];
+
 
     /**
      * TODO:
@@ -13,11 +17,20 @@
      * array.
      */
 
+    console.log(names.length);
+
+
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
+
+   console.log(names[0]);
+   console.log(names[1]);
+   console.log(names[2]);
+   console.log(names[3]);
+
 
     /**
      * TODO:
@@ -25,10 +38,25 @@
      * array.
      */
 
+    for (let j = 0; j < names.length; j++) {
+        if (j === names.length - 1) {
+            console.log("The last name is " + names[j]);
+        } else {
+            console.log("Name is " + names[j]);
+        }
+    }
+
+
+
+
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
+
+    names.forEach(function(name) {
+        console.log("Their name is " + name);
+    })
 
     /**
      * TODO:
@@ -43,5 +71,30 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
+    // function outputArray(array) {
+    //     for (let i = 0; i < array.length; i++) {
+    //         console.log(array[i]);
+    //     }
+    // }
+// outputArray(texasCities);
+
+    function first(array) {
+        console.log(array[0]);
+    }
+    function second(array) {
+       console.log(array[1]);
+    }
+    function last(array) {
+        console.log(array[array.length -1]);
+    }
+first(names);
+    second(names);
+    last(names);
+
+//     let myVideoGames = ["Grim Dawn", "Morrowind", "Diablo 3", "Oblivion"];
+// first(myVideoGames);
+// second(myVideoGames);
+// last(myVideoGames);
+
 
 })();
