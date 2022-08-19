@@ -1,11 +1,11 @@
 //alert("Welcome to the For Loops Exercise!");
 
 //My Answer to Problem 1
-function showMultiplicationTable(number) {
-    for (let i = 0; i <= 10; i++) {
-        console.log(`${number} x ${i} = ${i * number}`);
-    }
-}
+// function showMultiplicationTable(number) {
+//     for (let i = 0; i <= 10; i++) {
+//         console.log(`${number} x ${i} = ${i * number}`);
+//     }
+// }
 
 
 //class discussion on Problem 1
@@ -31,23 +31,23 @@ function showMultiplicationTable(number) {
 
 //My Answer to Problem 2
 
-function numberIsOdd(number) {
-    return number % 2 !== 0;
-}
-function numberIsEven(number) {
-    return number % 2 === 0;
-}
-
-function isOddOrEven() {
-    for (let randomNumber = 0; randomNumber <= 10; randomNumber++) {
-        let randomNumber = Math.floor(Math.random() * 200) + 20;
-        if (numberIsEven(randomNumber)) {
-            console.log(`${randomNumber} is even`);
-        } if (numberIsOdd(randomNumber)) {
-            console.log(`${randomNumber} is odd`);
-        }
-    }
-}
+// function numberIsOdd(number) {
+//     return number % 2 !== 0;
+// }
+// function numberIsEven(number) {
+//     return number % 2 === 0;
+// }
+//
+// function isOddOrEven() {
+//     for (let randomNumber = 0; randomNumber <= 10; randomNumber++) {
+//         let randomNumber = Math.floor(Math.random() * 200) + 20;
+//         if (numberIsEven(randomNumber)) {
+//             console.log(`${randomNumber} is even`);
+//         } if (numberIsOdd(randomNumber)) {
+//             console.log(`${randomNumber} is odd`);
+//         }
+//     }
+// }
 
 //class demonstration of Problem 2
 
@@ -98,7 +98,19 @@ for (let i = 1; i <= 9; i++) {
 
 //class demonstration for Problem 4
 //shorthand: i-= 5
-for(let i = 100; i >= 5; i = i -5) {
-    console.log(i);
-}
+// for(let i = 100; i >= 5; i = i -5) {
+//     console.log(i);
+// }
 
+//break statements
+
+// let string = "";
+// for (let i = 0; i < 8; i++ ) {
+//     let word = prompt("Let's make a sentence! Enter a word: ");
+//     string += " "  + word;
+//     if (word === "curses") {
+//         alert("That word is not allowed!")
+//         continue;
+//     }
+//     console.log("Your sentence is: " + string);
+// }
