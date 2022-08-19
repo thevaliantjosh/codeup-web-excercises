@@ -8,7 +8,7 @@
      * 'names'.
      */
 
-    let names = ["Simon", "Edgar", "Jack", "Kyle", "Bob"];
+    let names = ["Simon", "Edgar", "Jack", "Kyle"];
 
 
     /**
@@ -53,7 +53,7 @@
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-
+//names.forEach(name => console.log(name));
     names.forEach(function(name) {
         console.log("Their name is " + name);
     })

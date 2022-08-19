@@ -114,3 +114,24 @@ for (let i = 1; i <= 9; i++) {
 //     }
 //     console.log("Your sentence is: " + string);
 // }
+
+//Practice for loop
+
+// function printNumbers() {
+//     for(let i = 0; i <= 10; i++){
+//         console.log(i);
+//     }
+// }
+// printNumbers();
+
+let someNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
+let someMoreNumbers = [9, 10, 11, 12, 13, 14];
+
+function addNumbers(array1) {
+    let addArray1 = 0
+    for(let i = 0; i < array1.length; i++) {
+        addArray1 += array1[i];
+    }
+    return addArray1;
+}
+console.log(addNumbers(someNumbers));

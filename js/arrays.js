@@ -69,3 +69,73 @@ prices.forEach(function(price, index) {
 myVideoGames.forEach(game => {
     console.log("I like to play " + game)
 });
+
+//Array Methods
+//Adding and element to an array
+groceryList.push("potatoes");
+console.log(groceryList);
+//removing an element from an array;
+groceryList.pop();
+console.log(groceryList);
+
+//add and remove from the beginning of the array with .unshift
+groceryList.unshift("sliced cheddar", "Bacon");
+console.log(groceryList);
+
+//shift will take away
+
+groceryList.shift();
+console.log(groceryList);
+
+let indexOfButter = groceryList.indexOf("butter");
+console.log(indexOfButter);
+
+//directly replace something at any known index by assigning a new value at that point
+
+groceryList[indexOfButter] = "Peanut Butter"
+console.log(groceryList);
+
+//let bread = groceryList[0];
+//assign new value to the index of the element [] in the array
+groceryList[1] = "Tortillas";
+console.log(groceryList)
+//.slice() takes a start index and an end index the end index will not include that element
+let firstHalfOfGroceryList = groceryList.slice(0, 2);
+console.log(firstHalfOfGroceryList);
+
+let secondHalfOfGroceryList = groceryList.slice(2);
+console.log(secondHalfOfGroceryList);
+
+//you need to slice twice to preserve the second part of the array
+//.push() with .concat
+firstHalfOfGroceryList.push("Butter");
+groceryList = firstHalfOfGroceryList.concat(secondHalfOfGroceryList);
+console.log(groceryList);
+
+//.reverse() change the order of the array
+
+groceryList.reverse();
+console.log(groceryList);
+
+groceryList.sort();
+console.log(groceryList);
+console.log(groceryList.reverse());
+
+//sorting numbers in numeric order
+prices.sort(function(a,b) {
+    return a-b;
+})
+console.log(prices);
+
+console.log(groceryList.sort());
+
+
+// for (let i = 0; i < groceryList.length; i++) {
+//     groceryList[i] = groceryList[i].toLowerCase();
+// }
+// console.log(groceryList.sort());
+
+groceryList.forEach((item, index, array) => {
+    array[index] = item.toLowerCase();
+    })
+console.log(groceryList);
