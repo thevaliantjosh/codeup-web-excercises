@@ -139,3 +139,54 @@ groceryList.forEach((item, index, array) => {
     array[index] = item.toLowerCase();
     })
 console.log(groceryList);
+
+//splitting and joining
+
+groceryList = groceryList.join(' ').toLowerCase().split(' ').sort();
+console.log(groceryList);
+
+let quote = "All the World's a play";
+let quoteArray = quote.split(' ');
+console.log(quoteArray);
+quoteArray = quoteArray.reverse();
+console.log(quoteArray);
+quote = quoteArray.join(' ').toLowerCase();
+console.log(quote);
+
+
+let wishList = [25, 15, 34, 8, 59];
+
+function checkWishListPrices(wishList) {
+    for(let i= 0; i < wishList.length; i++) {
+        if (wishList[i] > 50) {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(checkWishListPrices(wishList));
+
+function checkWishListTotal(wishList) {
+    let total = 0;
+    for (let i = 0; i < wishList.length; i++) {
+        total += wishList[i];
+    }
+    return total <= 100;
+}
+console.log(checkWishListTotal(wishList));
+
+function processWishList(wishList, testFunction1, testFunction2) {
+    return testFunction1(wishList) && testFunction2(wishList);
+}
+console.log(processWishList(wishList, checkWishListPrices, checkWishListTotal));
+
+//You need to take a sentence and reverse it
+
+function zatannaMagic(string) {
+    let commandArray = string.toLowerCase().split(" ");
+    let newArray = [];
+    for (let i = 0; i <commandArray.length; i++) {
+        newArray.push(commandArray[i].split('').reverse().join(''));
+    }
+    return commandArray[0].charAt(0).toUpperCase() + commandArray.join(' ').slice(1) + "!"
+}
