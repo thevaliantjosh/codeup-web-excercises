@@ -161,5 +161,36 @@ let model = {
 //fighter.attack(monster);
 //fighter["attack"](monster);
 
-controller.attack(model.fighter, model.monster);
-controller.attack(model.monster, model.fighter);
+// controller.attack(model.fighter, model.monster);
+// controller.attack(model.monster, model.fighter);
+
+//Creating Objects
+//define an empy object and create properties dynamically
+let goblin = {};
+goblin.name = "Snarky The Goblin";
+
+function makeMonster(name, hitPoints, maxDamage) {
+    return {
+        name: name,
+        hitPoints: hitPoints,
+        maxDamage: maxDamage
+    }
+}
+
+// model.hobgoblin = makeMonster("Hobgoblin", 11, 11);
+// controller.attack(model.hobgoblin, model.fighter);
+
+//use an object constructor
+
+function Monster(name, hitPoints, maxDamage) {
+    this.name = name;
+    this.hitPoints = hitPoints;
+    this.maxDamage = maxDamage;
+}
+
+model.hobgoblinCaptain = new Monster("Hobgoblin Captain", 39, 14);
+controller.attack(model.hobgoblinCaptain, model.fighter);
+
+for (let property in model) {
+    console.log(model[property].name);
+}
