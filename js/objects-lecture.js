@@ -139,23 +139,23 @@ let view = {
 
 }
 
-let model = {
-    fighter: {
-        name: "Arata",
-        hitPoints: 18,
-        maxDamage: 8
-
-    },
-
-
-    monster: {
-        name: "Goblin",
-        hitPoints: 8,
-        maxDamage: 6
-
-    }
-
-}
+// let model = {
+//     fighter: {
+//         name: "Arata",
+//         hitPoints: 18,
+//         maxDamage: 8
+//
+//     },
+//
+//
+//     monster: {
+//         name: "Goblin",
+//         hitPoints: 8,
+//         maxDamage: 6
+//
+//     }
+//
+// }
 
 
 //fighter.attack(monster);
@@ -188,9 +188,33 @@ function Monster(name, hitPoints, maxDamage) {
     this.maxDamage = maxDamage;
 }
 
-model.hobgoblinCaptain = new Monster("Hobgoblin Captain", 39, 14);
-controller.attack(model.hobgoblinCaptain, model.fighter);
+// model.hobgoblinCaptain = new Monster("Hobgoblin Captain", 39, 14);
+// controller.attack(model.hobgoblinCaptain, model.fighter);
+//
+// for (let property in model) {
+//     console.log(model[property].name);
+// }
 
-for (let property in model) {
-    console.log(model[property].name);
+//Object Destructuring
+
+const car = {
+    make: "Toyota",
+    model: "Tacoma",
+    year: 2019,
+    mileage: 12657
+
 }
+
+// let make = car.make;
+// let carModel = car.model;
+// console.log(make);
+// console.log(carModel);
+
+const {make, model, year, mileage} = car;
+console.log(make)
+console.log(model);
+console.log(year);
+console.log(mileage);
+
+const outputCarInfo = ({make, model, year, mileage} = car) => {console.log(`${year} ${make} ${model} with ${mileage} miles`)}
+outputCarInfo(car)
