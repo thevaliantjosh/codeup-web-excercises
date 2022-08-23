@@ -211,7 +211,7 @@ const car = {
 // console.log(carModel);
 
 const {make, model, year, mileage} = car;
-console.log(make)
+console.log(make);
 console.log(model);
 console.log(year);
 console.log(mileage);

@@ -226,41 +226,41 @@ function calculateTotal(luckyNumber, total) {
 //    }
 //
 //}
-function isNumber(value) {
-            return !(isNaN(value) || typeof value === "boolean");
-        }
-
-function oddOrEven(number) {
-    return number % 2 === 0 ? number + " is even." : number + " is odd.";
-}
-
-function numberPlus100(number) {
-    return number +  " plus 100 equals " + (number + 100);
-
-}
-
-function negativeOrPositive(number) {
-    return number < 0 ? number + " is a negative number" : number + " is a positive number";
-}
-function getNumber(){
-    if (confirm("Do you want to enter a number?")) {
-        return parseFloat(prompt("Enter a number: "));
-    }
-}
-
-function analyzeNumber(number) {
-    if (number === undefined) {
-        return false;
-    }
-    if (isNumber(number)){
-        alert(oddOrEven(number));
-        alert(numberPlus100(number));
-        alert(negativeOrPositive(number));
-    } else {
-        alert ("Incorrect input data type.");
-    }
-}
-analyzeNumber(getNumber());
+// function isNumber(value) {
+//             return !(isNaN(value) || typeof value === "boolean");
+//         }
+//
+// function oddOrEven(number) {
+//     return number % 2 === 0 ? number + " is even." : number + " is odd.";
+// }
+//
+// function numberPlus100(number) {
+//     return number +  " plus 100 equals " + (number + 100);
+//
+// }
+//
+// function negativeOrPositive(number) {
+//     return number < 0 ? number + " is a negative number" : number + " is a positive number";
+// }
+// function getNumber(){
+//     if (confirm("Do you want to enter a number?")) {
+//         return parseFloat(prompt("Enter a number: "));
+//     }
+// }
+//
+// function analyzeNumber(number) {
+//     if (number === undefined) {
+//         return false;
+//     }
+//     if (isNumber(number)){
+//         alert(oddOrEven(number));
+//         alert(numberPlus100(number));
+//         alert(negativeOrPositive(number));
+//     } else {
+//         alert ("Incorrect input data type.");
+//     }
+// }
+// analyzeNumber(getNumber());
 
 //let wantsToEnterNumber = confirm("Do you want to enter a number?");
 //if (wantsToEnterNumber) {
@@ -281,5 +281,109 @@ analyzeNumber(getNumber());
 //        } else {
 //questionsAndNumbers();
 
+//Write a program that accepts two integers and display the larger
 
+function isLarger(num1, num2) {
+    if (typeof num1 !== "number" || typeof num2 !== "number"){
+        return false;
+    } else if (num1 > num2) {
+        return num1;
+    } else {
+        return num2;
+    }
+}
+
+
+//Want the product ( multiply three numbers together);
+//output the result in an alert with just the final sign (+/-);
+
+function gimmeASign(num1, num2, num3) {
+    if(typeof num1 !== "number" || typeof num2 !== "number" || typeof num3 !== "number") {
+        alert("Please enter a number");
+    }  else {
+        let product = num1 * num2 * num3;
+        //alert(`Your sign is ${Math.sign(product)}!`)
+        if(Math.sign(product) === 1){
+            alert("Your sign is: + ")
+        } else {
+            alert("Your sign is: - ");
+        }
+    }
+}
+
+
+
+
+//sort numbers base off value
+//alert the sorted numbers
+
+function sortTheseNumbers(num1, num2, num3) {
+    if(typeof num1 !== "number" || typeof num2 !== "number" || typeof num3 !== "number") {
+        alert ("Please enter a number!");
+    } else {
+        let numbersArray = [num1, num2, num3];
+        console.log(numbersArray);
+        numbersArray.sort((a, b) => b-a);
+
+        //console.log(numbersArray)
+        alert(numbersArray.join(", "));
+    }
+}
+
+//sortTheseNumbers(2, -3, 18);
+
+//find the largest of five numbers
+// let wishList = [25, 15, 34, 8, 59];
+//
+// function checkWishListPrices(wishList) {
+//     for(let i= 0; i < wishList.length; i++) {
+//         if (wishList[i] > 50) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+
+
+let myFiveNumbers = [3, 4, 29, -3, -64];
+let moreFiveNumbers = [1, 3, 6, 7, 9];
+
+function findTheLargest(array) {
+    let largestNumber = array[0];
+    for(let i = 1; i < array.length; i++) {
+        if(largestNumber < array[i]) {
+            largestNumber = array[i]
+        }
+    }
+    return alert(largestNumber);
+}
+//findTheLargest(myFiveNumbers);
+//findTheLargest(moreFiveNumbers);
+
+//Loop from 0 to 15 and output the even and odds
+function oddOrEven(){
+    for(let i= 1; i <= 15; i++) {
+        if(i % 2 === 0 ) {
+            console.log(`${i} is an even number.`);
+        } else ( console.log(`${i} is an odd number`))
+    }
+}
+oddOrEven();
+
+/*Write a program which will compute the average marks of the following students;
+* David average = 80
+* Vinoth Average = 77
+* Divya Average = 88
+* Ishitha Average = 95
+* Thomas Average = 68
+* Grades Are:
+* <60 = F
+* <70 = D
+*
+*
+* */
+
+
+//alert("Welcome to Conditionals")
 
