@@ -98,6 +98,8 @@ function hoursIntoSeconds(hours) {
 
 console.log(hoursIntoSeconds(2));
 
+//Create a function that adds one to any number
+
 function addOne(number) {
     if (typeof number !== "number") {
         console.log("Please enter a number to add one to!")
@@ -109,3 +111,31 @@ function addOne(number) {
 console.log(addOne(0));
 console.log(addOne(9));
 console.log(addOne(-3));
+
+//function that takes length and width and finds the perimeter of a rectangle
+
+function perimeterOfARectangle(length, width) {
+    if (typeof length !== "number" || typeof width !== "number") {
+        console.log("Please enter length, width to find the perimeter!")
+    } else {
+        return 2 * (length + width);
+    }
+}
+
+console.log(perimeterOfARectangle(10, 30));
+
+//Write a function that will return a remainder
+
+function whatsTheRemainder(num1, num2) {
+    if (typeof num1 !== "number" || typeof num2 !== "number") {
+        console.log("Please enter two numbers to find the remainder!")
+    } else {
+        return num2 % num1;
+    }
+}
+
+console.log(whatsTheRemainder(1, 3));
+console.log(whatsTheRemainder(3, 4));
+console.log(whatsTheRemainder(-9, 45));
+console.log(whatsTheRemainder(5, 5));
+
