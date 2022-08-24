@@ -98,3 +98,14 @@ function hoursIntoSeconds(hours) {
 
 console.log(hoursIntoSeconds(2));
 
+function addOne(number) {
+    if (typeof number !== "number") {
+        console.log("Please enter a number to add one to!")
+    } else {
+        return number += 1;
+    }
+}
+
+console.log(addOne(0));
+console.log(addOne(9));
+console.log(addOne(-3));
