@@ -84,5 +84,17 @@ const addTen = number => number + 10;
 const helloWorld = () => "Hello World!";
 
 
+//Convert Hours into seconds
+//Write a function that converts hours into seconds
+//2 hours = 7200 seconds
 
+function hoursIntoSeconds(hours) {
+    if(typeof hours !== "number") {
+        console.log("Please enter the number of hours to find seconds!");
+    } else {
+        return hours * 3600;
+    }
+}
+
+console.log(hoursIntoSeconds(2));
 
