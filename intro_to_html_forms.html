@@ -44,10 +44,6 @@ COMMON FORM INPUTS = Basic Text input elements is an <input> element with a type
 Can optionally specify a placeholder attribute.
 Setting the attribute type to password will hide whatever the user enters
 
-
-
-
-
 -->
 
     <form method = "POST" action="https://request-inspector.glitch.me/">
@@ -130,7 +126,10 @@ Setting the attribute type to password will hide whatever the user enters
     that is being labeled. When a form input is properly labeled, clicking on
     the label will focus that input element. this is particularly useful for
     checkboxes and radio buttons, and it is a common practice to wrap checkbox
-    and radio <input>'s with a <label>-->
+    and radio <input>'s with a <label>
+
+    DONT PUT INPUTS INSIDE LABELS!
+    -->
     <label for="username">Username</label>
     <input id="username" name="username" type="text">
     <h2>What kind of phone do you own?</h2>
@@ -145,7 +144,8 @@ Setting the attribute type to password will hide whatever the user enters
     </label>
     <label for="other">
         Other <input id="other" type="checkbox" name="phones" value="other">
-    </label>
+    </label><br>
+    <br>
 
 <a href="https://request-inspector.glitch.me?zipcode=78205">Search in ZIP Code 78205</a>
 
