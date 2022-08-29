@@ -16,7 +16,7 @@
 The example below shows a couple attributes specified on the <form> element, and
 the form is made up of several input elements.
 METHOD = the method attribute of a <form> element refers ot the HTTP method that
-should be use to transmit the form data. If no method is specified, by defual, the GET method will be used.
+should be used to transmit the form data. If no method is specified, by default, the GET method will be used.
 While other HTTP methods exist, the html specification limits us to using GET and
 POST in forms.
 
@@ -40,6 +40,9 @@ in an HTML form, the inputs will be sent as a query string (this time without th
 The following anchor tag example and form example send a very similar GET request.
 If you put 78205 in the text input, then the form below sends the same key, which is zipcode, and hte same value, the value 78205
 
+COMMON FORM INPUTS = Basic Text input elements is an <input> element with a type of "text"
+Can optionally specify a placeholder attribute.
+Setting the attribute type to password will hide whatever the user enters
 
 
 
@@ -53,8 +56,11 @@ If you put 78205 in the text input, then the form below sends the same key, whic
         <br>
 
         <label for="password">Password</label>
-        <input id="password" name="password" type="password>"<br>
-
+        <input id="password" name="password" type="password">
+        <br>
+        <label for="email">Email</label>
+        <input type="text" name="email" placeholder="Enter you email address"><br>
+        <textarea name="comment" placeholder="Enter you favorite Video Games"></textarea><br>
         <input type="submit">
     </form>
 
@@ -64,6 +70,83 @@ If you put 78205 in the text input, then the form below sends the same key, whic
         <button type="sumbit">Search</button><br>
         <button type="submit">Submit the form</button>
     </form>
+    <h2> Checkboxes and Radio Buttons</h2>
+    <form action="https://request-inspector.glitch.me" method="GET">
+        <input name="newsletter_signup" value="true" type="checkbox" checked>Sign up For the Email Newsletter<br>
+        <br>
+        <label>
+           Who is the Director and executive producer of Bethesda Game Studios?<br>
+
+            A)<input type="radio" name="quiz_question_1" value="correct answer">Todd Howard<br>
+            B)<input type="radio" name="quiz_question_1" value="wrong answer">Sid Meier<br>
+            C)<input type="radio" name="quiz_question_1" value="wrong answer">Robert Corti<br>
+            D)<input type="radio" name="quiz_question_1" value="wrong answer">Case Hudson<br>
+            <button type="submit">Submit the Quiz</button>
+
+        </label>
+
+        <!--<select> elements create a drop-down of choices.
+        Consists of <option> elements for each choice.
+        The contents of an option element are what the user sees, and the value
+        attribute is the data that is submitted as part of the form.
+        The parent <select> element has  a name attribute, and child <option>
+        elements have <value> attributes
+        -->
+        <h2>Selects</h2>
+        <label>Select a game you prefer! (Games that are part of a series consider any game in that series)
+            <select name="game_preference">
+                <option value="grim_dawn">Grim Dawn</option>
+                <option value="the_elder_scrolls">The Elder Scrolls</option>
+                <option value="final_fantasy">Final Fantasy</option>
+                <option value="diablo">Diablo</option>
+                <option value="call_of_duty">Call of Duty</option>
+                <option value="overwatch">Overwatch</option>
+                <option value="halo">Halo</option>
+            </select>
+        </label>
+    <h4>Hidden Inputs</h4>
+        <input type="hidden" name="user_id" value="432">
+        <!--Hidden inputs are now shown to the user
+        used to submit data along with the form the user does not specify,
+        and does not modify.
+        Useful for the backend of our web applications.
+        -->
+    <h4>Disabled</h4>
+        <!--A <disabled attribute can be added to any of the below elements to
+        make the element non-interactive. For <select>, the disabled attribute
+        can be added to individual option elements-->
+        <input type="text" name="username" value="codeup" disabled>
+
+        <select name="newsletter_signup">
+            <option disabled value="n">No</option>
+            <option selected value="y">Yes</option>
+        </select>
+
+    </form>
+
+    <h3>Labels</h3>
+    <!--The <label> is used to label form inputs. Label elements should have
+    a  "for" attribute that matches up with the "id" attribute of the element
+    that is being labeled. When a form input is properly labeled, clicking on
+    the label will focus that input element. this is particularly useful for
+    checkboxes and radio buttons, and it is a common practice to wrap checkbox
+    and radio <input>'s with a <label>-->
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text">
+    <h2>What kind of phone do you own?</h2>
+    <label for="android">
+        Android<input id="android" type="checkbox" name="phones" value="android">
+    </label>
+    <label for="ios">
+        iOS <input id="ios" type="checkbox" name="phones" value="ios">
+    </label>
+    <label for="windows">
+        Windows <input id="windows" type="checkbox" name="phones" value="windows">
+    </label>
+    <label for="other">
+        Other <input id="other" type="checkbox" name="phones" value="other">
+    </label>
+
 <a href="https://request-inspector.glitch.me?zipcode=78205">Search in ZIP Code 78205</a>
 
 </body>
