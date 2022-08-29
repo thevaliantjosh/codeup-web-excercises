@@ -8,18 +8,49 @@
         background-color: gray;
         color: papayawhip;
       }
+      textarea {
+          resize: both;
+          overflow: auto;
+      }
     </style>
 </head>
 <body>
-  <form method="POST" action="https://request-inspector.glitch.me/">
-  <label for="username">Username
-    <input id="username" name="username" type="text">
-  </label><br>
+  <form method="GET" action="https://request-inspector.glitch.me/">
+      <fieldset>
+          <legend><h3>Please Enter your Email and Password</h3></legend>
+          <label for="email">Email:</label>
+          <input type="text" name="email" id="email"><br>
+          <br>
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password">
+      </fieldset><br>
+      <fieldset>
+          <legend><h4>Bio:</h4></legend>
+          <textarea name="bio" id="bio" cols="80" rows="20"></textarea>
 
-
-
-
-
-</form>
+      </fieldset><br>
+      <fieldset>
+          <legend><h3>How did you hear about us?</h3></legend>
+          <label for="billboard">Billboard</label>
+          <input type="radio" name="howdidyouhearaboutus" id="billboard"><br>
+          <label for="radioAdvertisement">Radio Advertisement</label>
+          <input type="radio" name="howdidyouhearaboutus" id="radioAdvertisement"><br>
+          <label for="internetAdvertisement">Internet Advertisement</label>
+          <input type="radio" name="howdidyouhearaboutus" id="internetAdvertisement"><br>
+      </fieldset><br>
+      <fieldset>
+          <h3><label for="web_browser">Select the browser you are using: </label></h3><br>
+          <select name="web_browser" id="web_browser">
+              <option value="Chrome">Chrome</option>
+              <option value="Safari">Safari</option>
+              <option value="Firefox">Firefox</option>
+              <option value="Other">Other</option>
+          </select>
+      </fieldset><br>
+      <input type="submit" value="Submit">
+    </form>
+        <footer>
+            <a href="https://request-inspector.glitch.me/?email=user%40mailbox.com&password=ReallyStrongSuperGoodPassword1234%21%40%23%24&bio=Dynamically+dynamic%0D%0ASkills+that+are+too+strong%21%0D%0AGoing+too+hard+on+life%21&howdidyouhearaboutus=on&web_browser=Chrome">Quick Fill</a>
+        </footer>
 </body>
 </html>

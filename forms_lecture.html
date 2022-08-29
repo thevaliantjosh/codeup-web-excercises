@@ -18,42 +18,49 @@
 </head>
 <body>
   <form method="GET" action="https://request-inspector.glitch.me/">
-      <label for="username">Username:</label>
-    <input type="text" name="username" id="username"><br>
-      <br>
-
-  <hr>
-
-        <label for="streetAddress">Street Address:</label>
+      <fieldset>
+          <legend>Customer Information</legend>
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username"><br>
+          <br>
+          <label for="password">Password: </label>
+          <input type="password" name="password" id="password"><br>
+        <label for="streetAddress">Street Address:</label><br>
         <input type="text" name="streetAddress" id="streetAddress"><br>
         <br>
         <label for="city">City</label>
         <input type="text" name="city" id="city"><br>
         <br>
-
+      </fieldset>
 
 <!--    <a href="https://request-inspector.glitch.me.me?username=jojo&streetAddress=678+Main+Street&city=Verillian&admin=true">Send Request</a>-->
+        <fieldset>
+            <legend><h3>Marvel or DC?</h3></legend>
+            <label for="marvel">Marvel</label>
+            <input type="radio" name="marvelOrDC" value="Marvel" id="marvel"><br>
+            <label for="dc">DC</label>
+            <input type="radio" name="marvelOrDC" disabled value="DC" id="dc"><br>
+        </fieldset><br>
 
-        <h3>Marvel or DC?</h3>
-        <label for="marvel">Marvel</label>
-        <input type="radio" name="marvelOrDC" value="Marvel" id="marvel"><br>
-        <label for="dc">DC</label>
-        <input type="radio" name="marvelOrDC" disabled value="DC" id="dc"><br>
 
-        <hr>
-        <h4>Choose your extras:</h4>
-        <input type="checkbox" name="extras" value="Provolone" id="provolone"><label for="provolone">Provolone</label><br>
-        <input type="checkbox" name="extras" value="Cheddar" id="cheddar"><label for="cheddar">Cheddar</label><br>
-        <input type="checkbox" name="extras" value="American Cheese" id="american"><label for="american">American Cheese</label><br>
-        <input type="checkbox" name="extras" value="Swiss" id="swiss"><label for="swiss">Swiss Cheese</label><br>
-        <input type="checkbox" name="extras" value="Pepper Jack" id="pepperJack"><label for="pepperJack">Pepper Jack</label><br>
-        <input type="checkbox" name="extras" value="Jalapenos" id="jalapenos"><label for="jalapenos">Sliced Jalapenos</label><br>
-        <input type="checkbox" name="extras" value="Mushrooms" id="mushrooms"><label for="mushrooms">Sauteed Mushrooms</label><br>
-        <input type="checkbox" name="extras" value="Onions" id="onions"><label for="onions">Grilled Onions</label><br>
-        <input type="checkbox" name="extras" value="Bacon" id="bacon"><label for="bacon">Extra Bacon</label><br>
-        <input type="checkbox" name="extras" value="Guacamole" id="guacamole"><label for="guacamole">Guacamole</label><br>
 
-        <hr>
+        <fieldset>
+            <legend>Make a sammich!</legend>
+            <h4>Choose your extras:</h4>
+            <input type="checkbox" name="extras" value="Provolone" id="provolone"><label for="provolone">Provolone</label><br>
+            <input type="checkbox" name="extras" value="Cheddar" id="cheddar"><label for="cheddar">Cheddar</label><br>
+            <input type="checkbox" name="extras" value="American Cheese" id="american"><label for="american">American Cheese</label><br>
+            <input type="checkbox" name="extras" value="Swiss" id="swiss"><label for="swiss">Swiss Cheese</label><br>
+            <input type="checkbox" name="extras" value="Pepper Jack" id="pepperJack"><label for="pepperJack">Pepper Jack</label><br>
+            <input type="checkbox" name="extras" value="Jalapenos" id="jalapenos"><label for="jalapenos">Sliced Jalapenos</label><br>
+            <input type="checkbox" name="extras" value="Mushrooms" id="mushrooms"><label for="mushrooms">Sauteed Mushrooms</label><br>
+            <input type="checkbox" name="extras" value="Onions" id="onions"><label for="onions">Grilled Onions</label><br>
+            <input type="checkbox" name="extras" value="Bacon" id="bacon"><label for="bacon">Extra Bacon</label><br>
+            <input type="checkbox" name="extras" value="Guacamole" id="guacamole"><label for="guacamole">Guacamole</label><br>
+        </fieldset><br>
+
+
+
           <h4><label for="destination">Choose your destination:</label></h4>
           <select name="destination" id="destination">
               <option value="Hawaii">Hawaii</option>
@@ -66,12 +73,19 @@
       <br>
       <h4><label for="comments">Enter your comments here: </label></h4>
       <textarea name="comments" id="comments" cols="30" rows="10"></textarea><br>
+<!-- Grab bag -->
+        <label for="date">Today's Date: </label>
+        <input type="date" name="date" id="date"><br>
+      <input type="color" name="color" id="color"><br>
+      <input type="hidden" name="userId" value="43351">
 
+
+      <!-- Reset and submit -->
       <br>
       <input type="submit" value="Submit Form"><br>
       <br>
       <br>
-      <input type="reset" valeu="Reset Form"><br>
+      <input type="reset" value="Reset Form"><br>
     </form>
 
 </body>
