@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to HTML Forms</title>
+    <style>
+        body {
+            background-color: lightslategray;
+            color: papayawhip;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to Intro to HTML Forms</h1>
+<!-- HTML forms are defined by using the <form> element.
+The example below shows a couple attributes specified on the <form> element, and
+the form is made up of several input elements.
+METHOD = the method attribute of a <form> element refers ot the HTTP method that
+should be use to transmit the form data. If no method is specified, by defual, the GET method will be used.
+While other HTTP methods exist, the html specification limits us to using GET and
+POST in forms.
+
+GETs = are us to request information, without making any changes to data on the server.
+When a form's method is set to GET, any of the data that the form sends will be appended to the url in the form of a query string.
+
+POSTS = are used to make a change to existing data on the server. When a form's method is set to POST, any of the data that the form sends will no be added to the url,
+but will instead by embedded in the body of the HTTP request as key-value pairs.
+If you have ever been asked a question like, "Are you sure you want to re-submit this form?", then you were probably refreshing a page after submitting an HTTP POST.
+
+Action = The action attribute of an HTML <form> refers ot the location that the form data should be sent.
+If no action is specified, by default, the action will be set to send data back to the current url.
+
+Query Strings = composed of key-value pairs. It begins with a question mark (?), following the question mark, is the first key-value pair. Key-value pairs are structured as key=value. Key-vlaue pairs after the first will be separated by ampersand (&).
+Here is an Example:
+?key1=value1&key2=value2&key3=value3
+
+More notes on GET method = Whenever you use the GET method in an HTML form, the form
+inputs will be appended to the url in the format shown above. if you are using a POST method
+in an HTML form, the inputs will be sent as a query string (this time without the preceding question mark) in the body of the HTTP request.
+The following anchor tag example and form example send a very similar GET request.
+If you put 78205 in the text input, then the form below sends the same key, which is zipcode, and hte same value, the value 78205
+
+
+
+
+
+
+-->
+
+    <form method = "POST" action="https://request-inspector.glitch.me/">
+       <label for="username">Username</label>
+        <input id="username" name ="username" type="text">
+        <br>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password>"<br>
+
+        <input type="submit">
+    </form>
+
+    <form action ="https://request-inspector.glitch.me" method="GET">
+        <label for="zipcode">Zipcode</label>
+        <input type="text" name="zipcode" id="zipcode" placeholder="input a zipcode">
+        <button type="sumbit">Search</button><br>
+        <button type="submit">Submit the form</button>
+    </form>
+<a href="https://request-inspector.glitch.me?zipcode=78205">Search in ZIP Code 78205</a>
+
+</body>
+</html>

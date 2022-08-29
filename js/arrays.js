@@ -190,3 +190,5 @@ function zatannaMagic(string) {
     }
     return commandArray[0].charAt(0).toUpperCase() + commandArray.join(' ').slice(1) + "!"
 }
+
+//Adding some comments to see if pushing to git is working
