@@ -1,0 +1,20 @@
+.fancy-header {
+    color: #3e04b4;
+    text-decoration: underline;
+    text-decoration-color: navy;
+}
+body {
+    background-color: lightslategray;
+    color: papayawhip;
+}
+strong {
+    color: black;
+}
+em {
+    color: black;
+}
+h2 {
+    color: #073579;
+    text-decoration: underline;
+    text-decoration-color: darkblue;
+}
