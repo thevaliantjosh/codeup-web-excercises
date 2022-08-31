@@ -1,0 +1,30 @@
+body {
+    background-color: lightslategray;
+    color: papayawhip;
+}
+h1 {
+    font-family: sans-serif;
+}
+.bold {
+    font-weight: bold;
+    color: black;
+
+}
+.italic {
+    font-style: italic;
+}
+li.italic {
+    font-size: 1.1rem;
+}
+h3 {
+    color: navy;
+    font-family: serif;
+}
+
+ul li {
+    color: lightblue;
+}
+
+ol li {
+    color: lightcyan;
+}

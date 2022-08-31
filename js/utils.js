@@ -5,10 +5,10 @@ function isNumber(value) {
 }
 
 //This function gives a random number that is both positive and even
-function randomPositiveEvenNumber() {
+function randomEvenNumber() {
     let randomNumber = Math.ceil(Math.random() * 100) + 10;
     if(randomNumber % 2 !==0) {
-        return randomPositiveEvenNumber();
+        return randomEvenNumber();
     }
     return randomNumber;
 }

@@ -1,0 +1,37 @@
+
+body {
+    background-color: lightslategray;
+    color: papayawhip;
+    font-family: "SF Pro Text", Georgia, "Times New Roman", "JetBrains Mono", serif;
+    letter-spacing: .03rem;
+}
+.times {
+    font-family: "Times New Roman";
+}
+
+h1 {
+    font-family: sans-serif;
+}
+
+ol li {
+    font-family: 'JetBrains Mono', Georgia;
+}
+h3 {
+    font-family: sans-serif;
+    border-bottom: 1px;
+    padding-bottom: 1em;
+
+}
+a {
+    font-family: "Times New Roman";
+}
+
+ul li:first-of-type {
+    letter-spacing: .3rem;
+}
+
+ul li:last-of-type {
+    letter-spacing: 2px;
+}
+
+

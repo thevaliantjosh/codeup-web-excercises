@@ -279,12 +279,18 @@ var fred = {
     username: 'fred123',
     password: 'pass123'
 }
-getSimpleUser(fred) // {firstName: 'fred', lastName: 'smith'}
+//getSimpleUser(fred) // {firstName: 'fred', lastName: 'smith'}
+
+
+function getSimpleUser(object) {
+    return {firstName: object.firstName.toLowerCase(), lastName: object.lastName.toLowerCase()};
+}
+
+console.log(getSimpleUser(fred));
 
 // Create a function, createNames, that takes in an array of first names and an array of last names. The function should return an array of name objects with firstName and lastName properties with the input array values. Assume both input arrays are not empty, the same length and only contain string elements.
 //
-//     var firstNames = ['CJ', 'Max', 'Claude', 'Meowmeow'];
-// var lastNames = ['Cat', 'Feline', 'Kitten', 'Calico'];
+
 //
 // createNames(firstNames, lastNames) // returns...
 //
@@ -308,3 +314,17 @@ getSimpleUser(fred) // {firstName: 'fred', lastName: 'smith'}
 //     ]
 //
 // HINT: a solution may involve using a for loop to iterate over the length of one array to push each name object onto an array of name objects that will be returned from the function.
+
+var firstNames = ['CJ', 'Max', 'Claude', 'Meowmeow'];
+var lastNames = ['Cat', 'Feline', 'Kitten', 'Calico'];
+
+function createNames(array1, array2) {
+    let bucket = [];
+    for(let i = 0; i < array1.length; i++) {
+        bucket.push({firstName: array1[i], lastName: array2[i]});
+        //console.log(bucket);
+    }
+    return bucket;
+}
+
+console.log(createNames(firstNames, lastNames));

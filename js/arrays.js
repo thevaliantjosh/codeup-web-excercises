@@ -185,7 +185,7 @@ console.log(processWishList(wishList, checkWishListPrices, checkWishListTotal));
 function zatannaMagic(string) {
     let commandArray = string.toLowerCase().split(" ");
     let newArray = [];
-    for (let i = 0; i <commandArray.length; i++) {
+    for (let i = 0; i < commandArray.length; i++) {
         newArray.push(commandArray[i].split('').reverse().join(''));
     }
     return commandArray[0].charAt(0).toUpperCase() + commandArray.join(' ').slice(1) + "!"

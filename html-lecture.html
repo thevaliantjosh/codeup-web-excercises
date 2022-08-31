@@ -3,22 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML Lecture</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-    }
-    a {
-      color: tan;
-    }
-    /*div {*/
-    /*  text-align: center;*/
-    /*  border-bottom: 2px solid white;*/
-    /*  border-radius: 7px;*/
-    /*  padding: 5px;*/
-    /*  padding-bottom: 10px;*/
-    /*}*/
-  </style>
+  <link rel="icon" href="img/codeup_with_cody_favicon.ico">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/intro-to-css.css">
+
+
 </head>
     <body>
 
@@ -41,7 +30,7 @@
         <!--  The lang Attribute determines the
         language that the page is written in.-->
         </p>
-        <p>Whenever you do things &quot;correctly&quot;, you will now see a couple of paragraphs on the webpage!</p>
+        <p>Whenever <span class="bold">you do things</span> &quot;correctly&quot;, you will now see a couple of paragraphs on the webpage!</p>
         if you do not markup the paragraphs
         you will see all of this
         in one paragraph
@@ -49,10 +38,10 @@
         <p>To seeing it</p>
         <p>Like This!</p>
         <p> Now lets make an Unordered list &amp; an Ordered list!</p>
-      <h3>Unordered Lists</h3>
+      <h3  class="bold">Unordered Lists</h3>
       <ul>
-        <li>ul is unordered list</li>
-        <li>nested inside</li>
+        <li class="bold italic">ul is unordered list</li>
+        <li class="italic">nested inside</li>
         <li>the ul tag</li>
         <li>you have</li>
         <li>li tags</li>
@@ -68,7 +57,7 @@
       <h4>Notes:</h4>
       <p>You can customize the way ordered lists look with CSS! You can construct tables using the table element</p>
       <h3>Tables:</h3>
-      <table>
+      <table id="table">
         <tr>
           <th>Table</th>
           <th>Heading</th>
@@ -90,7 +79,6 @@
           <td>of data</td>
         </tr>
       </table>
-<hr>
 <footer>
   <a href ="#">Contact Us</a>
   <a href ="#">About Us</a>
