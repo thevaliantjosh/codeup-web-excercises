@@ -7,11 +7,13 @@
 body {
     background-color: lightslategray;
     color: papayawhip;
+    font-family: 'JetBrains Mono', monospace, serif;
+    padding: 15px;
     background-image: url(../img/background_gray_waterdrops.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y: 114px;
+    background-position-y: 140px;
 
 
 }
@@ -19,7 +21,25 @@ body {
 ul {
     list-style: square;
 }
+table {
+    border: thin solid blue;
+    border-collapse: collapse;
+    letter-spacing: .03rem;
+    font-size: 1.2rem;
 
+}
+th {
+    background-color: gray;
+}
+td {
+    background-color: lightslategray;
+}
+
+th, td {
+    border: thin solid blue;
+    padding: 10px;
+
+}
 strong {
     color: black;
 }
@@ -27,7 +47,7 @@ em {
     color: black;
 }
 h2 {
-    color: #073579;
+    color: #0755c9;
     text-decoration: underline;
     text-decoration-color: darkblue;
 }
@@ -38,6 +58,7 @@ a {
 
 
 a:hover {
+    background: lightslategray;
     color: #060660;
 }
 
@@ -46,5 +67,6 @@ a:visited {
 }
 
 a:active {
-    color: #808080;
+    background-color: #023f02;
+    color: black;
 }
