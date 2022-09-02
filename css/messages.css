@@ -19,38 +19,38 @@ div>span {
     background: var(--lightBlue);
     border: thin solid lightslategray;
     border-radius: 5px;
-    padding: 4px;
+    padding: 5px;
     margin: .5em;
     color: #3d3693;
-    width: 90%
+    width: 95%
 
 }
 .message-success {
     background: var(--lightGreen);
     border: thin solid lightslategray;
     border-radius: 5px;
-    padding: 4px;
+    padding: 5px;
     margin: .5em;
     color: #598b63;
-    width: 90%
+    width: 95%
 }
 .message-warning {
     background: var(--lightYellow);
     border: thin solid lightslategray;
     border-radius: 5px;
-    padding: 4px;
+    padding: 5px;
     margin: .5em;
     color: #9e914a;
-    width: 90%
+    width: 95%
 }
 .message-error {
     background: var(--lightPink);
     border: thin solid lightslategray;
     border-radius: 5px;
-    padding: 4px;
+    padding: 5px;
     margin: .5em;
     color: #8e4350;
-    width: 90%
+    width: 95%
 }
 /*div {*/
 /*    box-sizing: border-box;*/
