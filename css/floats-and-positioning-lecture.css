@@ -1,0 +1,58 @@
+/*#ipsum {*/
+/*    width: 25%;*/
+/*    float: left;*/
+/*    padding: 5px;*/
+/*    margin: 1rem;*/
+/*    !*border: 1px solid black;*!*/
+/*}*/
+
+#quenya {
+    position: relative;
+}
+
+#ipsum, #quenya, #pirate {
+    width: 25%;
+    float: left;
+    padding: 5px;
+    margin: 1rem;
+    border: 1px solid black;
+}
+
+img[src="img/logo.png"] {
+    /*position: absolute;*/
+    position: fixed;
+    top: 3%;
+    left: 5em;
+    z-index: -1;
+}
+img[src*="img/fish"] {
+    position: absolute;
+    top: 5%;
+    left: unset;
+    right: 1%;
+
+
+
+}
+
+footer {
+    width: 20%;
+    margin: auto;
+}
+footer p {
+    text-align: center;
+    position: relative;
+    left: 5px;
+}
+
+
+/*body {*/
+/*    border: 1px solid black;*/
+/*    padding: 1em 2em;*/
+/*    margin: 2em;*/
+/*}*/
+
+
+/*#quenya {*/
+/*    border: 1px solid black;*/
+/*}*/
