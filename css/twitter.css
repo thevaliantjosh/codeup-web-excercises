@@ -23,6 +23,10 @@ header {
     padding-top: 275px;
 
 }
+.nav-item {
+    display: inline-block;
+    padding: 1.5em;
+}
 a {
     color: var(--link-color);
 
@@ -31,7 +35,7 @@ a {
     background: var(--light-bg);
     position: fixed;
     width: 100%;
-    z-index: 1000;
+    z-index: 1;
     
 }
 .nav {
@@ -50,7 +54,7 @@ a {
 }
 .profile-image {
     position: absolute;
-    top: 31.5%;
+    top: 33%;
 
 }
 .profile {
