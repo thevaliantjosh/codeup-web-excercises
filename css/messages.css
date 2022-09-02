@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --lightBlue: #d1defc;
+    --lightGreen: #D7F2DC;
+    --lightYellow: #FDFBCE;
+    --lightPink: #F5D4D7;
+
+}
+
+div>span {
+    font-weight: 300;
+
+
+}
+
+.message-info {
+    background: var(--lightBlue);
+    border: thin solid lightslategray;
+    border-radius: 5px;
+    padding: 4px;
+    margin: .5em;
+    color: #3d3693;
+    width: 90%
+
+}
+.message-success {
+    background: var(--lightGreen);
+    border: thin solid lightslategray;
+    border-radius: 5px;
+    padding: 4px;
+    margin: .5em;
+    color: #598b63;
+    width: 90%
+}
+.message-warning {
+    background: var(--lightYellow);
+    border: thin solid lightslategray;
+    border-radius: 5px;
+    padding: 4px;
+    margin: .5em;
+    color: #9e914a;
+    width: 90%
+}
+.message-error {
+    background: var(--lightPink);
+    border: thin solid lightslategray;
+    border-radius: 5px;
+    padding: 4px;
+    margin: .5em;
+    color: #8e4350;
+    width: 90%
+}
+/*div {*/
+/*    box-sizing: border-box;*/
+
+/*}*/
