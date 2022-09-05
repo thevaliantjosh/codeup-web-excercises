@@ -24,11 +24,48 @@ body {
     height: 100vh;
     width: 100%;
     border: 5px solid goldenrod;
-
+    /*padding: 1rem;*/
+    /*margin: 1rem;*/
 }
 .flex-item {
     /*now shows as inline-level elements*/
 
+    background: #bfd45d;
+    border: 2px solid #f9efd6;
+    padding: 1em;
+
+}
+
+.box1 {
+    font-size: 15px;
+    background: #bfd45d;
+    border: 2px solid #f9efd6;
+    padding: 1em;
+
+}
+.box2 {
+    font-size: 30px;
+    background: #bfd45d;
+    border: 2px solid #f9efd6;
+    padding: 1em;
+
+}
+.box3 {
+    font-size: 45px;
+    background: #bfd45d;
+    border: 2px solid #f9efd6;
+    padding: 1em;
+
+}
+.box4 {
+    font-size: 60px;
+    background: #bfd45d;
+    border: 2px solid #f9efd6;
+    padding: 1em;
+
+}
+.box5 {
+    font-size: 75px;
     background: #bfd45d;
     border: 2px solid #f9efd6;
     padding: 1em;
