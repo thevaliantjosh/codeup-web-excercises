@@ -29,7 +29,7 @@ body {
 }
 .flex-item {
     /*now shows as inline-level elements*/
-
+    position: absolute;
     background: #bfd45d;
     border: 2px solid #f9efd6;
     padding: 1em;
