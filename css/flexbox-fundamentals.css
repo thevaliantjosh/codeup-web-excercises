@@ -1,5 +1,36 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+
+}
+:root {
+    --gold: #d9a420;
+    --dark: #333
+}
+nav {
+    background: var(--dark);
+}
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-family: Verdana, serif;
+    display: inline-block;/*inline-block to increase clickable area beyond
+    the text*/
+    padding: 1em;/*increases clickable area of anchor tags on all sides by 1em*/
+}
+nav a:hover {
+    background: black;
+}
+nav ul li:nth-child(4) {
+    /*this allows the last flex item to be right justified by filling remaining space
+    to the left of the flex with margin*/
+    margin-left: auto;
 }
 body {
     margin: 0;
@@ -14,16 +45,16 @@ body {
     /*justify-content: flex-start;*/
     /*justify-content: flex-end;*/
     /*justify-content: space-around;*/
-    /*justify-content: space-between;*/
+    justify-content: space-between;
     /*justify-content: center;*/
     /*justify-content: space-evenly;*/
     /*align-items: flex-start*/
     /*align-items: flex-end*/
-    /*align-items: center;*/
-    align-items: baseline;
-    height: 100vh;
+    align-items: center;
+
+    height: 50vh;
     width: 100%;
-    border: 5px solid goldenrod;
+    border: 5px solid var(--gold);
     /*padding: 1rem;*/
     /*margin: 1rem;*/
 }
@@ -37,37 +68,51 @@ body {
 }
 
 .box1 {
-    font-size: 15px;
+
+    font-size: 16px;
     background: #bfd45d;
     border: 2px solid #f9efd6;
     padding: 1em;
+    width: 20%
+    height: auto;
 
 }
 .box2 {
-    font-size: 30px;
+
+    font-size: 2rem;
     background: #bfd45d;
     border: 2px solid #f9efd6;
     padding: 1em;
+    width: 20%;
+    height: auto;
 
 }
 .box3 {
-    font-size: 45px;
+
+    font-size: 34px;
     background: #bfd45d;
     border: 2px solid #f9efd6;
     padding: 1em;
+    width: 20%;
+    height: auto;
 
 }
 .box4 {
-    font-size: 60px;
+    font-size: 32px;
     background: #bfd45d;
     border: 2px solid #f9efd6;
     padding: 1em;
+    width: 20%;
+    height: auto;
 
 }
 .box5 {
-    font-size: 75px;
+
+    font-size: 38px;
+    text-align: center;
     background: #bfd45d;
     border: 2px solid #f9efd6;
     padding: 1em;
-
+    width: 20%
+    height: auto;
 }
