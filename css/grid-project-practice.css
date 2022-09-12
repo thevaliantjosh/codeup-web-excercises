@@ -1,0 +1,148 @@
+:root {
+    --bgWebpage: #e6e6e6;
+    --bg-red: #E6563B;
+    --bg-orange: #EB9D3A;
+    --bg-green: #7CB06C;
+    --bg-teal: #00ABA9;
+}
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 5em;
+}
+
+h2 {
+    font-family: 'Anton', sans-serif;
+}
+
+
+body {
+    font-family: 'Abel', sans-serif;
+
+}
+
+.bg {
+    background-color: var(--bgWebpage)
+}
+
+hr {
+    margin: auto;
+    width: 80%;
+}
+
+.redcircle {
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-red);
+    border-style: solid;
+    border-width: 10px;
+    font-family: 'Anton', sans-serif;
+}
+
+.orangecircle {
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-orange);
+    border-style: solid;
+    border-width: 10px;
+    font-family: 'Anton', sans-serif;
+}
+
+.greencircle {
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-green);
+    border-style: solid;
+    border-width: 10px;
+    font-family: 'Anton', sans-serif;
+
+}
+
+.tealcircle {
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-teal);
+    border-style: solid;
+    border-width: 10px;
+    font-family: 'Anton', sans-serif;
+}
+
+.smallredcircle {
+    width: 10px;
+    height: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-red);
+    padding: 20px;
+    font-family: 'Anton', sans-serif;
+    margin: 3px;
+}
+
+.smallorangecircle {
+    width: 10px;
+    height: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-orange);
+    padding: 20px;
+    font-family: 'Anton', sans-serif;
+    margin: 3px;
+}
+
+.smallgreencircle {
+    width: 10px;
+    height: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-green);
+    padding: 20px;
+    font-family: 'Anton', sans-serif;
+    margin: 3px;
+}
+
+.smalltealcircle {
+    width: 10px;
+    height: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-teal);
+    padding: 20px;
+    font-family: 'Anton', sans-serif;
+    margin: 3px;
+}
+
+.circle span {
+    position: relative;
+    top: -10px;
+}
+
+.works {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.circlespacing {
+    display: flex;
+    justify-content: center;
+
+}
+
+.largecol {
+    font-family: 'Anton', sans-serif;
+}
+
+.lastlorem {
+    font-family: 'Abel', sans-serif;
+}
