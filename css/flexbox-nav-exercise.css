@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: sans-serif;
+
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #adaaaa;
+
+
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0 0.2em;
+    color: black;
+    font-weight: bolder;
+
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    padding: 0 .2em;
+    margin: auto 0;
+
+}
+.start-links, .end-links {
+    font-family: 'Work Sans', sans-serif;
+
+}
+
+a:hover {
+    color: blue;
+}
+
+/*.end-links {*/
+/*    justify-content: flex-end;*/
+/*}*/
