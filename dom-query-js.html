@@ -65,6 +65,14 @@
         }
         colorDataBid1();
 
+        /*How to turn a nodeList into an array*/
+        listItems= Array.from(listItems);
+        listItems.forEach(function(listItem){
+            if (listItem.dataset.dbid === "3"){
+                listItem.style.color = "red";
+            }
+        })
+
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         let subParagraphs = document.getElementsByClassName("sub-paragraph");
          console.log(subParagraphs);

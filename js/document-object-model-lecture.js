@@ -59,11 +59,13 @@ function getElementsByClassEven() {
 }
 getElementsByClassEven();
 
-/*This will output all the child nodes in the section element*/
-let myNodeList = document.body.childNodes[1].childNodes;
-for (let i = 0; i < myNodeList.length; i++) {
-    document.write(myNodeList[i] + " <br>");
-}
+// /*This will output all the child nodes in the section element*/
+// let myNodeList = document.body.childNodes[1].childNodes;
+// for (let i = 0; i < myNodeList.length; i++) {
+//     document.write(myNodeList[i] + " <br>");
+// }
+
+
 // <p id="hulk" data-state="hulk" data-strength="super" data-intelligence="low">The Hulk</p>
 let theHulk = document.getElementById("hulk");
 // let hulkState = theHulk.getAttribute("data-state");
@@ -73,7 +75,7 @@ let hulkIntelligence = theHulk.dataset.intelligence;
 let hulkSummary = `The Hulk is in ${hulkState} state. His strength is ${hulkStrength} and his intelligence is ${hulkIntelligence}`
 // theHulk.innerText = hulkSummary;
 
-//Reference to teh Transformation button
+//Reference to the Transformation button
 
 let transformButton = document.getElementById("transformHulk");
 
@@ -88,4 +90,20 @@ transformButton.onclick = function(){
         theHulk.dataset.state = "hulk";
     }
     theHulk.innerText = `The Hulk is in ${hulkState} state.`
+}
+
+//My Attempt on Transforming
+// <p id="billyBatson" data-state="billyBatson" data-strength="normal" data-wisdom="normal" data-stamina="normal">Billy Batson</p>
+let magicButton = document.getElementById("transformBilly");
+magicButton.onclick = function () {
+    // alert("You clicked the Magic Button! Good Job!");
+    let shazam = document.getElementById("billyBatson");
+    let shazamState = shazam.dataset.state;
+    let shazamWisdom = shazam.dataset.wisom
+    if (shazamState === "Shazam") {
+        shazam.dataset.state = "Billy Batson"
+    } else {
+        shazam.dataset.state = "Shazam"
+    }
+    shazam.innerText = `${shazamState}`
 }
