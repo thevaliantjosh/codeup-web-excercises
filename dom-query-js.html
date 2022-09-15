@@ -32,7 +32,7 @@
         let mainHeader = document.getElementById("main-header");
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool"
+        mainHeader.innerText = "JavaScript is Cool"
 
         // TODO: Uncomment the next line and get the sub header element by id
         let subHeader = document.getElementById("sub-header");
@@ -67,10 +67,11 @@
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         let subParagraphs = document.getElementsByClassName("sub-paragraph");
+         console.log(subParagraphs);
 
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs.innerHTML = "Mission Accomplished!";
+        subParagraphs[0].innerText = "Mission Accomplished!";
     })();
 </script>
 </body>
