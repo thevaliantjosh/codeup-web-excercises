@@ -49,3 +49,43 @@ submitButton.onclick = function() {
 //         paragraphs[i].style.color = colorInput.value;
 //     }
 // }
+
+function getElementsByClassEven() {
+    let evenElements = document.getElementsByClassName("even");
+    return console.log(evenElements[0]);
+    for (let i = 0; i < evenElements.length; i++) {
+        console.log(evenElements[i]);
+    }
+}
+getElementsByClassEven();
+
+/*This will output all the child nodes in the section element*/
+let myNodeList = document.body.childNodes[1].childNodes;
+for (let i = 0; i < myNodeList.length; i++) {
+    document.write(myNodeList[i] + " <br>");
+}
+// <p id="hulk" data-state="hulk" data-strength="super" data-intelligence="low">The Hulk</p>
+let theHulk = document.getElementById("hulk");
+// let hulkState = theHulk.getAttribute("data-state");
+let hulkState = theHulk.dataset.state;
+let hulkStrength = theHulk.dataset.strength;
+let hulkIntelligence = theHulk.dataset.intelligence;
+let hulkSummary = `The Hulk is in ${hulkState} state. His strength is ${hulkStrength} and his intelligence is ${hulkIntelligence}`
+// theHulk.innerText = hulkSummary;
+
+//Reference to teh Transformation button
+
+let transformButton = document.getElementById("transformHulk");
+
+transformButton.onclick = function(){
+    let theHulk = document.getElementById("hulk");
+    let hulkState = theHulk.dataset.state;
+    let hulkStrength = theHulk.dataset.strength;
+    let hulkIntelligence = theHulk.dataset.intelligence;
+    if (hulkState === "hulk") {
+        theHulk.dataset.state = "Bruce Banner";
+    } else {
+        theHulk.dataset.state = "hulk";
+    }
+    theHulk.innerText = `The Hulk is in ${hulkState} state.`
+}
