@@ -34,6 +34,7 @@
 <button id="oddsAreGrey">The list is oddly Grey!</button>
 <button id="firstListItem">Turn Item 1 Blue</button>
 <button id="thirdItemList">Turn Item 3 Red!</button>
+<button id="missionAccomplished">Mission Accomplished!</button>
 <script>
     (function() {
         "use strict";
@@ -41,30 +42,41 @@
         let mainHeader = document.getElementById("main-header");
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerText = "JavaScript is Cool"
+        let headerButton = document.getElementById("changeHeader");
+        headerButton.onclick = function () {
+                mainHeader.innerText = "JavaScript is Cool"
+            };
+
 
         // TODO: Uncomment the next line and get the sub header element by id
         let subHeader = document.getElementById("sub-header");
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = "blue"
+        let subHeaderButton = document.getElementById("changeSubheader");
+        subHeaderButton.onclick = function () {
+            subHeader.style.color = "blue"
+        }
+
 
         // TODO: Uncomment the next line and get all list items
         let listItems = document.getElementsByTagName("li");
         // console.log(listItems);
 
         // TODO: Set text color on every other list item to grey
-        function oddOnlyListItems () {
+        let greyListButton = document.getElementById("oddsAreGrey");
+
+        greyListButton.onclick = function () {
             for (let i = 0; i < listItems.length; i++) {
                 if (i % 2 !== 0) {
                     listItems[i].style.color = "darkgrey";
                 }
             }
         }
-        oddOnlyListItems();
-        // TODO: Set text color of li with dbid = 1 to blue
 
-        function colorDataBid1 () {
+        // TODO: Set text color of li with dbid = 1 to blue
+        let firstListButton = document.getElementById("firstListItem");
+
+        firstListButton.onclick = function () {
             for (let i = 0; i < listItems.length; i++){
                 let dataColor = listItems[i].getAttribute("data-dbid")
                 if ( dataColor === "1"){
@@ -72,23 +84,31 @@
                 }
             }
         }
-        colorDataBid1();
+
 
         /*How to turn a nodeList into an array*/
-        listItems= Array.from(listItems);
-        listItems.forEach(function(listItem){
-            if (listItem.dataset.dbid === "3"){
-                listItem.style.color = "red";
-            }
-        })
+        let itemThreeButton = document.getElementById("thirdItemList");
+        itemThreeButton.onclick = function () {
+            listItems= Array.from(listItems);
+            listItems.forEach(function(listItem){
+                if (listItem.dataset.dbid === "3"){
+                    listItem.style.color = "red";
+                }
+            })
+        }
+
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         let subParagraphs = document.getElementsByClassName("sub-paragraph");
-         console.log(subParagraphs);
+         // console.log(subParagraphs);
 
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerHTML = "Mission Accomplished!";
+        let missionComplete = document.getElementById("missionAccomplished");
+        missionComplete.onclick = function() {
+            subParagraphs[0].innerHTML = "Mission Accomplished!";
+        }
+
     })();
 </script>
 </body>
