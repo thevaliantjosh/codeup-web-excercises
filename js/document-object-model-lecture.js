@@ -105,7 +105,8 @@ magicButton.onclick = function () {
     let billyStamina = shazam.dataset.stamina
     if (shazamState === "Shazam" && buttonState === "Shazam" ) {
         shazam.dataset.state = "billyBatson";
-        magicButton.dataset.state = "billyBatson"
+        magicButton.dataset.state = "billyBatson";
+        magicButton.innerText ="Shazam!";
         shazam.innerText = `Billy Batson has Wisdom of ${billyWisdom} strength of ${billyStrength} and his stamina is ${billyStamina}`;
     }  else {
 
