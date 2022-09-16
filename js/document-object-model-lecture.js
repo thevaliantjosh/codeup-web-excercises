@@ -99,15 +99,23 @@ magicButton.onclick = function () {
     // alert("You clicked the Magic Button! Good Job!");
     let shazam = document.getElementById("billyBatson");
     let shazamState = shazam.dataset.state;
-    let shazamWisdom = shazam.dataset.wisom
-    if (shazamState === "billyBatson") {
-        shazam.innerText = "Billy Batson"
-    } else if (shazam.innerText === "Shazam"){
-        
-    } else {
-        {
-            shazam.dataset.state = "Shazam"
-        }
+    let buttonState = magicButton.dataset.state
+    let billyWisdom = shazam.dataset.wisdom
+    let billyStrength = shazam.dataset.strength
+    let billyStamina = shazam.dataset.stamina
+    if (shazamState === "Shazam" && buttonState === "Shazam" ) {
+        shazam.dataset.state = "billyBatson";
+        magicButton.dataset.state = "billyBatson"
+        shazam.innerText = `Billy Batson has Wisdom of ${billyWisdom} strength of ${billyStrength} and his stamina is ${billyStamina}`;
+    }  else {
+
+        shazam.dataset.state = "Shazam";
+        magicButton.dataset.state = "Shazam"
+        magicButton.innerText = "Billy Batson"
+        let shazamWisdom = "Soloman";
+        let shazamStrength = "Hercules";
+        let shazamStamina = "Atlas";
+        shazam.innerText = `Shazam  has Wisdom of ${shazamWisdom} strength of ${shazamStrength} and his stamina is ${shazamStamina}!`;
     }
-    shazam.innerText = `${shazamState}`
+    console.log(shazamState);
 }

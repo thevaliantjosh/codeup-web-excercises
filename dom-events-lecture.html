@@ -5,10 +5,17 @@
     <title>Dom Events Lecture</title>
     <link rel="icon" href="img/codeup_with_cody_favicon.ico">
   <style>
-    .square {
+    .square, #anotherSquare {
       height: 100px;
       width: 100px;
+
+    }
+    .square {
       background-color: blue;
+    }
+    #anotherSquare {
+      margin-top: 1em;
+      border: solid 2px black;
     }
   </style>
 </head>
@@ -28,6 +35,7 @@
     <br>
     <br>
     <div class="square"></div>
+    <div id="anotherSquare"></div>
     <br>
     <br>
     <br>
@@ -35,6 +43,31 @@
     <br>
     <br>
     <button id="duplicate">Click Me!</button>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <p>Change This Text!</p>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+  <p id="cursed">Help! I've been cursed!</p>
+  <button id="breakTheCurse">Click me! I help!</button>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+  <form action="#">
+    <input type="text" id="formInput">
+    <input type="submit">
+  </form>
   <script src="js/dom-events-lecture.js"></script>
 </body>
 </html>

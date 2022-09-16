@@ -31,10 +31,23 @@ theButton.onclick = eventHandler
 let theSquare = document.querySelector(".square");
 let squareColor = document.getElementsByClassName("background-color");
 let theHandler = function() {
-    alert (`I am a ${squareColor} square!`);
+    // alert ("I am a square " + window.getComputedStyle(document.querySelector(".square"), null).getPropertyValue("background-color"));
 }
 
-theSquare.addEventListener("click", theHandler)
+//Adding e.target to console logs for information about what clicks do
+theSquare.addEventListener("click", function(e){
+    console.log(e.target.className);
+    let theColor = getComputedStyle(e.target).backgroundColor;
+    console.log(theColor);
+    document.getElementById("anotherSquare").style.backgroundColor =
+    theColor
+});
+
+//background information
+document.querySelector("body").addEventListener("click", function(event){
+
+})
+
 
 /*
 * 1. Create a handler Function
@@ -58,3 +71,28 @@ let buttonplication = function() {
 }
 
 duplicate.onclick = buttonplication;
+
+//This will change the text of the First paragraph
+let paragraph = document.querySelector("p");
+
+paragraph.onclick = function () {
+    paragraph.innerText = "You put me into my True Form! Thanks buddy!"
+}
+
+
+//This will change the text of the paragraph with the id of #breakthecurse
+let changeTextButton = document.querySelector("#breakTheCurse");
+changeTextButton.onclick = function () {
+    document.querySelector("#cursed").innerText = "Thanks! You broke the curse!"
+}
+
+
+//This will allow you to get the user input from a form field as a console.log
+
+let formInput = document.getElementById("formInput");
+
+formInput.onkeyup = function() {
+    console.log(formInput.value);
+}
+
+
