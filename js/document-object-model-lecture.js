@@ -116,7 +116,7 @@ magicButton.onclick = function () {
         let shazamWisdom = "Soloman";
         let shazamStrength = "Hercules";
         let shazamStamina = "Atlas";
-        shazam.innerText = `Shazam  has Wisdom of ${shazamWisdom} strength of ${shazamStrength} and his stamina is ${shazamStamina}!`;
+        shazam.innerText = `Shazam  has Wisdom of ${shazamWisdom} strength of ${shazamStrength} and the Stamina of ${shazamStamina}!`;
     }
     console.log(shazamState);
 }
