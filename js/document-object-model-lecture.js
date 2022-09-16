@@ -100,10 +100,14 @@ magicButton.onclick = function () {
     let shazam = document.getElementById("billyBatson");
     let shazamState = shazam.dataset.state;
     let shazamWisdom = shazam.dataset.wisom
-    if (shazamState === "Shazam") {
-        shazam.dataset.state = "Billy Batson"
+    if (shazamState === "billyBatson") {
+        shazam.innerText = "Billy Batson"
+    } else if (shazam.innerText === "Shazam"){
+        
     } else {
-        shazam.dataset.state = "Shazam"
+        {
+            shazam.dataset.state = "Shazam"
+        }
     }
     shazam.innerText = `${shazamState}`
 }
