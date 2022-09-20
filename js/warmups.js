@@ -328,3 +328,99 @@ function createNames(array1, array2) {
 }
 
 console.log(createNames(firstNames, lastNames));
+
+
+const attendance = {
+    miami: 32789,
+    buffalo: 45678,
+    portland: 24567
+}
+
+
+// function totalAttendance(attendance) {
+//     let attendanceArray = Object.values(attendance);
+//     let total = 0;
+//     for (let i = 0; i < attendanceArray.length; i++) {
+//         total += attendanceArray[i];
+//     }
+//     return total;
+// }
+// console.log(totalAttendance(attendance));
+
+/*Using a for...in loop to do the same thing*/
+
+function totalAttendance(attendanceObject) {
+    let total = 0;
+    for (const prop in attendance) {
+        total += attendance[prop];
+    }
+    return total;
+}
+
+console.log(totalAttendance(attendance));
+
+
+// Given the attendance object, write a function that returns the total attendance across all teams.
+
+// Given the attendance object, write a function that returns the average attendance
+
+function averageAttendance(attendanceObject) {
+    let total = 0;
+    for (const prop in attendance) {
+        total += attendance[prop];
+    }
+    return total/Object.keys(attendance).length;
+}
+
+console.log(averageAttendance(attendance));
+
+
+
+// Given the attendance object, write a function that returns an object with totalAttendance and averageAttendance properties set to the correct values
+
+// function createObject(attendanceObject) {
+//     let total = 0;
+//     for (const prop in attendance) {
+//         total += attendance[prop];
+//     }
+//     return {
+//         totalAttendance: total,
+//         averageAttendance: total/Object.keys(attendance).length
+//     }
+// }
+//
+// console.log(createObject(attendance));
+
+
+function createObject(attendanceObject) {
+    let total = 0;
+    for (const prop in attendance) {
+        total += attendance[prop];
+    }
+    attendanceObject.statistics = {
+        totalAttendance: total,
+        averageAttendance: total/Object.keys(attendance).length
+    }
+    return attendanceObject;
+
+}
+
+console.log(createObject(attendance));
+
+// Convert to Number
+//  * You prepare a list to send to the insurance company. As you finish, you notice you misformatted it.
+//  * Write a function named convertToNumber that takes in an object with at least one key/value pair, convert all the values to numbers.
+//  *
+//  * Examples
+//  *
+//  * convertToNumber({ piano: "200" }) ➞ { piano: 200 }
+//  * convertToNumber({ piano: "200", tv: "300" }) ➞ { piano: 200, tv: 300 }
+//  * convertToNumber({ piano: "200", tv: "300", stereo: "400" }) ➞ { piano: 200, tv: 300, stereo: 400 }
+//  */
+// /**
+//  * Online Shopping
+//  * Create a function named freeShipping that determines whether a shopping order is eligible for free shipping. An order is eligible for free shipping if the total cost of items purchased exceeds $50.00.
+//  *
+//  * Examples
+//  *
+//
