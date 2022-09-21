@@ -22,12 +22,19 @@ console.log("jQuery Exercise");
 //
 // });
 
+// $(document).ready(function(){
+//
+// })
+
 $(function() {
-    let contents = $("h1").html();
+    let $contents = $("h1").html();
     $(".codeup").css("border", "1px solid red");
-    $("li").css("font-size", "20px");
+    $("li").css({
+        "fontSize": "20px",
+        "textDecoration": "underline"
+    });
     $("h1, p, li").css("background-color", "#FF0");
-    alert(contents);
+    alert($contents);
 });
 
 

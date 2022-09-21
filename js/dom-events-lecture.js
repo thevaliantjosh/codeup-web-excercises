@@ -3,13 +3,14 @@
 console.log("Welcome to DOM Events");
 //Reference the button with query selector
 
-let theButton = document.querySelector("#theButton");
+
 
 //Write a function that will be triggered by and event
 //A function is a set of instructions
 //A function that is triggered by an event is called an event handler, or also called a callback
 //the function contains the instructions that will run when the event is triggered
 
+let theButton = document.querySelector("#theButton");
 let counter = 0;
 function eventHandler() {
     counter++;
@@ -102,4 +103,17 @@ formInput.onkeyup = function() {
     console.log(formInput.value);
 }
 
+//The event listener below control what happens when the Event button is pressed
 
+// let myButtonElement = document.getElementById("buttonElement");
+// myButtonElement.addEventListener("click", function(e) {
+//     alert("My Element was clicked!");
+// })
+
+/*======The above code is essentially the same as the below code==========*/
+
+function eventButton(e) {
+    alert("My Element was clicked!");
+}
+let myButtonElement = document.getElementById("buttonElement");
+myButtonElement.addEventListener("click",eventButton);
