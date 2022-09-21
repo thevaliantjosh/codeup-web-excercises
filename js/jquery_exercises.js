@@ -26,20 +26,35 @@ console.log("jQuery Exercise");
 //
 // })
 
+//Selectors Exercise
+// $(function() {
+//     let $contents = $("h1").html();
+//     $(".codeup").css("border", "1px solid red");
+//     $("li").css({
+//         "fontSize": "20px",
+//         "textDecoration": "underline"
+//     });
+//     $("h1, p, li").css("background-color", "#FF0");
+//     alert($contents);
+//     //adding click() events
+//     $("#button1").click(function(){
+//         alert(`The Event 1 button with id of "button1" was clicked!`);
+//     })
+// });
+
+//Mouse Events Exercise
+
 $(function() {
-    let $contents = $("h1").html();
-    $(".codeup").css("border", "1px solid red");
-    $("li").css({
-        "fontSize": "20px",
-        "textDecoration": "underline"
-    });
-    $("h1, p, li").css("background-color", "#FF0");
-    alert($contents);
-    //adding click() events
-    $("#button1").click(function(){
-        alert(`The Event 1 button with id of "button1" was clicked!`);
+    $("h1, p, li").click(function () {
+        if ($(this).hasClass("highlighter")) {
+            $(this).removeClass("highlighter")
+        } else {
+            $(this).addClass("highlighter");
+        }
     })
 });
+
+
 
 
 
