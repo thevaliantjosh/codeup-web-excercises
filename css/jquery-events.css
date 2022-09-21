@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+.box-holder {
+    display: flex;
+    justify-content: center;
+}
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: grey;
+    border: 1px solid black;
+}
+
+.hotpink {
+    background-color: hotpink;
+    border: 2px solid chartreuse;
+}
+.blue {
+    background-color: #335de5;
+    border: 2px solid black;
+}

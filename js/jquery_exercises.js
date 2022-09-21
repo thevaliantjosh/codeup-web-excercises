@@ -35,6 +35,10 @@ $(function() {
     });
     $("h1, p, li").css("background-color", "#FF0");
     alert($contents);
+    //adding click() events
+    $("#button1").click(function(){
+        alert(`The Event 1 button with id of "button1" was clicked!`);
+    })
 });
 
 
