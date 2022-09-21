@@ -45,13 +45,24 @@ console.log("jQuery Exercise");
 //Mouse Events Exercise
 
 $(function() {
-    $("h1, p, li").click(function () {
+    $("h1, h2, h3").click(function () {
         if ($(this).hasClass("highlighter")) {
             $(this).removeClass("highlighter")
         } else {
             $(this).addClass("highlighter");
         }
     })
+    //setting font size to 18px when double clicked
+    $("p").dblclick(function () {
+        $(this).css("fontSize", "18px");
+    })
+    //setting the text color to red when the mouse is hovering
+    $("li").hover(function (){
+        $(this).addClass("red-text");
+    }, function(){
+        $(this).removeClass("red-text");
+    })
+
 });
 
 
