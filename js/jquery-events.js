@@ -28,11 +28,7 @@ $(function(){
 
         $(".box")
             .hover(function(){
-            $(this).addClass("hotpink");
-
-            },
-            function(){
-                $(this).removeClass("hotpink");
+            $(this).toggleClass("hotpink");
             })
         .click(function () {
             if($(this).hasClass("blue")){
@@ -51,4 +47,33 @@ $(function(){
         console.log(e.originalEvent.key);
     })
 
+    // $(".lorem").text("Putting Different Content");
+
+    //below we want to change to a list when click but have an inital css of the lorem paragraph
+    $(".lorem").on("click", function() {
+        $(this).html("<ul><li>Hello</li><li>List!</li></ul>")
+
+    });
+
+
+    // let lorem = $(".lorem").text();
+    // alert(lorem);
+
+    $("h2").css("color", "firebrick");
+
+    $("#loremPara").css({
+        "color": "firebrick",
+        "backgroundColor": "papayawhip"
+    });
+
+    let highlightedStyles = {
+        "color": "red",
+        "backgroundColor": "yellow",
+        "font-size": "28px"
+    };
+    //defining the #lorem2 class with object defined style.
+    $("#lorem2").css(highlightedStyles);
+
 });
+
+
