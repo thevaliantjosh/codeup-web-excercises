@@ -41,6 +41,7 @@
 <script src="js/jquery-3.6.1.js"></script>
 <script>
     $("#muralsInfo").on("click", function(){
+        //if we put the entire API (https://data.cityofchicago.org/resource/we8h-apcf.json)where data/murals.json is, you will see the entire murals api generate onto the page
         $.ajax("data/murals.json").done(function(data) {
             // console.log(data[0]);
             //we can now use an array method to loop through this array and grab information that we want

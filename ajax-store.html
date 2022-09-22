@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang ="en">
 <head>
+    <meta charset="UTF-8">
     <title>Online Store</title>
+    <link rel="icon" href="img/tools_favicon.ico">
+    <style>
+        #products {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,18 +26,40 @@
     <tbody id="insertProducts"></tbody>
 </table>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="js/jquery-3.6.1.js"></script>
 
 <script>
-(function() {
+$(function() {
+    // $("#muralsInfo").on("click", function(){
+    //     $.ajax("data/murals.json").done(function(data) {
+    //         // console.log(data[0]);
+    //         //we can now use an array method to loop through this array and grab information that we want
+    //         data.forEach(function(mural){
+    //             console.log(mural.artwork_title ?? "Undefined");
+    //             console.log(mural.artist_credit);
+    //             // console.log(mural.artwork_title ? mural.artwork_title : "Untitled");
+    //             let title = mural.artwork_title ?? "Undefined";
+    //             $("#murals-cards").append(`<article class="card">
+    //                 <p>${title}</p>
+    //                 <p>${mural.artist_credit}</p>
+    //                 </article>`
+    //             );
+    //         })
+    //     });
+    // });
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-
+    $.ajax("data/inventory.json").done(function(data){
+        console.log(data);
+        data.forEach(function(tool){
+            // console.log(tool.title)
+        })
+    })
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
-})();
+});
 </script>
 
 </body>
