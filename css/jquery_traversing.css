@@ -1,0 +1,17 @@
+.pictures {
+    display: flex;
+    justify-content: center;
+}
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 75px;
+}
+
+.pictureFrame {
+    border: 10px solid tan;
+    height: 25rem;
+    width: 15rem;
+    padding: 2px;
+    margin: 15px;
+}

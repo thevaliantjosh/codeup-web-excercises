@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to Ajax</title>
+    <link rel="icon" href="img/codeup_with_cody_favicon.ico">
+    <style>
+        #muralsInfo {
+            margin: 10px auto;
+            border: 5px ridge blueviolet;
+            padding: 15px;
+            width: 25%;
+            text-align: center;
+        }
+        #muralsInfo:hover {
+            cursor: pointer;
+            background-color: aliceblue;
+        }
+        #murals-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid darkgray;
+            padding: 5px;
+            width: 330px;
+        }
+    </style>
+
+</head>
+<body>
+<section id="muralsInfo">
+    <p>Murals Information</p>
+</section>
+<section id="murals-cards">
+
+</section>
+<script src="js/jquery-3.6.1.js"></script>
+<script>
+    $("#muralsInfo").on("click", function(){
+        $.ajax("data/murals.json").done(function(data) {
+            // console.log(data[0]);
+            //we can now use an array method to loop through this array and grab information that we want
+            data.forEach(function(mural){
+                console.log(mural.artwork_title ?? "Undefined");
+                console.log(mural.artist_credit);
+                // console.log(mural.artwork_title ? mural.artwork_title : "Untitled");
+                let title = mural.artwork_title ?? "Undefined";
+                $("#murals-cards").append(`<article class="card">
+                    <p>${title}</p>
+                    <p>${mural.artist_credit}</p>
+                    </article>`
+                );
+            })
+        });
+    });
+
+    console.log("this will run before the ajax request")
+    /*Sending out a request for the data, then it console.logs it*/
+
+</script>
+</body>
+</html>

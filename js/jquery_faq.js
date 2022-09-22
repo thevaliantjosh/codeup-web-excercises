@@ -13,14 +13,13 @@ $(function() {
     // };
 
     let descriptionDetails = $(".invisible")
-    // descriptionDetails.addClass("hidden");
+
 
     $("dl").before('<div class="createdContent"><a href="#" class="showTheFaqs">Show the FAQs</a></div>');
 
 
 
         $(".createdContent").on("click", ".showTheFaqs", function(){
-            // {alert("You clicked me")}
             {descriptionDetails.toggleClass("invisible")}
     });
 
