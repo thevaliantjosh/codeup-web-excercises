@@ -31,15 +31,20 @@ console.log("Welcome to the Ajax Blog!");
 //         })
 //     });
 // }
-$(function(){
+$(function() {
     updateBlogs();
-    function updateBlogs() {
-        $.ajax("data/blog.json").done(function(data){
-            console.log(data);
-            // let $anchorTags = $("#card-link").each(function(index){
-            //     (this).append(`<a href="#" class="card-link">${blog.categories}</a>`)
-            // })
-            data.forEach(function(blog){
+        $("#updatePosts").on("click", function () {
+            if (blog.date.includes("2022")){
+                $("#posts").children().remove();
+                updateBlogs()
+            }
+        });
+});
+function updateBlogs() {
+    $.ajax("data/blog.json").done(function(data){
+        console.log(data);
+        data.forEach(function(blog){
+
                 let categoriesTemplate = "";
                 for(let i = 0; i < blog.categories.length; i++){
                     // console.log("Inside Categoreis For Loop")
@@ -55,12 +60,11 @@ $(function(){
                         </div>
                     </div>`;
 
-                    // <a href="#" class="card-link">${blog.categories}</a>
+                // <a href="#" class="card-link">${blog.categories}</a>
                 console.log(postTemplate);
                 $("#posts").append(postTemplate);
-            })
+
+
         })
-    }
-
-
-});
+    });
+}
