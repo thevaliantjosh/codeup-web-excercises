@@ -59,6 +59,31 @@
     })
 
 
+    //Map Market of Favorite Restaurant
+    const pizzaClassicsMarker = new mapboxgl.Marker()
+        .setLngLat([-98.47984, 29.45635])
+        .addTo(map)
+
+    //Popup for PizzaClassics
+    const pizzaClassicsPopup = new mapboxgl.Popup()
+        .setHTML(`
+            <div class="card w-auto">
+                  <img src="img/pizza_classics.png" class="card-img-top" alt="Pizza Classics from outside">
+                  <div class="card-body">
+                    <h5 class="card-title">Pizza Classics</h5>
+                    <p class="card-text">Best Pizza I have ever had in San Antonio! Conveniently located close to the Zoo so you can have some Za after checking out them Rhinos Bra!</p>
+                    <a href="https://www.pizzaclassics.com/" target="blank"class="btn btn-primary">Go somewhere</a>
+                  </div>
+            </div>
+        `)
+    pizzaClassicsMarker.setPopup(pizzaClassicsPopup);
+
+    // //setting up a popup
+    // const codeupPopup = new mapboxgl.Popup()
+    //     .setHTML(`<p class="mt-3" style="width: 250px;">Codeup</p>`)
+    // codeupMarker.setPopup(codeupPopup);
+
+
 
 
 
