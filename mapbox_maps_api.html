@@ -25,6 +25,10 @@
 
 <!--The Mapbox Container lives here-->
 <div id='map' class="mx-auto mt-4"></div>
+<div id="buttons" class="d-flex justify-content-center mt-2">
+    <button type="button" id="zoomIn" class="btn btn-secondary mx-1">Zoom In</button>
+    <button type="button" id="zoomOut" class="btn btn-secondary">Zoom Out</button>
+</div>
 
 <!--Mapbox JS-->
 <script>
@@ -40,6 +44,23 @@
     map.on('style.load', () => {
         map.setFog({}); // Set the default atmosphere style
     });
+
+    map.setZoom(12)
+    map.scrollZoom.disable()
+    map.setCenter([-98.441372, 29.49169])
+
+
+    document.getElementById("zoomIn").addEventListener("click", function(){
+        map.zoomIn();
+    })
+
+    document.getElementById("zoomOut").addEventListener("click", function(){
+        map.zoomOut();
+    })
+
+
+
+
 
 </script>
 <!--Boot Strap JavaScript-->

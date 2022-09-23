@@ -75,6 +75,7 @@
     getCoords("600 Navarro St, San Antonio", MAPBOX_API_TOKEN);
     console.log(coords)
 
+    //setting up a marker when an address is given
     document.getElementById("setMarkerButton").addEventListener("click", function(e){
         e.preventDefault();
         const address= document.getElementById("setMarker")
