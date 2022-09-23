@@ -2,6 +2,40 @@
 console.log("Welcome to the Second JS Assessment Study Guide!");
 // -- Write a function that takes in an input, checks that input, and returns true or false depending on some feature of the input (what kind of number, what kind of string, what type of data it is)
 //
+
+
+
+//1)I want to put value into input
+//2)I want to check for the type of feature is is in feature
+/*3)I want to display the stats of that input, aka.
+
+inputFeature(15, "number")
+
+ 15 is a number:
+ number: true
+ string: false
+ array: false
+ boolean: false
+ negative: false
+
+ inputFeature(True, "string")
+ True is a boolean:
+ number: false
+ array: false
+ boolean: false
+ negative: false
+
+ and so forth
+
+* */
+function inputFeatures(input, feature){
+    let typeCheck = typeof input
+    if(typeof input === "string" && typeof feature === "string"){
+        return `${input} is a ${typeCheck}`;
+    }
+}
+
+console.log(inputFeatures(15, "number"));
 // -- Write a function that takes in an input, does something to it, and returns the modified data (do a mathematical operation on it, do a string method to modify it, use an array method to modify an array)
 //
 // -- Write a function that takes in an array and returns the array modified in some way -- certain elements removed, certain elements modified in a regular way (example, every numerical value doubled, every string uppercased)
