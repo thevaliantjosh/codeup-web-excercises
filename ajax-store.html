@@ -65,11 +65,33 @@
                         <th scope="rowgroup">${counter}</th>
                         <td>${tool.title}</td>
                         <td>${tool.quantity}</td>
-                        <td>${tool.price}</td>
-                        <td>${tool.categories}</td>
+                        <td>$${tool.price}</td>
+                        <td>${tool.categories.join(", ")}</td>
                     </tr>`;
                 $("#insertProducts").append(toolTemplate);
             })
+            //organizing by the lowest quantity
+            let lowestQuantity;
+            for (let i = 0; i < data.length; i++){
+                if (i === 0) {
+                    lowestQuantity = data[i].quantity;
+                }
+                if (data[i].quantity < lowestQuantity){
+                    lowestQuantity = data[i].quantity;
+                }
+            }
+
+            // console.log(lowestQuantity)
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].quantity === lowestQuantity){
+                    console.log("You need to reorder " + data[i].title)
+                }
+            }
+
+            // function comparisonFunction(objectA, objectB) {
+            //     return objectA.quantity > objectB.quantity;
+            // }
+            //     console.log("You need to reorder " + data.sort(comparisonFunction)[0].title);
         });
     }
 
