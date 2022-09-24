@@ -29,7 +29,8 @@
     <button type="button" id="zoomIn" class="btn btn-secondary mx-1">Zoom In</button>
     <button type="button" id="zoomOut" class="btn btn-secondary">Zoom Out</button>
 </div>
-
+<!--jQuery-->
+<script src="js/jquery-3.6.1.js"></script>
 <!--Mapbox JS-->
 <script>
 
@@ -45,7 +46,7 @@
         map.setFog({}); // Set the default atmosphere style
     });
 
-    map.setZoom(12)
+    map.setZoom(11)
     map.scrollZoom.disable()
     map.setCenter([-98.441372, 29.49169])
 
@@ -59,24 +60,73 @@
     })
 
 
-    //Map Market of Favorite Restaurant
+    //Map Marker of Favorite Restaurant
     const pizzaClassicsMarker = new mapboxgl.Marker()
         .setLngLat([-98.47984, 29.45635])
         .addTo(map)
 
+    //Map Marker of Camilas Restuarant
+
+    const camilasMarker = new mapboxgl.Marker()
+        .setLngLat([-98.45051, 29.588155])
+        .addTo(map)
+
     //Popup for PizzaClassics
-    const pizzaClassicsPopup = new mapboxgl.Popup()
-        .setHTML(`
+
+    let allPopup;
+
+    // function updateBlogs() {
+    //     $.ajax("data/blog.json").done(function(data){
+    //         console.log(data);
+    //         data.forEach(function(blog){
+    //
+    //             let categoriesTemplate = "";
+    //             for(let i = 0; i < blog.categories.length; i++){
+    //                 // console.log("Inside Categories For Loop")
+    //                 categoriesTemplate += `<a href="#" class="card-link px-1">${blog.categories[i]}</a>`;
+    //             }
+    //             let postTemplate = `
+    //                  <div class="card mx-1 w-auto">
+    //                     <div class="card-body">
+    //                         <h5 class="card-title">${blog.title}</h5>
+    //                         <h6 class="card-subtitle mb-2 text-muted">${blog.date}</h6>
+    //                         <p class="card-text">${blog.content}</p>
+    //                         ${categoriesTemplate}
+    //                     </div>
+    //                 </div>`;
+    //             console.log(postTemplate);
+    //             $("#posts").append(postTemplate);
+    //
+    //
+    //         })
+    //     });
+
+
+
+
+
+    $.ajax("data/maps-data.json").done(function(data){
+        console.log(data);
+        data.forEach(function(card){
+            const pizzaClassicsPopup = new mapboxgl.Popup()
+                .setHTML(`
             <div class="card w-auto">
                   <img src="img/pizza_classics.png" class="card-img-top" alt="Pizza Classics from outside">
                   <div class="card-body">
-                    <h5 class="card-title">Pizza Classics</h5>
-                    <p class="card-text">Best Pizza I have ever had in San Antonio! Conveniently located close to the Zoo so you can have some Za after checking out them Rhinos Bra!</p>
+                    <h5 class="card-title">${card.title}</h5>
+                    <p class="card-text">${card.bio}</p>
                     <a href="https://www.pizzaclassics.com/" target="blank"class="btn btn-primary">Go To Pizza Classics!</a>
                   </div>
             </div>
         `)
-    pizzaClassicsMarker.setPopup(pizzaClassicsPopup);
+            pizzaClassicsMarker.setPopup(pizzaClassicsPopup);
+
+        })
+    })
+    // allPopup =
+
+
+
 
     // //setting up a popup
     // const codeupPopup = new mapboxgl.Popup()
@@ -89,6 +139,7 @@
 
 </script>
 <!--Boot Strap JavaScript-->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
