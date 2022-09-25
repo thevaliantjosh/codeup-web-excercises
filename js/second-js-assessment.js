@@ -24,20 +24,42 @@ inputFeature(15, "number")
  array: false
  boolean: false
  negative: false
+ string: false
 
  and so forth
 
 * */
+
+//using ternary operators
+let a = 1;
+let b = a > 0? (a === 1? "A is 1" : "A is not 1") : (a === 0? "A is zero" : "A is negative");
+
+console.log(b);
+
+let negativeAlphanumeric = "-15";
+
 function inputFeatures(input, feature){
-    let typeCheck = typeof input
-    if(typeof input === "string" && typeof feature === "string"){
-        return `${input} is a ${typeCheck}`;
-    }
+    let typeCheck = typeof input //this wil show us inputs type
+    let trueOrFalse;
+    let array = Array.isArray(input)  ? "true" : (typeof feature === "array" ? "true" : "false")
+    let boolean = (typeCheck === "boolean" && feature === "boolean") ? "true" : "false"
+    let negative = parseFloat(input) < 0 ? "true" : "false"
+    let string = (typeCheck === "string" && feature === "string") ? "true" : "false"
+    let alphanumeric = typeCheck === "boolean"? "false" : (typeof parseFloat(input) === "number"  ? "true" : "false")
+        return ` ${input} is a ${typeCheck}:\n alphanumeric string: ${alphanumeric}\n string: ${string}\n boolean: ${boolean}\n negative: ${negative}\n array: ${array}`;
+
 }
 
-console.log(inputFeatures(15, "number"));
+// else if (typeof parseFloat(input) === 'number'){
+//     return ${input} is an alpha-numeric string!;
+// }
+
+console.log(inputFeatures([1, 3, 4], "string"));
 // -- Write a function that takes in an input, does something to it, and returns the modified data (do a mathematical operation on it, do a string method to modify it, use an array method to modify an array)
 //
+
+
+
 // -- Write a function that takes in an array and returns the array modified in some way -- certain elements removed, certain elements modified in a regular way (example, every numerical value doubled, every string uppercased)
 //
 // -- Write a function that accepts an array of objects where each object has at least one property with a numeric value, be able to return the total or average of the numeric values
