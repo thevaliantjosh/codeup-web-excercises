@@ -40,8 +40,7 @@ let negativeAlphanumeric = "-15";
 
 function inputFeatures(input, feature){
     let typeCheck = typeof input //this wil show us inputs type
-    let trueOrFalse;
-    let array = Array.isArray(input)  ? "true" : (typeof feature === "array" ? "true" : "false")
+    let array = Array.isArray(input)  ? "true" : ( feature === "array" ? "true" : "false")
     let boolean = (typeCheck === "boolean" && feature === "boolean") ? "true" : "false"
     let negative = parseFloat(input) < 0 ? "true" : "false"
     let string = (typeCheck === "string" && feature === "string") ? "true" : "false"
@@ -58,7 +57,20 @@ console.log(inputFeatures([1, 3, 4], "string"));
 // -- Write a function that takes in an input, does something to it, and returns the modified data (do a mathematical operation on it, do a string method to modify it, use an array method to modify an array)
 //
 
+function numberToStringArray(number) {
+    let newNumbersArray = []
+    let arrayOfNumericStrings = []
+    for (let i = 1; i <= number; i++) {
+        newNumbersArray.push(i);
 
+    }
+    newNumbersArray.forEach(number =>{
+        arrayOfNumericStrings.push(String(number * 2));
+    })
+    console.log(arrayOfNumericStrings);
+    return ` New Numbers Array: ${newNumbersArray}\n New Array of Numeric Strings:  ${arrayOfNumericStrings.join(", ")}`
+}
+console.log(numberToStringArray(5));
 
 // -- Write a function that takes in an array and returns the array modified in some way -- certain elements removed, certain elements modified in a regular way (example, every numerical value doubled, every string uppercased)
 //
