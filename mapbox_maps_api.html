@@ -28,7 +28,9 @@
 <div id="buttons" class="d-flex justify-content-center mt-2">
     <button type="button" id="zoomIn" class="btn btn-secondary mx-1">Zoom In</button>
     <button type="button" id="zoomOut" class="btn btn-secondary">Zoom Out</button>
+<!--    <button type="button" id="hideMarkers" class="btn btn-primary">Hide Markers</button>-->
 </div>
+
 <!--jQuery-->
 <script src="js/jquery-3.6.1.js"></script>
 <!--Mapbox JS-->
@@ -59,59 +61,6 @@
         map.zoomOut();
     })
 
-    //Popup for PizzaClassics
-
-    // let allPopup;
-
-    // function updateBlogs() {
-    //     $.ajax("data/blog.json").done(function(data){
-    //         console.log(data);
-    //         data.forEach(function(blog){
-    //
-    //             let categoriesTemplate = "";
-    //             for(let i = 0; i < blog.categories.length; i++){
-    //                 // console.log("Inside Categories For Loop")
-    //                 categoriesTemplate += `<a href="#" class="card-link px-1">${blog.categories[i]}</a>`;
-    //             }
-    //             let postTemplate = `
-    //                  <div class="card mx-1 w-auto">
-    //                     <div class="card-body">
-    //                         <h5 class="card-title">${blog.title}</h5>
-    //                         <h6 class="card-subtitle mb-2 text-muted">${blog.date}</h6>
-    //                         <p class="card-text">${blog.content}</p>
-    //                         ${categoriesTemplate}
-    //                     </div>
-    //                 </div>`;
-    //             console.log(postTemplate);
-    //             $("#posts").append(postTemplate);
-    //
-    //
-    //         })
-    //     });
-
-
-
-
-
-    // $.ajax("data/maps-data.json").done(function(data){
-    //     console.log(data);
-    //     data.forEach(function(card){
-    //         const pizzaClassicsPopup = new mapboxgl.Popup()
-    //             .setHTML(`
-    //         <div class="card w-auto">
-    //               <img src="img/pizza_classics.png" class="card-img-top" alt="Pizza Classics from outside">
-    //               <div class="card-body">
-    //                 <h5 class="card-title">${card.title}</h5>
-    //                 <p class="card-text">${card.bio}</p>
-    //                 <a href="https://www.pizzaclassics.com/" target="blank"class="btn btn-primary">Go To Pizza Classics!</a>
-    //               </div>
-    //         </div>
-    //     `)
-    //         pizzaClassicsMarker.setPopup(pizzaClassicsPopup);
-    //
-    //     })
-    // })
-    // allPopup =
 
     $.ajax("data/maps-data.json").done(function(data){
         // console.log(data);
@@ -119,9 +68,7 @@
         data.forEach(function(card){
             console.log(card.title);
             console.log(card.bio);
-            // reverseGeocode(card.coordinates, MAPBOX_API_TOKEN).then(function(coordinates){
-            //     console.log(coordinates)
-                let allPop = new mapboxgl.Popup().setHTML(`
+                const allPop = new mapboxgl.Popup().setHTML(`
             <div class="card w-auto markerCard">
                   ${card.image}
                   <div class="card-body">
@@ -131,20 +78,13 @@
                   </div>
             </div>
         `)
-                let allMarker = new mapboxgl.Marker()
+                const allMarker = new mapboxgl.Marker()
                     .setLngLat(card.coordinates)
                     .setPopup(allPop)
                     .addTo(map);
-            console.log(allMarker);
-            // })
-
-            // $( ".inner" ).append( "<p>Test</p>" );
-            //Do I need to somehow append the image to the new .setHTML
-            //I want the data from Each iteration of the maps-data.json to be in each respective popup
-
+            // console.log(allMarker);
+            //Hide Markers
         })
-
-
     })
 
 
@@ -163,19 +103,6 @@
     // const whataburgerMarker = new mapboxgl.Marker()
     //     .setLngLat([-98.44435, 29.48888])
     //     .addTo(map)
-
-    // pizzaClassicsMarker.setPopup(allPop);
-    // camilasMarker.setPopup(allPop);
-    // whataburgerMarker.setPopup(allPop);
-
-
-
-
-
-    // //setting up a popup
-    // const codeupPopup = new mapboxgl.Popup()
-    //     .setHTML(`<p class="mt-3" style="width: 250px;">Codeup</p>`)
-    // codeupMarker.setPopup(codeupPopup);
 
 
 
