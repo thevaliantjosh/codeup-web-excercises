@@ -1,15 +1,24 @@
 [
   {
+    "image": "<img src=\"img/pizza_classics.png\" class=\"card-img-top\" alt=\"Pizza Classics from outside\">",
+    "coordinates": [-98.47984, 29.45635],
     "title": "Pizza Classics",
-    "bio": "Best Pizza I have ever had in San Antonio! Conveniently located close to the Zoo so you can have some Za after checking out them Rhinos Bra!"
+    "bio": "Best Pizza I have ever had in San Antonio! Conveniently located close to the Zoo so you can have some Za after checking out them Rhinos Bra!",
+    "link": "<a href=\"https://www.pizzaclassics.com/\" target=\"blank\"class=\"btn btn-primary\">Go To Pizza Classics!</a>"
 
 
   }, {
+  "image": "<img src=\"img/camilas.png\" class=\"card-img-top\" alt=\"Camilas on Henderson Pass\">",
+    "coordinates": [-98.45051, 29.588155],
     "title": "Camila's Mexican Restaurant",
-    "bio": "It's the best tacos you will ever consume in all your days! Go, now. Seriously. What are you doing reading!"
+    "bio": "It's the best tacos you will ever consume in all your days! Go, now. Seriously. What are you doing reading!",
+    "link": "<a href=\"https://www.camilasmexrest.com/\" target=\"blank\"class=\"btn btn-primary\">Go to Camila's!</a>"
   },
   {
+    "image": "<img src=\"img/austinhwy_whataburger.png\" class=\"card-img-top\" alt=\"Camilas on Henderson Pass\">",
+    "coordinates": [-98.44435, 29.48888],
     "title": "Whataburger",
-    "bio": "It's the best burger, nuff said"
+    "bio": "It's the best burger, nuff said",
+    "link": "<a href=\"https://locations.whataburger.com/tx/san-antonio/1243-austin-highway.html\" target=\"blank\"class=\"btn btn-primary\">Get The Burger!</a>"
   }
 ]

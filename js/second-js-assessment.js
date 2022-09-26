@@ -44,7 +44,7 @@ function inputFeatures(input, feature){
     let boolean = (typeCheck === "boolean" && feature === "boolean") ? "true" : "false"
     let negative = parseFloat(input) < 0 ? "true" : "false"
     let string = (typeCheck === "string" && feature === "string") ? "true" : "false"
-    let alphanumeric = typeCheck === "boolean"? "false" : (typeof parseFloat(input) === "number"  ? "true" : "false")
+    let alphanumeric = typeCheck === "boolean"? "false" : (typeof parseFloat(input) === "number" && feature === "string" ? "true" : "false")
         return ` ${input} is a ${typeCheck}:\n alphanumeric string: ${alphanumeric}\n string: ${string}\n boolean: ${boolean}\n negative: ${negative}\n array: ${array}`;
 
 }
@@ -53,7 +53,14 @@ function inputFeatures(input, feature){
 //     return ${input} is an alpha-numeric string!;
 // }
 
-console.log(inputFeatures([1, 3, 4], "string"));
+// console.log(inputFeatures([1, 3, 4], "string"));
+// console.log(inputFeatures("15", "string"));
+// console.log(inputFeatures(-1, "number"));
+// console.log(inputFeatures(true, "boolean"));
+// console.log(inputFeatures("Hello", "string"));
+// console.log(inputFeatures(false, "number"));
+
+
 // -- Write a function that takes in an input, does something to it, and returns the modified data (do a mathematical operation on it, do a string method to modify it, use an array method to modify an array)
 //
 
@@ -74,15 +81,26 @@ console.log(numberToStringArray(5));
 
 // -- Write a function that takes in an array and returns the array modified in some way -- certain elements removed, certain elements modified in a regular way (example, every numerical value doubled, every string uppercased)
 //
+
+
+
 // -- Write a function that accepts an array of objects where each object has at least one property with a numeric value, be able to return the total or average of the numeric values
 //
+
+
 // -- Write a function that accepts a string, breaks down the string into components, and returns an object where each component of the string has become the value of a property
 //
+
+
 // -- Write a function that analyzes a string, returning the results of the analysis, example, return the length of the string
 //
+
+
 // -- Write a function that analyzes a string, returning an object that contains several properties with information about the string, example, length, firstLetter, and lastLetter properties
 //
 //
+
+
 // -- Write a function that takes in a string and modifies it in some way.  Example write a function that takes in a string and replaces every instance of the letter e with the number 3, and every instance of the letter i with the number 1, and every instance of the letter o with the number 0, and a with 4.  Write a function that capitalizes every other letter in the string starting with the first letter, counting blank spaces as characters.  Try the same not counting blank spaces as characters.  Write a function that capitalizes the last letters of every word in a string.
 //
 //     /**
@@ -174,3 +192,231 @@ console.log(numberToStringArray(5));
 // Write a function that accepts an array of bowling scores and returns the highest
 //
 // Write a function that accepts an array of bowling scores and returns true if the highest score is divisible by 3
+
+
+
+/*===================FOLLOWING THE JAVASCRIPT TUTORIAL VIDEO=====================*/
+
+//Testing double equals
+function testEqual(val) {
+    if (val == 12){
+        return "Equal";
+}
+    return "Not Equal";
+};
+
+// console.log(testEqual(10));
+
+//Testing Strict Equal
+
+function strictEqual(val) {
+    if (val === 12) {
+        return "Equal to Type and Value";
+    }
+    else if (val == 12) {
+        return "Equal to Value but not type";
+    } else if (val !== 12 && typeof val !== "number") {
+        return "Not Equal to Value nor type";
+    } else if (val !== 12 && typeof val === "number") {
+        return "Equal to type but not value"
+    }
+}
+
+// console.log(strictEqual(12));
+// console.log(strictEqual("12"));
+// console.log(strictEqual(7));
+// console.log(strictEqual("7"));
+
+//Equality operator and strict equality operator
+
+function compareEqual(a, b) {
+    if (a === b) {
+        return `Equal to type of "number" or "string" and value of 10`;
+    }
+    else if (a == b) {
+        return `Equal to value of 10 even if its a "string"`
+    }
+    return "Not Equal to type nor value";
+}
+
+// console.log(compareEqual(10, "7" ));
+// console.log(compareEqual(10, 10));
+// console.log(compareEqual("10", "10"))
+// console.log(compareEqual(3, "Hello"));
+// console.log(compareEqual(10, "10"));
+
+//inequality != checks for value and converts it value is in a "string
+//It will pass true if it is NOT this value
+//strict inquality !== checks for value and type
+//it will pass true if it is NOT this type and value
+
+function testNotEqual(val){
+    if (val != 99){
+        return "Not Equal";
+    } else if (val === 99) {
+        return "Equal to Value and type";
+    } else if (val == 99) {
+        return "Equal to Value but not type";
+    }
+    return "Equal";
+}
+
+// console.log(testNotEqual(99));
+// console.log(testNotEqual("99"));
+// console.log(testNotEqual(100));
+// console.log(testNotEqual("100"));
+
+function testGreaterOrEqual(val){
+    if (val >= 20) {
+        return "20 or over";
+    }
+    else if (val >= 10) {
+        return "10 or over";
+    }
+    return "Less than 10";
+}
+
+// console.log(testGreaterOrEqual(5));
+// console.log(testGreaterOrEqual(11));
+// console.log(testGreaterOrEqual(21));
+
+function testLessThan(val) {
+    if (val <= 10) {
+        return "10 or Less";
+    } else if (val <= 20) {
+        return "20 or Less";
+    } else if (val <= 50) {
+        return "50 or Less";
+    }
+    return "Value is over 50";
+}
+
+// console.log(testLessThan(5));
+// console.log(testLessThan(15));
+// console.log(testLessThan(35));
+// console.log(testLessThan(50));
+// console.log(testLessThan(55));
+
+//Logical And Operator
+/*The below code will only return true ("Yes" in this case) if the argument passed in is:
+* Less Than or equal to 50, AND greater than or equal to 25*/
+function testLogicalAnd(val) {
+    if (val <= 50 && val >= 25) {
+        return "Yes";
+    }
+    return "No"
+}
+
+// console.log(testLogicalAnd(35));
+// console.log(testLogicalAnd(55));
+// console.log(testLogicalAnd(22));
+
+function orderMyLogic2(val) {
+    if (val < 10) {
+        return "Less than 10";
+    } else if (val < 5) {
+        return "Less than 5";
+    } else {
+        return "Greater than or equal to 10";
+    }
+}
+
+//You will see that the order matters in functions
+//The result we want is Less than 5 here
+//but because val < 10 is first it returns the first true statement, ending the function
+
+// console.log(orderMyLogic2(3))
+
+function orderMyLogic(val) {
+    if (val < 5) {
+        return "Less than 5";
+    } else if (val < 10) {
+        return "Less than 10";
+    } else {
+        return "Greater than or equal to 10";
+    }
+}
+
+// console.log(orderMyLogic(3));
+
+//Chaning If/else if/else statements to fullfill the following condition
+/*1) num < 5 = return "tiny"
+2) num < 10 = return "Small"
+3) num < 15 = return "medium"
+4) num < 20 = return "Large"
+5) num >= 20 = return "Huge"
+*
+*
+*
+*
+*
+* */
+
+function variousSizes(val) {
+    if ( val < 5) {
+        return "Tiny";
+    } else if (val < 10){
+        return "Small";
+    } else if (val < 15) {
+        return "Medium";
+    } else if (val < 20) {
+        return "Large"
+    } else { /*We do not need the final else if here with the condtion of (num >=20) because if it is anything greater than or equal to 20 the else will run*/
+        return "Huge"
+    }
+}
+
+// console.log(variousSizes(3));
+// console.log(variousSizes(8));
+// console.log(variousSizes(14));
+// console.log(variousSizes(18));
+// console.log(variousSizes(50));
+
+
+
+/*Write a function that takes in the par (amount of suspected strokes)
+* and the strokes it actually took
+* Then display this as the nickname of that par
+* ex. function gameOfGolf(par, strokes)
+* es. gameOfGolf(2, 1) will display "Hole-in-one!"
+* Strokes      Return
+* 1             "Hole-in-one!"
+* <= par -2     "Eagle"
+* par -1        "Birdie"
+* par           "Par"
+* par + 1       "Bogey"
+* par +2        "Double Bogey"
+* strokes >= par -3     "Double Eagle"
+*par + 3        "Triple Bogey"
+* */
+const parNames = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Double Eagle", "Triple Bogey"]
+function gameOfGolf(par, strokes) {
+    if (strokes == 1) {
+        return parNames[0]//Hole in one
+    } else if (strokes <= par -2) {
+        return parNames[1]//Eagle
+    } else if (strokes == par -1) {
+        return parNames[2]//Birdie
+    }  else if (strokes === par) {
+        return parNames[3]//par
+    } else if (strokes == par + 1) {
+        return parNames[4]//
+    } else if (strokes == par + 2) {
+        return parNames[5]
+    } else if (strokes >= par - 3) {
+        return parNames[6]
+    } else if (strokes == par +3) {
+        return parNames[7]
+    } else {
+        return `${strokes - par} Over par!`
+    }
+}
+
+console.log(gameOfGolf(3, 1));
+console.log(gameOfGolf(3, 2));
+console.log(gameOfGolf(3, 3));
+console.log(gameOfGolf(3, 4));
+console.log(gameOfGolf(3, 5));
+console.log(gameOfGolf(5, 2));
+console.log(gameOfGolf(3, 7));
+console.log(gameOfGolf(3, 8));

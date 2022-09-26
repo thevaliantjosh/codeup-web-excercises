@@ -59,22 +59,6 @@
         map.zoomOut();
     })
 
-
-    //Map Marker of Favorite Restaurant
-    const pizzaClassicsMarker = new mapboxgl.Marker()
-        .setLngLat([-98.47984, 29.45635])
-        .addTo(map)
-
-    //Map Marker of Camilas Restuarant
-
-    const camilasMarker = new mapboxgl.Marker()
-        .setLngLat([-98.45051, 29.588155])
-        .addTo(map)
-
-    //Map Marker for Whataburger
-    const whataburgerMarker = new mapboxgl.Marker()
-        .setLngLat([-98.44435, 29.48888])
-        .addTo(map)
     //Popup for PizzaClassics
 
     // let allPopup;
@@ -131,26 +115,59 @@
 
     $.ajax("data/maps-data.json").done(function(data){
         // console.log(data);
+
         data.forEach(function(card){
             console.log(card.title);
             console.log(card.bio);
-            let allPop = new mapboxgl.Popup()
-                .setHTML(`
+            // reverseGeocode(card.coordinates, MAPBOX_API_TOKEN).then(function(coordinates){
+            //     console.log(coordinates)
+                let allPop = new mapboxgl.Popup().setHTML(`
             <div class="card w-auto markerCard">
-                  <img src="img/pizza_classics.png" class="card-img-top" alt="Pizza Classics from outside">
+                  ${card.image}
                   <div class="card-body">
                     <h5 class="card-title">${card.title}</h5>
                     <p class="card-text">${card.bio}</p>
-                    <a href="https://www.pizzaclassics.com/" target="blank"class="btn btn-primary">Go To Pizza Classics!</a>
+                    ${card.link}
                   </div>
             </div>
         `)
-            $(".markerCard").append(pizzaClassicsMarker.setPopup(allPop));
-            camilasMarker.setPopup(allPop);
-            whataburgerMarker.setPopup(allPop);
+                let allMarker = new mapboxgl.Marker()
+                    .setLngLat(card.coordinates)
+                    .setPopup(allPop)
+                    .addTo(map);
+            console.log(allMarker);
+            // })
+
+            // $( ".inner" ).append( "<p>Test</p>" );
+            //Do I need to somehow append the image to the new .setHTML
+            //I want the data from Each iteration of the maps-data.json to be in each respective popup
 
         })
+
+
     })
+
+
+    // //Map Marker of Favorite Restaurant
+    // const pizzaClassicsMarker = new mapboxgl.Marker()
+    //     .setLngLat([-98.47984, 29.45635])
+    //     .addTo(map)
+    //
+    // //Map Marker of Camilas Restuarant
+    //
+    // const camilasMarker = new mapboxgl.Marker()
+    //     .setLngLat([-98.45051, 29.588155])
+    //     .addTo(map)
+    //
+    // //Map Marker for Whataburger
+    // const whataburgerMarker = new mapboxgl.Marker()
+    //     .setLngLat([-98.44435, 29.48888])
+    //     .addTo(map)
+
+    // pizzaClassicsMarker.setPopup(allPop);
+    // camilasMarker.setPopup(allPop);
+    // whataburgerMarker.setPopup(allPop);
+
 
 
 
