@@ -145,6 +145,9 @@ $(function(){
         console.log(`Getting the time: `, formatTime(data.list[0].dt))
         $("#todaysDate").append(`${formatTime(data.list[0].dt)}`)
         $("#tomorrowsDate").append(`${formatTime(data.list[8].dt)}`)
+        $("#day-3").append(`${formatTime(data.list[16].dt)}`)
+        $("#day-4").append(`${formatTime(data.list[24].dt)}`)
+        $("#day-5").append(`${formatTime(data.list[32].dt)}`)
         function averagePressure1(){
             let pNumber = 0;
             for (let i = 0; i < 8; i++){
