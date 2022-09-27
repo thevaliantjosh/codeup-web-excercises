@@ -64,6 +64,31 @@ function inputFeatures(input, feature){
 // -- Write a function that takes in an input, does something to it, and returns the modified data (do a mathematical operation on it, do a string method to modify it, use an array method to modify an array)
 //
 
+function doubleNumber(number) {
+    return number * 2;
+}
+
+console.log(doubleNumber(3));
+
+function upperCase(string){
+    return string.toUpperCase();
+}
+
+console.log(upperCase("hello"));
+
+
+//Double the string
+
+function repeatString(string){
+    return string.concat(" ", string)
+}
+
+console.log(repeatString("string"));
+
+//You can add an optional first parameter, and it will add that between the concat
+
+
+
 function numberToStringArray(number) {
     let newNumbersArray = []
     let arrayOfNumericStrings = []
@@ -82,6 +107,25 @@ console.log(numberToStringArray(5));
 // -- Write a function that takes in an array and returns the array modified in some way -- certain elements removed, certain elements modified in a regular way (example, every numerical value doubled, every string uppercased)
 //
 
+//Remove First Element in the Array
+
+const someArray = [1, 2, 3, 4, 5]
+
+
+function removeFirstElement(array){
+    array.shift();
+    return array;
+}
+console.log(removeFirstElement(someArray));
+
+function moveFirstToLast(array){
+    let firstElement = array.shift();
+     array.push(firstElement);
+     return array;
+}
+
+console.log(moveFirstToLast(someArray));
+
 
 
 // -- Write a function that accepts an array of objects where each object has at least one property with a numeric value, be able to return the total or average of the numeric values
@@ -91,14 +135,85 @@ console.log(numberToStringArray(5));
 // -- Write a function that accepts a string, breaks down the string into components, and returns an object where each component of the string has become the value of a property
 //
 
+let cityAndState = "San Antonio, Texas";
+
+/*Write a function that returns:
+ {
+    city: "San Antonio,
+    state: "Texas"
+
+ }
+*1) Try using .split();
+*
+*
+*
+*
+* */
+
+function cityStateObject(cityAndState){
+    return {
+        city: cityAndState.split(", ")[0],
+        state: cityAndState.split(", ")[1],
+    }
+}
+
+console.log(cityStateObject(cityAndState));
 
 // -- Write a function that analyzes a string, returning the results of the analysis, example, return the length of the string
 //
 
+let stringExample = "This is an example of a string"
+
+function stringLength (string) {
+    return string.length;
+}
+
+console.log(`The Length of the variable stringExample is: ${stringLength(stringExample)}`);
 
 // -- Write a function that analyzes a string, returning an object that contains several properties with information about the string, example, length, firstLetter, and lastLetter properties
 //
 //
+
+function analyzeString(string) {
+    return {
+        length: stringLength(string),
+        firstLetter: string.charAt(),
+        lastLetter: string.charAt(string.length -1).toLowerCase()
+    };
+}
+
+console.log(analyzeString(stringExample));
+//
+
+//Write a function that removes every odd number from an array of numbers
+
+let arrayOfNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function removeOdds(array){
+    const newArray = [];
+    for (let i = 0; i < array.length; i++){
+        if (array[i] % 2 === 0){
+            newArray.push(array[i]);
+        }
+    }
+    return newArray;
+}
+
+console.log(`Array without odds: ${removeOdds(arrayOfNumbers)}`)
+
+/*Write a function that takes an array of numeric values and returns an array with all those values doubled*/
+
+
+function doubleTheNumbers(array){
+    const newArray = [];
+    for (let i = 0; i < array.length; i++){
+            newArray.push(array[i] * 2);
+
+    }
+    return newArray;
+}
+
+console.log(`Array with every number doubled:\n original ${arrayOfNumbers} \n doubled: ${doubleTheNumbers(arrayOfNumbers)}`);
 
 
 // -- Write a function that takes in a string and modifies it in some way.  Example write a function that takes in a string and replaces every instance of the letter e with the number 3, and every instance of the letter i with the number 1, and every instance of the letter o with the number 0, and a with 4.  Write a function that capitalizes every other letter in the string starting with the first letter, counting blank spaces as characters.  Try the same not counting blank spaces as characters.  Write a function that capitalizes the last letters of every word in a string.
@@ -149,6 +264,67 @@ console.log(numberToStringArray(5));
 //      */
 //
 //
+
+const students = [
+         {
+              id: 1,
+              name: "Jacek",
+              notes: [5, 3, 4, 2, 5, 5]
+            },
+           {
+              id: 2,
+              name: "Ewa",
+              notes: [2, 3, 3, 3, 2, 5]
+            },
+           {
+              id: 3,
+              name: "Zygmunt",
+              notes: [2, 2, 4, 4, 3, 3]
+            }
+         ]
+
+// The Math.max() function returns the largest of the numbers given as input parameters, or -Infinity if there are no parameters.
+// console.log(Math.max(1, 3, 2));
+// // expected output: 3
+//
+// console.log(Math.max(-1, -3, -2));
+// // expected output: -1
+//
+// const array1 = [1, 3, 2];
+//
+// console.log(Math.max(...array1));
+// // expected output: 3
+
+
+// function getStudentTopNotes (arrayOfStudentObjects) {
+//     const topNotes = [];
+//     arrayOfStudentObjects.forEach(studentObject => {
+//         topNotes.push(Math.max(...studentObject.notes));
+//     })
+//     return topNotes;
+// }
+
+function getStudentTopNotes (arrayOfStudentObjects){
+    let topNotes = [];
+    for (let i = 0; i < arrayOfStudentObjects.length; i++) {
+        let topNote = arrayOfStudentObjects[i].notes[0];
+        for (let j = 0; j < arrayOfStudentObjects[i].notes.length; j++){
+            if (arrayOfStudentObjects[i].notes[j] > topNote){
+                topNote = arrayOfStudentObjects[i].notes[j];
+            }
+        }
+        topNotes.push(topNote);
+    }
+    return topNotes;
+}
+
+console.log(`Students Top Notes are: ${getStudentTopNotes(students)}`);
+
+//Function to see if something is only a number
+function isNumber(value) {
+    return !(isNaN(value) || typeof value === "boolean" || value === null);
+}
+
 //
 //     /**
 //      * TODO:
@@ -165,6 +341,35 @@ console.log(numberToStringArray(5));
 //      */
 //
 //
+
+//1) use .slice
+//2)use string.replace("character you want replaced", "new value");
+
+let myGreeting = "Hello World";
+// let abc = "abc";
+let aardvarks = "Aardvarks apples banana and cantaloupes"
+console.log(aardvarks.includes("a"));
+
+function removeABC(string) {
+
+    if (string.includes("a") || string.includes("b") || string.includes("c")){
+        console.log(string);
+        let stringWithoutA = string.toLowerCase().replaceAll("a", "");
+        // console.log(stringWithoutA);
+        let stringWithoutAB = stringWithoutA.toLowerCase().replaceAll("b", "");
+        // console.log(stringWithoutAB)
+        let stringWithoutABC = stringWithoutAB.toLowerCase().replace("c", "");
+        // console.log(stringWithoutABC);
+        return stringWithoutABC;
+
+    } else {
+        return null;
+    }
+}
+
+console.log(`${aardvarks}, is Now: ${removeABC(aardvarks)}`);
+console.log(removeABC(myGreeting));
+
 //     Write a function called removeBs that takes in an array of strings and returns an array of strings with all b's removed from each string. Assume the array contains only string elements.
 //
 // Examples...
@@ -412,11 +617,11 @@ function gameOfGolf(par, strokes) {
     }
 }
 
-console.log(gameOfGolf(3, 1));
-console.log(gameOfGolf(3, 2));
-console.log(gameOfGolf(3, 3));
-console.log(gameOfGolf(3, 4));
-console.log(gameOfGolf(3, 5));
-console.log(gameOfGolf(5, 2));
-console.log(gameOfGolf(3, 7));
-console.log(gameOfGolf(3, 8));
+// console.log(gameOfGolf(3, 1));
+// console.log(gameOfGolf(3, 2));
+// console.log(gameOfGolf(3, 3));
+// console.log(gameOfGolf(3, 4));
+// console.log(gameOfGolf(3, 5));
+// console.log(gameOfGolf(5, 2));
+// console.log(gameOfGolf(3, 7));
+// console.log(gameOfGolf(3, 8));
