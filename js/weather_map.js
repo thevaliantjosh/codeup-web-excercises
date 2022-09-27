@@ -103,7 +103,7 @@ $(function(){
 
         console.log(`The Wind Speed is: `, data.wind.speed)
 
-        // $(".card").append(<h5 class="")
+        //Todays Weather information
         $("#today").append(`
         
         <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
@@ -143,11 +143,29 @@ $(function(){
         //     }
         // })
         console.log(`Getting the time: `, formatTime(data.list[0].dt))
+
+        //Adding the dates
         $("#todaysDate").append(`${formatTime(data.list[0].dt)}`)
         $("#tomorrowsDate").append(`${formatTime(data.list[8].dt)}`)
         $("#day-3").append(`${formatTime(data.list[16].dt)}`)
         $("#day-4").append(`${formatTime(data.list[24].dt)}`)
         $("#day-5").append(`${formatTime(data.list[32].dt)}`)
+
+        //Adding the icons
+
+        //Tomorrow's information
+        $("#tomorrow").append(`
+            <img src="http://openweathermap.org/img/w/${data.list[8].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
+            <p class="card-text mb-0">Temperature: ${data.list[8].main.temp}</p>
+            <p class="card-text mb-0">Feels Like: ${data.list[8].main.feels_like}</p>
+            <hr>
+            <p class="card-text mb-1">Description: ${data.list[8].weather[0].description}</p>
+
+        `)
+        $("#day3").append(`<img src="http://openweathermap.org/img/w/${data.list[16].weather[0].icon}.png" class="card-img-top" alt="Day 3 Weather icon">`)
+        $("#day4").append(`<img src="http://openweathermap.org/img/w/${data.list[24].weather[0].icon}.png" class="card-img-top" alt="Day 4 Weather icon">`)
+        $("#day5").append(`<img src="http://openweathermap.org/img/w/${data.list[32].weather[0].icon}.png" class="card-img-top" alt="Day 5 Weather icon">`)
+
         function averagePressure1(){
             let pNumber = 0;
             for (let i = 0; i < 8; i++){
