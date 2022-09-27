@@ -348,12 +348,12 @@ function isNumber(value) {
 let myGreeting = "Hello World";
 // let abc = "abc";
 let aardvarks = "Aardvarks apples banana and cantaloupes"
-console.log(aardvarks.includes("a"));
+// console.log(aardvarks.includes("a"));
 
 function removeABC(string) {
 
     if (string.includes("a") || string.includes("b") || string.includes("c")){
-        console.log(string);
+        // console.log(string);
         let stringWithoutA = string.toLowerCase().replaceAll("a", "");
         // console.log(stringWithoutA);
         let stringWithoutAB = stringWithoutA.toLowerCase().replaceAll("b", "");
@@ -377,6 +377,19 @@ console.log(removeABC(myGreeting));
 // removeBs(['abc', 'ab', 'cat', 'Bay']) // returns ['ac', 'a', 'cat', 'ay']
 //
 //
+
+let arrayWithBs = ["abc", "ab", "cat", "Bay"];
+
+function removeBs(array) {
+    let arrayWithoutBs = [];
+    let foundb = array.map(element => element.includes("b").slice("b"));
+    return arrayWithoutBs.push(foundb);
+
+}
+
+console.log(removeBs(arrayWithBs));
+
+
 //
 //
 //

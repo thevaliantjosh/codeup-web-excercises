@@ -104,7 +104,7 @@ $(function(){
         console.log(`The Wind Speed is: `, data.wind.speed)
 
         // $(".card").append(<h5 class="")
-        $(".card").append(`
+        $("#today").append(`
         
         <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
           <p class="card-text mb-0">Temperature: ${data.main.temp}</p>
@@ -143,7 +143,15 @@ $(function(){
         //     }
         // })
         console.log(`Getting the time: `, formatTime(data.list[0].dt))
-        $("h6").append(`${formatTime(data.list[0].dt)}`)
+        $("#todaysDate").append(`${formatTime(data.list[0].dt)}`)
+        $("#tomorrowsDate").append(`${formatTime(data.list[8].dt)}`)
+        function averagePressure1(){
+            let pNumber = 0;
+            for (let i = 0; i < 8; i++){
+                pNumber += data.list[i].main.pressure;
+            }
+            return parseInt(pNumber/8);
+        }
     });
 
     // $.get("http://api.openweathermap.org/data/2.5/hourly", {
