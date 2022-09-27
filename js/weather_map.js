@@ -162,9 +162,30 @@ $(function(){
             <p class="card-text mb-1">Description: ${data.list[8].weather[0].description}</p>
 
         `)
-        $("#day3").append(`<img src="http://openweathermap.org/img/w/${data.list[16].weather[0].icon}.png" class="card-img-top" alt="Day 3 Weather icon">`)
-        $("#day4").append(`<img src="http://openweathermap.org/img/w/${data.list[24].weather[0].icon}.png" class="card-img-top" alt="Day 4 Weather icon">`)
-        $("#day5").append(`<img src="http://openweathermap.org/img/w/${data.list[32].weather[0].icon}.png" class="card-img-top" alt="Day 5 Weather icon">`)
+        //Day 3 Information
+        $("#day3").append(`
+            <img src="http://openweathermap.org/img/w/${data.list[16].weather[0].icon}.png" class="card-img-top" alt="Day 3 Weather icon">
+             <p class="card-text mb-0">Temperature: ${data.list[16].main.temp}</p>
+            <p class="card-text mb-0">Feels Like: ${data.list[16].main.feels_like}</p>
+            <hr>
+            <p class="card-text mb-1">Description: ${data.list[16].weather[0].description}</p>
+        `)
+        //Day 4 Information
+        $("#day4").append(`
+            <img src="http://openweathermap.org/img/w/${data.list[24].weather[0].icon}.png" class="card-img-top" alt="Day 4 Weather icon">
+             <p class="card-text mb-0">Temperature: ${data.list[24].main.temp}</p>
+            <p class="card-text mb-0">Feels Like: ${data.list[24].main.feels_like}</p>
+            <hr>
+            <p class="card-text mb-1">Description: ${data.list[24].weather[0].description}</p>
+        `)
+        //Day 5 Information
+        $("#day5").append(`
+            <img src="http://openweathermap.org/img/w/${data.list[32].weather[0].icon}.png" class="card-img-top" alt="Day 5 Weather icon">
+            <p class="card-text mb-0">Temperature: ${data.list[32].main.temp}</p>
+            <p class="card-text mb-0">Feels Like: ${data.list[32].main.feels_like}</p>
+            <hr>
+            <p class="card-text mb-1">Description: ${data.list[32].weather[0].description}</p>
+        `)
 
         function averagePressure1(){
             let pNumber = 0;
