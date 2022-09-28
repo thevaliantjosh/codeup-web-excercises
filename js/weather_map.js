@@ -17,13 +17,11 @@ $(function(){
     });
 
     map.setZoom(11)
-    // map.scrollZoom.disable()
     map.setCenter([-98.441372, 29.49169])
 
-    //Adding a marker to the map
+    //Adding a marker to the map with a click and Updating the Weather on click
 
     const clickableMarker = new mapboxgl.Marker();
-
 
     //Call the get request functions inside the addMarker function
 
@@ -42,6 +40,96 @@ $(function(){
     map.on("click", addMarker)
 
 
+
+//Starting Information and function call
+    getWeatherDataAndPrint(-98.441372, 29.49169);
+
+    //Weather Function that Pulls data and generates html
+
+    function getWeatherDataAndPrint(long, lat){
+        $.get("http://api.openweathermap.org/data/2.5/weather", {
+            APPID: OPEN_WEATHER_APPID,
+            lat: lat,
+            lon: long,
+            units: "imperial"
+        }).done(function(data) {
+            console.log(`The Weather: `, data);
+
+            console.log(`Temperature is: `, data.main.temp)
+
+            console.log(`The Wind Speed is: `, data.wind.speed)
+
+            //Update City
+            $("#currentCity").html(`Current City: ${data.name}`)
+
+
+            //Today's Weather information
+            $("#today").html(`
+        
+            <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" class="card-img-top todaysData" alt="Todays Weather icon">
+            
+              <p class="card-text mb-0 todaysData">Temperature: ${data.main.temp}</p>
+              <p class="card-text mb-0 todaysData">Feels Like: ${data.main.feels_like}</p>
+              <hr class="todaysData">
+              <p class="card-text mb-1 todaysData">Description: ${data.weather[0].main}</p>
+            `)
+
+
+            console.log(windCardinalDirection(data.wind.deg));
+
+        });
+    }//End of getWeatherDataAndPrint Function
+
+
+//Starting Information and function call
+    getForecastAndPrint(-98.441372, 29.49169)
+
+    //Forecast Function that pulls data and generates html
+
+    function getForecastAndPrint(long, lat){
+
+        $.get("http://api.openweathermap.org/data/2.5/forecast", {
+            APPID: OPEN_WEATHER_APPID,
+            lat:    lat,
+            lon:   long,
+            units: "imperial"
+        }).done(function(data) {
+            console.log('The Forecast: ', data);
+            console.log(`The list object: `, data.list);
+            console.log(`The City Object: `, data.city);
+            console.log(`The value of the population property: `, data.city.population)
+            console.log(`Grabbing the visibility value: `, data.list[0].visibility);
+            // data.list.forEach((forecast, index) => {
+            //     if (index < 5){
+            //         console.log(forecast);
+            //     }
+            // })
+            console.log(`Getting the time: `, formatTime(data.list[0].dt))
+
+            data.list.forEach(function(forecast, index){
+
+                if (index % 8 === 0) {
+                    // let theTime = formatTime(data.list[index].dt);
+                    //     console.log(theTime);
+                    //     console.log("#day-" + ((index/8)+1))
+                    $("#day-" + ((index/8) +1)).html(`${formatTime(data.list[index].dt)}`);
+                    $("#day" + ((index/8) +1)).html(`
+                <img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
+                <p class="card-text mb-0">Temperature: ${data.list[index].main.temp}</p>
+                <p class="card-text mb-0">Feels Like: ${data.list[index].main.feels_like}</p>
+                <hr>
+                <p class="card-text mb-1">Description: ${data.list[index].weather[0].main}</p>`)
+                }
+
+            });
+
+
+
+        });
+    }//End of getForecastAndPrint function
+
+
+    /*========================FUNCTION TOOLBOX==============================*/
     //finding the cardinal direction from degrees
     function windCardinalDirection(degrees){
         let cardinalDirection = '';
@@ -111,90 +199,6 @@ $(function(){
 
 
 
-//Starting Information and function call
-    getWeatherDataAndPrint(-98.441372, 29.49169);
-    function getWeatherDataAndPrint(long, lat){
-        $.get("http://api.openweathermap.org/data/2.5/weather", {
-            APPID: OPEN_WEATHER_APPID,
-            lat: lat,
-            lon: long,
-            units: "imperial"
-        }).done(function(data) {
-            console.log(`The Weather: `, data);
-
-            console.log(`Temperature is: `, data.main.temp)
-
-            console.log(`The Wind Speed is: `, data.wind.speed)
-
-            //Update City
-            $("#currentCity").html(`Current City: ${data.name}`)
-
-
-            //Today's Weather information
-            $("#today").html(`
-        
-            <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" class="card-img-top todaysData" alt="Todays Weather icon">
-            
-              <p class="card-text mb-0 todaysData">Temperature: ${data.main.temp}</p>
-              <p class="card-text mb-0 todaysData">Feels Like: ${data.main.feels_like}</p>
-              <hr class="todaysData">
-              <p class="card-text mb-1 todaysData">Description: ${data.weather[0].main}</p>
-            `)
-
-
-            console.log(windCardinalDirection(data.wind.deg));
-
-        });
-    }//End of getWeatherDataAndPrint Function
-
-
-//Starting Information and function call
-    getForecastAndPrint(-98.441372, 29.49169)
-    function getForecastAndPrint(long, lat){
-
-        $.get("http://api.openweathermap.org/data/2.5/forecast", {
-            APPID: OPEN_WEATHER_APPID,
-            lat:    lat,
-            lon:   long,
-            units: "imperial"
-        }).done(function(data) {
-            console.log('The Forecast: ', data);
-            console.log(`The list object: `, data.list);
-            console.log(`The City Object: `, data.city);
-            console.log(`The value of the population property: `, data.city.population)
-            console.log(`Grabbing the visibility value: `, data.list[0].visibility);
-            // data.list.forEach((forecast, index) => {
-            //     if (index < 5){
-            //         console.log(forecast);
-            //     }
-            // })
-            console.log(`Getting the time: `, formatTime(data.list[0].dt))
-
-            data.list.forEach(function(forecast, index){
-
-                if (index % 8 === 0) {
-                    // let theTime = formatTime(data.list[index].dt);
-                    //     console.log(theTime);
-                    //     console.log("#day-" + ((index/8)+1))
-                    $("#day-" + ((index/8) +1)).html(`${formatTime(data.list[index].dt)}`);
-                    $("#day" + ((index/8) +1)).html(`
-                <img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
-                <p class="card-text mb-0">Temperature: ${data.list[index].main.temp}</p>
-                <p class="card-text mb-0">Feels Like: ${data.list[index].main.feels_like}</p>
-                <hr>
-                <p class="card-text mb-1">Description: ${data.list[index].weather[0].main}</p>`)
-                }
-
-            });
-
-
-
-        });
-    }//End of getForecastAndPrint function
-
-
-
-
     function averagePressure1(){
         let pNumber = 0;
         for (let i = 0; i < 8; i++){
@@ -203,13 +207,7 @@ $(function(){
         return parseInt(pNumber/8);
     }
 
-
-
-
-
-
-
-})
+})//END OF DOCUMENT.READY
 
 
 
