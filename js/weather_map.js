@@ -21,7 +21,10 @@ $(function(){
 
     //Adding a marker to the map with a click and Updating the Weather on click
 
-    const clickableMarker = new mapboxgl.Marker();
+    const clickableMarker = new mapboxgl.Marker({
+        draggable: true
+    });
+    // clickableMarker.options.draggable(true);
 
     //Call the get request functions inside the addMarker function
 
@@ -29,8 +32,15 @@ $(function(){
         let coordinates = event.lngLat;
         console.log("Lng: ", coordinates.lng, "Lat: ", coordinates.lat);
         clickableMarker.setLngLat(coordinates).addTo(map)
-        // $(".card-group").children().empty();
-        // $("#currentCity").empty();
+        getWeatherDataAndPrint(coordinates.lng, coordinates.lat);
+        getForecastAndPrint(coordinates.lng, coordinates.lat);
+
+    }
+    function markerDrag () {
+        let coordinates = clickableMarker.getLngLat();
+        console.log("MarkerDragLng: ", coordinates.lng, "MarkerDragLat: ", coordinates.lat);
+        console.log("Lng: ", coordinates.lng, "Lat: ", coordinates.lat);
+        clickableMarker.setLngLat(coordinates).addTo(map)
         getWeatherDataAndPrint(coordinates.lng, coordinates.lat);
         getForecastAndPrint(coordinates.lng, coordinates.lat);
 
@@ -39,7 +49,7 @@ $(function(){
     //Register the event with the "click"
     map.on("click", addMarker)
 
-
+    clickableMarker.on("dragend", markerDrag)
 
 //Starting Information and function call
     getWeatherDataAndPrint(-98.441372, 29.49169);
@@ -68,10 +78,13 @@ $(function(){
         
             <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" class="card-img-top todaysData" alt="Todays Weather icon">
             
-              <p class="card-text mb-0 todaysData">Temperature: ${data.main.temp}</p>
-              <p class="card-text mb-0 todaysData">Feels Like: ${data.main.feels_like}</p>
+              <p class="card-text mb-0 todaysData">Temperature: ${data.main.temp}&degF</p>
+              <p class="card-text mb-0 todaysData">Feels Like: ${data.main.feels_like}&degF</p>
+              <p class="card-text mb-0">Hi: ${data.main.temp_max}&deg/Lo: ${data.main.temp_min}</p>
               <hr class="todaysData">
-              <p class="card-text mb-1 todaysData">Description: ${data.weather[0].main}</p>
+              <p class="card-text mb-1 todaysData">Description: ${data.weather[0].description}</p>
+              <hr>
+              <p class="card-text mb-1">Wind: ${data.wind.speed} Mph ${windCardinalDirection(data.wind.deg)}</p>
             `)
 
 
@@ -81,18 +94,19 @@ $(function(){
     }//End of getWeatherDataAndPrint Function
 
 //Search functionality
-//     1) Need to get the value from the search, to be inserted into my functions
 
     $("#setMarkerButton").on("click", function(e){
         e.preventDefault();
+        // let coordinates = e.lngLat
         const address= document.getElementById("setMarker").value;
         // alert("You clicked me");
         console.log(address);
             geocode(address, MAPBOX_API_TOKEN).then(function(coordinates){
                 clickableMarker.setLngLat(coordinates).addTo(map)
                     map.setCenter(coordinates);
-                getWeatherDataAndPrint(coordinates.lng, coordinates.lat);
-                getForecastAndPrint(coordinates.lng, coordinates.lat);
+                console.log(coordinates);
+                getWeatherDataAndPrint(coordinates[0], coordinates[1]);
+                getForecastAndPrint(coordinates[0], coordinates[1]);
             })
         });
 
@@ -127,20 +141,44 @@ $(function(){
             data.list.forEach(function(forecast, index){
 
                 if (index % 8 === 0) {
-                    // let theTime = formatTime(data.list[index].dt);
-                    //     console.log(theTime);
-                    //     console.log("#day-" + ((index/8)+1))
                     $("#day-" + ((index/8) +1)).html(`${formatTime(data.list[index].dt)}`);
                     $("#day" + ((index/8) +1)).html(`
-                <img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
-                <p class="card-text mb-0">Temperature: ${data.list[index].main.temp}</p>
-                <p class="card-text mb-0">Feels Like: ${data.list[index].main.feels_like}</p>
-                <hr>
-                <p class="card-text mb-1">Description: ${data.list[index].weather[0].main}</p>`)
+                        <img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
+                        <p class="card-text mb-0">Temperature: ${data.list[index].main.temp}&degF</p>
+                        <p class="card-text mb-0">Feels Like: ${data.list[index].main.feels_like}&degF</p>
+                        <p class="card-text mb-0">Hi: ${averageHighTemp([index])}&deg/Lo: ${averageLowTemp([index])}&deg</p>  
+                        <hr>
+                        <p class="card-text mb-1">Description: ${data.list[index].weather[0].description}</p>
+                        <hr>
+                        <p class="card-text mb-1">Wind: ${data.list[index].wind.speed} Mph ${windCardinalDirection(data.list[index].wind.deg)}</p>
+                
+                   `)
                 }
+
+
 
             });
 
+
+            function averageHighTemp(){
+                let average = 0;
+                for (let i = 0; i < 8; i++){
+                    average += data.list[i].main.temp_max/8
+                    console.log(average)
+                }
+                return average.toFixed(2);
+            }
+            console.log(`The Next High Average is: ${averageHighTemp()}`);
+
+            function averageLowTemp(){
+                let average = 0;
+                for (let i = 0; i < 8; i++){
+                    average += data.list[i].main.temp_min/8
+                    console.log(average)
+                }
+                return average.toFixed(2);
+            }
+            console.log(`The Next Low Average is: ${averageLowTemp()}`);
 
 
         });
@@ -208,6 +246,8 @@ $(function(){
         return formattedDateTime;
     }
 
+    console.log(`Sydney time? ${formatTime(1664398800)}`)
+
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     function namedDayFromDay(timeStamp){
@@ -224,6 +264,12 @@ $(function(){
         }
         return parseInt(pNumber/8);
     }
+
+
+
+
+
+
 
 })//END OF DOCUMENT.READY
 
