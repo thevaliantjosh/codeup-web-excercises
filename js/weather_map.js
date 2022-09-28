@@ -17,8 +17,41 @@ $(function(){
     });
 
     map.setZoom(11)
-    map.scrollZoom.disable()
+    // map.scrollZoom.disable()
     map.setCenter([-98.441372, 29.49169])
+
+    //Adding a marker to the map
+
+    const clickableMarker = new mapboxgl.Marker();
+
+
+    //Call the get request functions inside the addMarker function
+
+    function addMarker (event) {
+        let coordinates = event.lngLat;
+        console.log("Lng: ", coordinates.lng, "Lat: ", coordinates.lat);
+        clickableMarker.setLngLat(coordinates).addTo(map)
+        // $(".card-group").children().empty();
+        // $("#currentCity").empty();
+        getWeatherDataAndPrint(coordinates.lng, coordinates.lat)
+        getForecastAndPrint(coordinates.lng, coordinates.lat)
+
+    }
+    //We Want to get rid of the Card once clicked and add back to it with the updated information
+
+    // $("#updatePosts").on("click", function () {
+    //
+    //     $("#posts").children().remove();
+    //     updateBlogs()
+    //
+    // });
+    //
+
+
+
+    map.on("click", addMarker)
+
+
 
 
 
@@ -91,110 +124,244 @@ $(function(){
     }
 
 
-    $.get("http://api.openweathermap.org/data/2.5/weather", {
-        APPID: OPEN_WEATHER_APPID,
-        lat: 29.423017,
-        lon: -98.48527,
-        units: "imperial"
-    }).done(function(data) {
-        console.log(`The Weather: `, data);
+    /*1) Create a function the calls the get request
+    * 2) What do I need to put into the function to get what I want
+    *
+    *
+    *
+    * */
 
-        console.log(`Temperature is: `, data.main.temp)
+    getWeatherDataAndPrint(-98.441372, 29.49169);
+    function getWeatherDataAndPrint(long, lat){
+        $.get("http://api.openweathermap.org/data/2.5/weather", {
+            APPID: OPEN_WEATHER_APPID,
+            lat: lat,
+            lon: long,
+            units: "imperial"
+        }).done(function(data) {
+            console.log(`The Weather: `, data);
 
-        console.log(`The Wind Speed is: `, data.wind.speed)
+            console.log(`Temperature is: `, data.main.temp)
 
-        //Todays Weather information
-        $("#today").append(`
+            console.log(`The Wind Speed is: `, data.wind.speed)
+
+            //Update City
+            $("#currentCity").html(`Current City: ${data.name}`)
+
+
+            //Today's Weather information
+            $("#today").html(`
         
-        <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
-          <p class="card-text mb-0">Temperature: ${data.main.temp}</p>
-          <p class="card-text mb-0">Feels Like: ${data.main.feels_like}</p>
-          <hr>
-          <p class="card-text mb-1">Description: ${data.weather[0].description}</p>
+        <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" class="card-img-top todaysData" alt="Todays Weather icon">
+        
+          <p class="card-text mb-0 todaysData">Temperature: ${data.main.temp}</p>
+          <p class="card-text mb-0 todaysData">Feels Like: ${data.main.feels_like}</p>
+          <hr class="todaysData">
+          <p class="card-text mb-1 todaysData">Description: ${data.weather[0].main}</p>
         `)
 
-        // $("body").append(`<p><img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png"></p>`)
+            // $("body").append(`<p><img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png"></p>`)
 
-        // "http://openweathermap.org/img/w/${data.weather[0].icon}.png"
+            // "http://openweathermap.org/img/w/${data.weather[0].icon}.png"
 
-        console.log(windCardinalDirection(data.wind.deg));
+            console.log(windCardinalDirection(data.wind.deg));
 
-        // $(".card").append(`<p>The Current Wind Speed is: ${data.wind.speed} mph ${windCardinalDirection(data.wind.deg)} \<br> The Current Temperature is: ${data.main.temp}`)
-    });
+            // $(".card").append(`<p>The Current Wind Speed is: ${data.wind.speed} mph ${windCardinalDirection(data.wind.deg)} \<br> The Current Temperature is: ${data.main.temp}`)
+        });
+    }//End of getWeatherDataAndPrint Function
+
+    // $.get("http://api.openweathermap.org/data/2.5/weather", {
+    //     APPID: OPEN_WEATHER_APPID,
+    //     lat: 29.423017,
+    //     lon: -98.48527,
+    //     units: "imperial"
+    // }).done(function(data) {
+    //     console.log(`The Weather: `, data);
+    //
+    //     console.log(`Temperature is: `, data.main.temp)
+    //
+    //     console.log(`The Wind Speed is: `, data.wind.speed)
+    //
+    //     //Today's Weather information
+    //     $("#today").append(`
+    //
+    //     <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
+    //       <p class="card-text mb-0">Temperature: ${data.main.temp}</p>
+    //       <p class="card-text mb-0">Feels Like: ${data.main.feels_like}</p>
+    //       <hr>
+    //       <p class="card-text mb-1">Description: ${data.weather[0].main}</p>
+    //     `)
+    //
+    //     // $("body").append(`<p><img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png"></p>`)
+    //
+    //     // "http://openweathermap.org/img/w/${data.weather[0].icon}.png"
+    //
+    //     console.log(windCardinalDirection(data.wind.deg));
+    //
+    //     // $(".card").append(`<p>The Current Wind Speed is: ${data.wind.speed} mph ${windCardinalDirection(data.wind.deg)} \<br> The Current Temperature is: ${data.main.temp}`)
+    // });
 
     // If you want to add the icons the URLs for OpenWeatherMap's icons are formatted like: http://openweathermap.org/img/w/[icon].png where [icon] comes from the API response.
 
 
+    getForecastAndPrint(-98.441372, 29.49169)
+    function getForecastAndPrint(long, lat){
 
-    $.get("http://api.openweathermap.org/data/2.5/forecast", {
-        APPID: OPEN_WEATHER_APPID,
-        lat:    29.423017,
-        lon:   -98.48527,
-        units: "imperial"
-    }).done(function(data) {
-        console.log('The Forecast: ', data);
-        console.log(`The list object: `, data.list);
-        console.log(`The City Object: `, data.city);
-        console.log(`The value of the population property: `, data.city.population)
-        console.log(`Grabbing the visibility value: `, data.list[0].visibility);
-        // data.list.forEach((forecast, index) => {
-        //     if (index < 5){
-        //         console.log(forecast);
-        //     }
-        // })
-        console.log(`Getting the time: `, formatTime(data.list[0].dt))
+        $.get("http://api.openweathermap.org/data/2.5/forecast", {
+            APPID: OPEN_WEATHER_APPID,
+            lat:    lat,
+            lon:   long,
+            units: "imperial"
+        }).done(function(data) {
+            console.log('The Forecast: ', data);
+            console.log(`The list object: `, data.list);
+            console.log(`The City Object: `, data.city);
+            console.log(`The value of the population property: `, data.city.population)
+            console.log(`Grabbing the visibility value: `, data.list[0].visibility);
+            // data.list.forEach((forecast, index) => {
+            //     if (index < 5){
+            //         console.log(forecast);
+            //     }
+            // })
+            console.log(`Getting the time: `, formatTime(data.list[0].dt))
 
-        //Adding the dates
-        $("#todaysDate").append(`${formatTime(data.list[0].dt)}`)
-        $("#tomorrowsDate").append(`${formatTime(data.list[8].dt)}`)
-        $("#day-3").append(`${formatTime(data.list[16].dt)}`)
-        $("#day-4").append(`${formatTime(data.list[24].dt)}`)
-        $("#day-5").append(`${formatTime(data.list[32].dt)}`)
 
-        //Adding the icons
 
-        //Tomorrow's information
-        $("#tomorrow").append(`
-            <img src="http://openweathermap.org/img/w/${data.list[8].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
-            <p class="card-text mb-0">Temperature: ${data.list[8].main.temp}</p>
-            <p class="card-text mb-0">Feels Like: ${data.list[8].main.feels_like}</p>
-            <hr>
-            <p class="card-text mb-1">Description: ${data.list[8].weather[0].description}</p>
+            /*
+            * 1) Create a function that will loop through all the dates
+            * and apply each date respectively to the cards
+            *
+            *
+            * */
+            //
+            data.list.forEach(function(forecast, index){
 
-        `)
-        //Day 3 Information
-        $("#day3").append(`
-            <img src="http://openweathermap.org/img/w/${data.list[16].weather[0].icon}.png" class="card-img-top" alt="Day 3 Weather icon">
-             <p class="card-text mb-0">Temperature: ${data.list[16].main.temp}</p>
-            <p class="card-text mb-0">Feels Like: ${data.list[16].main.feels_like}</p>
-            <hr>
-            <p class="card-text mb-1">Description: ${data.list[16].weather[0].description}</p>
-        `)
-        //Day 4 Information
-        $("#day4").append(`
-            <img src="http://openweathermap.org/img/w/${data.list[24].weather[0].icon}.png" class="card-img-top" alt="Day 4 Weather icon">
-             <p class="card-text mb-0">Temperature: ${data.list[24].main.temp}</p>
-            <p class="card-text mb-0">Feels Like: ${data.list[24].main.feels_like}</p>
-            <hr>
-            <p class="card-text mb-1">Description: ${data.list[24].weather[0].description}</p>
-        `)
-        //Day 5 Information
-        $("#day5").append(`
-            <img src="http://openweathermap.org/img/w/${data.list[32].weather[0].icon}.png" class="card-img-top" alt="Day 5 Weather icon">
-            <p class="card-text mb-0">Temperature: ${data.list[32].main.temp}</p>
-            <p class="card-text mb-0">Feels Like: ${data.list[32].main.feels_like}</p>
-            <hr>
-            <p class="card-text mb-1">Description: ${data.list[32].weather[0].description}</p>
-        `)
+                if (index % 8 === 0) {
+                    // let theTime = formatTime(data.list[index].dt);
+                    //     console.log(theTime);
+                    //     console.log("#day-" + ((index/8)+1))
+                    $("#day-" + ((index/8) +1)).html(`${formatTime(data.list[index].dt)}`);
+                    $("#day" + ((index/8) +1)).html(`
+                <img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
+                <p class="card-text mb-0">Temperature: ${data.list[index].main.temp}</p>
+                <p class="card-text mb-0">Feels Like: ${data.list[index].main.feels_like}</p>
+                <hr>
+                <p class="card-text mb-1">Description: ${data.list[index].weather[0].main}</p>`)
+                }
 
-        function averagePressure1(){
-            let pNumber = 0;
-            for (let i = 0; i < 8; i++){
-                pNumber += data.list[i].main.pressure;
-            }
-            return parseInt(pNumber/8);
+            });
+
+
+
+        });
+    }
+    //
+    // $.get("http://api.openweathermap.org/data/2.5/forecast", {
+    //     APPID: OPEN_WEATHER_APPID,
+    //     lat:    29.423017,
+    //     lon:   -98.48527,
+    //     units: "imperial"
+    // }).done(function(data) {
+    //     console.log('The Forecast: ', data);
+    //     console.log(`The list object: `, data.list);
+    //     console.log(`The City Object: `, data.city);
+    //     console.log(`The value of the population property: `, data.city.population)
+    //     console.log(`Grabbing the visibility value: `, data.list[0].visibility);
+    //     // data.list.forEach((forecast, index) => {
+    //     //     if (index < 5){
+    //     //         console.log(forecast);
+    //     //     }
+    //     // })
+    //     console.log(`Getting the time: `, formatTime(data.list[0].dt))
+    //
+    //
+    //
+    //     /*
+    //     * 1) Create a function that will loop through all the dates
+    //     * and apply each date respectively to the cards
+    //     *
+    //     *
+    //     * */
+    //     //
+    //     data.list.forEach(function(forecast, index){
+    //
+    //         if (index % 8 === 0) {
+    //             // let theTime = formatTime(data.list[index].dt);
+    //             //     console.log(theTime);
+    //             //     console.log("#day-" + ((index/8)+1))
+    //             $("#day-" + ((index/8) +1)).append(`${formatTime(data.list[index].dt)}`);
+    //             $("#day" + ((index/8) +1)).append(`
+    //             <img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
+    //             <p class="card-text mb-0">Temperature: ${data.list[index].main.temp}</p>
+    //             <p class="card-text mb-0">Feels Like: ${data.list[index].main.feels_like}</p>
+    //             <hr>
+    //             <p class="card-text mb-1">Description: ${data.list[index].weather[0].main}</p>`)
+    //         }
+    //
+    //     });
+    //
+    //
+    //
+    // });
+
+
+    function averagePressure1(){
+        let pNumber = 0;
+        for (let i = 0; i < 8; i++){
+            pNumber += data.list[i].main.pressure;
         }
-    });
+        return parseInt(pNumber/8);
+    }
+
+
+
+
+
+    //Old Code
+
+    //Adding the dates
+    // $("#day-1").append(`${formatTime(data.list[0].dt)}`)
+    // $("#day-2").append(`${formatTime(data.list[8].dt)}`)
+    // $("#day-3").append(`${formatTime(data.list[16].dt)}`)
+    // $("#day-4").append(`${formatTime(data.list[24].dt)}`)
+    // $("#day-5").append(`${formatTime(data.list[32].dt)}`)
+
+    //Adding the icons with all the information for Each day
+
+    //Tomorrow's information
+    // $("#day2").append(`
+    //     <img src="http://openweathermap.org/img/w/${data.list[8].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
+    //     <p class="card-text mb-0">Temperature: ${data.list[8].main.temp}</p>
+    //     <p class="card-text mb-0">Feels Like: ${data.list[8].main.feels_like}</p>
+    //     <hr>
+    //     <p class="card-text mb-1">Description: ${data.list[8].weather[0].description}</p>
+    //
+    // `)
+    // //Day 3 Information
+    // $("#day3").append(`
+    //     <img src="http://openweathermap.org/img/w/${data.list[16].weather[0].icon}.png" class="card-img-top" alt="Day 3 Weather icon">
+    //      <p class="card-text mb-0">Temperature: ${data.list[16].main.temp}</p>
+    //     <p class="card-text mb-0">Feels Like: ${data.list[16].main.feels_like}</p>
+    //     <hr>
+    //     <p class="card-text mb-1">Description: ${data.list[16].weather[0].description}</p>
+    // `)
+    // //Day 4 Information
+    // $("#day4").append(`
+    //     <img src="http://openweathermap.org/img/w/${data.list[24].weather[0].icon}.png" class="card-img-top" alt="Day 4 Weather icon">
+    //      <p class="card-text mb-0">Temperature: ${data.list[24].main.temp}</p>
+    //     <p class="card-text mb-0">Feels Like: ${data.list[24].main.feels_like}</p>
+    //     <hr>
+    //     <p class="card-text mb-1">Description: ${data.list[24].weather[0].description}</p>
+    // `)
+    // //Day 5 Information
+    // $("#day5").append(`
+    //     <img src="http://openweathermap.org/img/w/${data.list[32].weather[0].icon}.png" class="card-img-top" alt="Day 5 Weather icon">
+    //     <p class="card-text mb-0">Temperature: ${data.list[32].main.temp}</p>
+    //     <p class="card-text mb-0">Feels Like: ${data.list[32].main.feels_like}</p>
+    //     <hr>
+    //     <p class="card-text mb-1">Description: ${data.list[32].weather[0].description}</p>
+    // `)
+
 
     // $.get("http://api.openweathermap.org/data/2.5/hourly", {
     //     APPID: OPEN_WEATHER_APPID,

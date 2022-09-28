@@ -18,9 +18,9 @@
             width: 80%;
             height: 25rem;
         }
-        card {
-            width: 18rem;
-        }
+        /*card {*/
+        /*    width: 18rem;*/
+        /*}*/
     </style>
 
 </head>
@@ -29,41 +29,51 @@
     <nav class="navbar navbar-dark bg-primary mb-4">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Weather App</span>
-            <span class="justify-content-end navbar-text mb-0 h6">Current city: San Antonio</span>
+            <span class="justify-content-end navbar-text mb-0 h6" id="currentCity"><!--Current City gets appended here--></span>
         </div>
     </nav>
 <!--The Card Group for the 5 day Forecast-->
     <div class="card-group">
-        <div class="card text-center"  id="today">
-            <h5 class="card-header">Today</h5>
-            <h6 class="card-subtitle mt-1 text-muted" id="todaysDate">
-                <!--Appending Data from Forecast here-->
-            </h6>
+        <div class="card text-center">
 
+            <h5 class="card-header">Today</h5>
+            <h6 class="card-subtitle mt-1 text-muted date" id="day-1">
+                <!--Appending Date from Forecast here-->
+            </h6>
+            <!---Appending All the Data from Weather Here-->
+            <div  id="today"></div>
         </div>
-        <div class="card text-center"  id="tomorrow">
+        <div class="card text-center">
+            <!---Appending All the Data from forecast Here-->
             <h5 class="card-header">Tomorrow</h5>
-            <h6 class="card-subtitle mt-1 text-muted" id="tomorrowsDate">
-                <!--Append Data from forecast here-->
+            <h6 class="card-subtitle mt-1 text-muted date" id="day-2">
+                <!--Append Date from forecast here-->
             </h6>
+            <div id="day2"></div>
         </div>
-        <div class="card text-center" id="day3">
+        <div class="card text-center">
+            <!---Appending All the Data from forecast Here-->
             <h5 class="card-header">Day 3</h5>
-            <h6 class="card-subtitle mt-1 text-muted" id="day-3">
-                <!--Append Data from forecast here-->
+            <h6 class="card-subtitle mt-1 text-muted date" id="day-3">
+                <!--Append Date from forecast here-->
             </h6>
+            <div id="day3"></div>
         </div>
-        <div class="card text-center" id="day4">
+        <div class="card text-center">
+            <!---Appending All the Data from forecast Here-->
             <h5 class="card-header">Day 4</h5>
-            <h6 class="card-subtitle mt-1 text-muted" id="day-4">
-                <!--Append Data from forecast here-->
+            <h6 class="card-subtitle mt-1 text-muted date" id="day-4">
+                <!--Append Date from forecast here-->
             </h6>
+            <div id="day4"></div>
         </div>
-        <div class="card text-center" id="day5">
+        <div class="card text-center">
+            <!---Appending All the Data from forecast Here-->
             <h5 class="card-header">Day 5</h5>
-            <h6 class="card-subtitle mt-1 text-muted" id="day-5">
-                <!--Append Data from forecast here-->
+            <h6 class="card-subtitle mt-1 text-muted date" id="day-5">
+                <!--Append Date from forecast here-->
             </h6>
+            <div id="day5"></div>
         </div>
 
     </div><!--Closing div for the entire card-group -->
