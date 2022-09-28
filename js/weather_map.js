@@ -31,8 +31,8 @@ $(function(){
         clickableMarker.setLngLat(coordinates).addTo(map)
         // $(".card-group").children().empty();
         // $("#currentCity").empty();
-        getWeatherDataAndPrint(coordinates.lng, coordinates.lat)
-        getForecastAndPrint(coordinates.lng, coordinates.lat)
+        getWeatherDataAndPrint(coordinates.lng, coordinates.lat);
+        getForecastAndPrint(coordinates.lng, coordinates.lat);
 
     }
 
@@ -79,6 +79,24 @@ $(function(){
 
         });
     }//End of getWeatherDataAndPrint Function
+
+//Search functionality
+//     1) Need to get the value from the search, to be inserted into my functions
+
+    $("#setMarkerButton").on("click", function(e){
+        e.preventDefault();
+        const address= document.getElementById("setMarker").value;
+        // alert("You clicked me");
+        console.log(address);
+            geocode(address, MAPBOX_API_TOKEN).then(function(coordinates){
+                clickableMarker.setLngLat(coordinates).addTo(map)
+                    map.setCenter(coordinates);
+                getWeatherDataAndPrint(coordinates.lng, coordinates.lat);
+                getForecastAndPrint(coordinates.lng, coordinates.lat);
+            })
+        });
+
+
 
 
 //Starting Information and function call
