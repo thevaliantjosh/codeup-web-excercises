@@ -80,7 +80,8 @@ $(function(){
             
               <p class="card-text mb-0 todaysData">Temperature: ${data.main.temp}&degF</p>
               <p class="card-text mb-0 todaysData">Feels Like: ${data.main.feels_like}&degF</p>
-              <p class="card-text mb-0">Hi: ${data.main.temp_max}&deg/Lo: ${data.main.temp_min}</p>
+              <hr>
+              <p class="card-text mb-0" id="hiLowDay1">Hi: ${data.main.temp_max}&degF/Lo: ${data.main.temp_min}</p>
               <hr class="todaysData">
               <p class="card-text mb-1 todaysData">Description: ${data.weather[0].description}</p>
               <hr>
@@ -142,11 +143,13 @@ $(function(){
 
                 if (index % 8 === 0) {
                     $("#day-" + ((index/8) +1)).html(`${formatTime(data.list[index].dt)}`);
+                    $("#hiLowDay1").html(`<p class="card-text mb-0">Hi: ${averageHighTemp(index)}&degF/Lo: ${averageLowTemp(index)}&degF</p>`)
                     $("#day" + ((index/8) +1)).html(`
                         <img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
                         <p class="card-text mb-0">Temperature: ${data.list[index].main.temp}&degF</p>
                         <p class="card-text mb-0">Feels Like: ${data.list[index].main.feels_like}&degF</p>
-                        <p class="card-text mb-0">Hi: ${averageHighTemp([index])}&deg/Lo: ${averageLowTemp([index])}&deg</p>  
+                        <hr>
+                        <p class="card-text mb-0">Hi: ${averageHighTemp(index)}&degF/Lo: ${averageLowTemp(index)}&degF</p>  
                         <hr>
                         <p class="card-text mb-1">Description: ${data.list[index].weather[0].description}</p>
                         <hr>
@@ -160,25 +163,31 @@ $(function(){
             });
 
 
-            function averageHighTemp(){
-                let average = 0;
-                for (let i = 0; i < 8; i++){
-                    average += data.list[i].main.temp_max/8
-                    console.log(average)
-                }
-                return average.toFixed(2);
-            }
-            console.log(`The Next High Average is: ${averageHighTemp()}`);
+            //If temp_max > high
+            //high = temp_max
+            //checking against the current high, if it is higher than replace
 
-            function averageLowTemp(){
-                let average = 0;
-                for (let i = 0; i < 8; i++){
-                    average += data.list[i].main.temp_min/8
-                    console.log(average)
+            function averageHighTemp(index){
+                let high = -1000;
+                for (let i = index; i < index+8; i++){
+                    if (data.list[i].main.temp_max > high)
+                    high = data.list[i].main.temp_max
+                    console.log(`New High: ${high}`)
                 }
-                return average.toFixed(2);
+                return high
             }
-            console.log(`The Next Low Average is: ${averageLowTemp()}`);
+            // console.log(`The Next High Average is: ${averageHighTemp()}`);
+
+            function averageLowTemp(index){
+                let low = 10000;
+                for (let i = index; i < index+8; i++){
+                   if(data.list[i].main.temp_min < low)
+                    low = data.list[i].main.temp_min
+                    console.log(`New Low: ${low}`);
+                }
+                return low
+            }
+            // console.log(`The Next Low Average is: ${averageLowTemp()}`);
 
 
         });
