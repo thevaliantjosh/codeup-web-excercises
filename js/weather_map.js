@@ -143,7 +143,8 @@ $(function(){
 
                 if (index % 8 === 0) {
                     $("#day-" + ((index/8) +1)).html(`${formatTime(data.list[index].dt)}`);
-                    $("#hiLowDay1").html(`<p class="card-text mb-0">Hi: ${averageHighTemp(index)}&degF/Lo: ${averageLowTemp(index)}&degF</p>`)
+                    $("#hiLowDay1").html(`<p class="card-text mb-0">Hi: ${averageHighTemp(index)}&degF/Lo: ${averageLowTemp(index)}&degF</p>`);
+                    $("#nameTheDay" + ((index/8) +1)).html(`${namedDayFromDay(data.list[index].dt)}`)
                     $("#day" + ((index/8) +1)).html(`
                         <img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" class="card-img-top" alt="Todays Weather icon">
                         <p class="card-text mb-0">Temperature: ${data.list[index].main.temp}&degF</p>
@@ -172,7 +173,7 @@ $(function(){
                 for (let i = index; i < index+8; i++){
                     if (data.list[i].main.temp_max > high)
                     high = data.list[i].main.temp_max
-                    console.log(`New High: ${high}`)
+                    // console.log(`New High: ${high}`)
                 }
                 return high
             }
@@ -183,7 +184,7 @@ $(function(){
                 for (let i = index; i < index+8; i++){
                    if(data.list[i].main.temp_min < low)
                     low = data.list[i].main.temp_min
-                    console.log(`New Low: ${low}`);
+                    // console.log(`New Low: ${low}`);
                 }
                 return low
             }
@@ -255,12 +256,13 @@ $(function(){
         return formattedDateTime;
     }
 
-    console.log(`Sydney time? ${formatTime(1664398800)}`)
+    // console.log(`Sydney time? ${formatTime(1664398800)}`)
 
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     function namedDayFromDay(timeStamp){
         let dateTime = new Date(timeStamp * 1000);
+        console.log(dateTime.getDay());
         return daysOfWeek[dateTime.getDay()];
     }
 
