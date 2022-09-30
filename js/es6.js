@@ -102,7 +102,7 @@ let list = '';
 for (let element of developers) {
 
   // TODO: rewrite the assignment below to use template strings
-  list += `<ul><li>${element}</li></ul>`;
+  list += `<li>${element}</li>`;
   $("#output").html(list)
 
 };
