@@ -166,3 +166,83 @@ $("#output").append(`<p>The total is ${totalCost}</p>`);
 
 console.log(totalCost);
 
+//If we want to produce an array of even numbers it would normally look like this
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function evensOnly(array){
+    let evens = [];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 === 0){
+            evens.push(numbers[i]);
+        }
+    }
+    return evens;
+}
+
+// console.log(evensOnly(numbers));
+
+/*Map and filter will both accept a callback function that is applied to each element in the collection
+* For .filter, if the callback returns true, the element will be in the new collection, if it returns false, the element will not be part of the new collection
+* */
+
+//Using .filter
+
+const evens = numbers.filter(number => number % 2 === 0);
+
+console.log(`Using .filter to get the evens: ${evens.join(", ")}`)
+console.log(evens);
+
+//Using .map
+//For .map, the return value of the callback will be the new value of the element
+
+const increment = numbers.map(number => number + 1)
+
+console.log(increment);
+
+//Using .reduce
+/*Used to reduce a collection to a single value. Most commonly, we will use it to transform a collection into a primitive value*/
+
+const sum = numbers.reduce((accumulation, currentNumber) => {
+    return accumulation + currentNumber;
+}, 0)
+
+console.log(sum);
+
+//Using .reduce
+/*You can use .reduce to transform the shape of a collection.
+If we want to count the number of occurrences of a certain word in an array of words, we can transform our array of strings into an object whose property names are each word, and whose values are the number of times each words appears.
+*/
+
+const salesPeople = [
+    {name: "Jim Halpert", sales: 100},
+    {name:"Dwight Schrute", sales: 50 },
+    {name:"Andy Bernard", sales: 150},
+]
+
+const totalSales = salesPeople.reduce((total, person) => {
+    return total + person.sales;
+}, 0)
+
+console.log(`Adding the total of all Sales in Each object in an array using .reduce: ${totalSales}`);
+
+//Transforming a string into an array then into an object with countable properties
+
+function countWords(sentence) {
+    const words = sentence.split(" "); // transform a sentence into an array
+    const wordCountObject = words.reduce((wordCounts, word) => {
+        if (typeof wordCounts[word] === "undefined"){
+            //if the word is not yet present in our object, set its value to 1
+            wordCounts[word] = 1;
+        } else {
+            //otherwise increment the existing count
+            wordCounts[word] += 1;
+        }
+        return wordCounts;
+    }, {}); //Start with an empty object
+    return wordCountObject
+}
+
+
+
+console.log(countWords("Mary had a little lamb little lamb little lamb"))
