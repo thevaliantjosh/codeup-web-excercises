@@ -389,6 +389,20 @@ const users = [
 
 //An Array of user object where each object has at least 3 languages in the languages array
 
+//Old Way
+
+// let threeLangOld = [];
+// for (let i = 0; i < users.length; i++){
+//     console.log(users[i].languages.length);
+//     if(users[i].languages.length > 2) {
+//         threeLangOld.push(users[i]);
+//     }
+// }
+// console.log(threeLangOld);
+
+
+
+
 const userLanguagesObject = users.filter(user => {
     return user.languages.length >= 3;
 });
@@ -416,13 +430,7 @@ console.log(usersEmails);
 //     return accumulator;
 // }))
 
-// const highestMileages = cars.reduce((accumulator, car) =>{
-//     accumulator.push(car.mileage);
-//     return accumulator;
-//
-// }, []).reduce((accumulator, mileage) => {
-//     return Math.max(accumulator, mileage);
-// });
+
 
 // const sum = numbers.reduce((accumulation, currentNumber) => {
 //     return accumulation + currentNumber;
@@ -430,6 +438,23 @@ console.log(usersEmails);
 
 
 
+//Using .reduce to get the average years from all the yearsOfExperience in the users array of objects.
+
+//In class demonstration:
+//Make sure to give a starting value [, 0]
+let totalExp = users.reduce((total, user) =>{
+    return total + user.yearsOfExperience
+}, 0)
+
+console.log(`The users have a total of ${totalExp} years of experience`);
+
+let averageExp = totalExp / users.length;
+
+console.log(`The users hava an average of ${averageExp} years of experience`);
+
+
+
+//My solution:
 const averageYearsOfExperience = users.reduce((accumulator, user) =>{
     accumulator.push(user.yearsOfExperience);
     console.log(accumulator);
@@ -446,3 +471,96 @@ const averageYearsOfExperience = users.reduce((accumulator, user) =>{
 
 console.log(averageYearsOfExperience);
 
+
+// Use .reduce to get the longest email from the list of users.
+
+// const highestMileages = cars.reduce((accumulator, car) =>{
+//     accumulator.push(car.mileage);
+//     return accumulator;
+//
+// }, []).reduce((accumulator, mileage) => {
+//     return Math.max(accumulator, mileage);
+// });
+
+
+// function countWords(sentence) {
+//     const words = sentence.split(" "); // transform a sentence into an array
+//     const wordCountObject = words.reduce((wordCounts, word) => {
+//         if (typeof wordCounts[word] === "undefined"){
+//             //if the word is not yet present in our object, set its value to 1
+//             wordCounts[word] = 1;
+//         } else {
+//             //otherwise increment the existing count
+//             wordCounts[word] += 1;
+//         }
+//         return wordCounts;
+//     }, {}); //Start with an empty object, end of words.reduce
+//     return wordCountObject
+// }
+
+
+//In class demonstration
+
+let longestEmail = users.reduce((currentLongestEmail, user) =>{
+    // if (currentLongestEmail.length > user.email.length){
+    //     return currentLongestEmail;
+    // } else {
+    //     return user.email
+    // }
+    return currentLongestEmail.length > user.email.length ? currentLongestEmail : user.email;
+})
+
+console.log(longestEmail);
+
+
+// const longestUserEmail = users.reduce((accumulator, user) =>{
+//
+//     accumulator.push(user.email);
+//     return accumulator;
+// }, []).reduce((accumulator, email) =>{
+//     return
+// });
+//
+// console.log(longestUserEmail);
+
+// Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
+
+
+// let userNames = users.reduce((list, user)=>{
+//     return list += (user.name + ", ");
+// }, "Your instructors are: ")
+//
+// console.log(userNames);
+
+let userNamesBetter = users.reduce((pre, user, index, usersArray)=>{
+    let beginning;
+    let end;
+    if (pre){//on the first iteration of the loop
+        beginning = ", ";
+    } else {
+        beginning = "Your instructors are: ";
+    }
+    if (index == (users.usersArray -1)){
+        end = ".";
+    }
+    return pre + `${beginning}${user.name}${end}`
+    //
+    // return pre + `${pre ? ", ": "Your Instructors are: "}${user.name}${(index == (usersArray.length -1)) ? "." : ""}`
+}, "");
+
+console.log(userNamesBetter);
+
+
+// Use .reduce to get the unique list of languages from the list of users.
+
+
+let uniqueLanguages = users.reduce((accumulator, user)=>{
+    user.languages.forEach(function(language){
+        if (!accumulator.includes(language)){
+            accumulator.push(language);
+        }
+    });
+    return accumulator;
+}, []);
+
+console.log(uniqueLanguages);
