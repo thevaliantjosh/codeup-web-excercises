@@ -424,3 +424,30 @@ console.log(createObject(attendance));
 //  * Examples
 //  *
 //
+
+
+/*==================DOM WARMUPS==========================================*/
+
+//When the user clicks the button that has the text "Change Heading", the text of the h1 element change ro read " I pwn the DOM"
+
+
+// Every time the user enters a character in the input with id "source", that
+// character appears in the <p> element with the id "output"
+//Create a on "click" function for the button
+
+
+
+$(function(){
+    $("#pwn").on("click", function(){
+
+        $("h1").html("I pwn the DOM!");//You can also use .text
+    });
+
+    $("#source").on("keyup", function(){
+        // e.preventDefault();
+        // console.log($("#source").val());
+        $("#output").text($("#source").val());
+    })
+})
+
+
