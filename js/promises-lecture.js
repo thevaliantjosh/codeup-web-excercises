@@ -42,6 +42,9 @@ myPromise.catch(error => console.error(error));
 
 
 
+
+
+
 /*===========IN CLASS LECTURE ON PROMISES==============*/
 
 //Fetch API
@@ -178,9 +181,9 @@ const aPromise = new Promise((resolve, reject) =>{
 aPromise.then(value => console.log(value)).catch(error => console.log(error));
 
 
-//A Fetch call returns a promise
+//A Fetch call returns a promise object
 //If successfull, then the .then runs
-fetch("data/murals.json").then(response => {
+const myFetchPromise = fetch("data/murals.json").then(response => {
     console.log(response.status);
     console.log(response.headers);
     console.log(url);
@@ -188,3 +191,17 @@ fetch("data/murals.json").then(response => {
 }
 
     ).then(data => console.log(data)).catch(error => console.log("Where the data at?"))
+    .finally(() => console.log("I'm going to happend no matter what!"));
+
+console.log(myFetchPromise);
+
+
+/*=============GIT HUB PROMISES==============*/
+
+fetch("https://api.github.com/users/thevaliantjosh",{
+    headers: {
+        "Authorization": GITHUB_PROMISES_TOKEN
+    }
+}).then(response => response.json())
+    .then(events => console.log(events))
+    .catch( error => console.error(error))
