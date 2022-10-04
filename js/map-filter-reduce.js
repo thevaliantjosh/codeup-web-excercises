@@ -160,10 +160,12 @@ const totalCost = prices.reduce(function (total, price){
 //total is set to equal the first element in the array
 //The second variable (itemPrice is set to equal the second element in the array)
 
-// let total = prices.reduce(function(total, itemPrice, index){
-//     console.log(`The index is ${index}, the total is ${total.toFixed(2)}, the itemPrice is ${itemPrice}`);
-//     return total + itemPrice;
-// });
+// const prices = [32.99, 21.99, 6.99, 4.99, 12.99, 8.98, 5.99];
+
+let total = prices.reduce(function(total, itemPrice, index){
+    console.log(`The index is ${index}, the total is ${total.toFixed(2)}, the itemPrice is ${itemPrice}`);
+    return total + itemPrice;
+}, 0);
 
 // $("#output").append(`<p>The total is ${totalCost}</p>`);
 
@@ -182,9 +184,9 @@ console.log(totalCost);
 
 console.log("You have $158.76 dollars worth of items in your shopping cart.")
 
-const total = prices.reduce(function(total, priceOfItem){
-   return total + priceOfItem;
-}, 158.76);//inserting a custom initial value
+// const total = prices.reduce(function(total, priceOfItem){
+//    return total + priceOfItem;
+// }, 158.76);//inserting a custom initial value
 
 // const total = prices.reduce((total, priceOfItem) =>{
 //     total += priceOfItem;
@@ -417,6 +419,7 @@ console.log(userLanguagesObject);
 
 const usersEmails = users.map(user => user.email)
 
+console.log("The users Emails are: ");
 console.log(usersEmails);
 
 // Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
@@ -455,21 +458,25 @@ console.log(`The users hava an average of ${averageExp} years of experience`);
 
 
 //My solution:
+// const averageYearsOfExperience = users.reduce((accumulator, user) =>{
+//     accumulator.push(user.yearsOfExperience);
+//     console.log(accumulator);
+//     return accumulator;
+// }, []).reduce((accumulator, years, index, array) => {
+//     console.log(accumulator);
+//     accumulator += years;
+//     if (index === array.length -1){
+//         return accumulator/array.length;
+//     }
+//     return accumulator;
+// });
+
 const averageYearsOfExperience = users.reduce((accumulator, user) =>{
-    accumulator.push(user.yearsOfExperience);
-    console.log(accumulator);
-    return accumulator;
-}, []).reduce((accumulator, years, index, array) => {
-    console.log(accumulator);
-    accumulator += years;
-    if (index === array.length -1){
-        return accumulator/array.length;
-    }
-    return accumulator;
-});
+    return accumulator + user.yearsOfExperience;
+}, 0)/users.length;
 
 
-console.log(averageYearsOfExperience);
+console.log(`The Average years of Experience is: ${averageYearsOfExperience}`);
 
 
 // Use .reduce to get the longest email from the list of users.
@@ -500,6 +507,7 @@ console.log(averageYearsOfExperience);
 
 
 //In class demonstration
+console.log(users[0].length);
 
 let longestEmail = users.reduce((currentLongestEmail, user) =>{
     // if (currentLongestEmail.length > user.email.length){
@@ -508,9 +516,9 @@ let longestEmail = users.reduce((currentLongestEmail, user) =>{
     //     return user.email
     // }
     return currentLongestEmail.length > user.email.length ? currentLongestEmail : user.email;
-})
+}, "")
 
-console.log(longestEmail);
+console.log(`Current Longest Email is: ${longestEmail}`);
 
 
 // const longestUserEmail = users.reduce((accumulator, user) =>{
@@ -532,23 +540,41 @@ console.log(longestEmail);
 //
 // console.log(userNames);
 
-let userNamesBetter = users.reduce((pre, user, index, usersArray)=>{
+// let userNamesBetter = users.reduce((pre, user, index, usersArray)=>{
+//     let beginning;
+//     let end;
+//     if (pre){//on the first iteration of the loop
+//         beginning = ", ";
+//     } else {
+//         beginning = "Your instructors are: ";
+//     }
+//     if (index == (users.usersArray -1)){
+//         end = ".";
+//     }
+//     return pre + `${beginning}${user.name}${end}`
+//     //
+//     // return pre + `${pre ? ", ": "Your Instructors are: "}${user.name}${(index == (usersArray.length -1)) ? "." : ""}`
+// }, "");
+
+
+const allTheUsersNames = users.reduce((pre, user, index) =>{
     let beginning;
     let end;
-    if (pre){//on the first iteration of the loop
+    if (pre){
         beginning = ", ";
     } else {
         beginning = "Your instructors are: ";
     }
-    if (index == (users.usersArray -1)){
+    if (index === users.length -1){
         end = ".";
+    } else {
+        end = "";
     }
     return pre + `${beginning}${user.name}${end}`
-    //
-    // return pre + `${pre ? ", ": "Your Instructors are: "}${user.name}${(index == (usersArray.length -1)) ? "." : ""}`
-}, "");
+}, "")
 
-console.log(userNamesBetter);
+
+console.log(allTheUsersNames);
 
 
 // Use .reduce to get the unique list of languages from the list of users.
