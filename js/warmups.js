@@ -444,10 +444,32 @@ $(function(){
     });
 
     $("#source").on("keyup", function(){
-        // e.preventDefault();
-        // console.log($("#source").val());
         $("#output").text($("#source").val());
     })
+
+    const lorem = "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eveniet fuga incidunt ipsum tenetur velit voluptate! Aliquam animi architecto corporis eligendi enim harum non porro qui rerum saepe. Praesentium, quis.</p>"
+
+    $("#loremParagraphs h2").mouseenter(function(){
+        $("h2").append(lorem);
+    })
+
+    $("#hotpink").on("click", function(){
+        // alert("You clicked me");
+        $("#loremParagraphs").toggleClass("hotpink");
+    });
+
+    $("#blinkPink").on("click", function(){
+        setInterval(function(){
+            $("#loremParagraphs").toggleClass("hotpink");
+        }, 3000)
+    })
+
 })
+
+//when the mouse enters the h2 with the text Lorem Generator A paragraph contain lorem appears in the div with the id of loremParagraphs
+
+//When the user clicks on the "Hot Pink it" button, all the tex in the div with the id of LoremParagraphs becomes hotpink i fits black, or black if its hotpink
+
+
 
 
