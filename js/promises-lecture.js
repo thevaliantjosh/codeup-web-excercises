@@ -191,7 +191,7 @@ const myFetchPromise = fetch("data/murals.json").then(response => {
 }
 
     ).then(data => console.log(data)).catch(error => console.log("Where the data at?"))
-    .finally(() => console.log("I'm going to happend no matter what!"));
+    .finally(() => console.log("I'm going to happen no matter what!"));
 
 console.log(myFetchPromise);
 
