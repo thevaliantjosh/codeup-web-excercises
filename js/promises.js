@@ -20,24 +20,24 @@ $(function(){
 
 
 
-    function gitHubUserLastCommit(username){
-        return fetch(`https://api.github.com/users/${username}/events/public`,{
-            headers: {
-                "Authorization": GITHUB_PROMISES_TOKEN
-            }
-            })
-            .then(response => response.json())
-            .then(events => {
-                // console.log(events)
-                const dateOfLastCommit = new Date(events[0].created_at)
-                return dateOfLastCommit;
-                // console.log(dateOfLastCommit);
-            }).catch( error => console.error(error));
-    }
+    // function gitHubUserLastCommit(username){
+    //     return fetch(`https://api.github.com/users/${username}/events/public`,{
+    //         headers: {
+    //             "Authorization": GITHUB_PROMISES_TOKEN
+    //         }
+    //         })
+    //         .then(response => response.json())
+    //         .then(events => {
+    //             // console.log(events)
+    //             const dateOfLastCommit = new Date(events[0].created_at)
+    //             return dateOfLastCommit;
+    //             // console.log(dateOfLastCommit);
+    //         }).catch( error => console.error(error));
+    // }
 
-    const getLastPush = gitHubUserLastCommit("thevaliantjosh");
+    // const getLastPush = gitHubUserLastCommit("thevaliantjosh");
 
-    getLastPush.then(value => console.log(value)).catch(error =>console.error(error));
+    // getLastPush.then(value => console.log(value)).catch(error =>console.error(error));
 
 
     async function gitUserLastCommitAsync(username){
@@ -47,11 +47,12 @@ $(function(){
         const dateOfLastCommit = new Date(events[0].created_at);
         console.log(dateOfLastCommit)
         return dateOfLastCommit;
-        console.log(events);
     }
 
     // gitHubUserLastCommit("thevaliantjosh");
-    gitUserLastCommitAsync("thevaliantjosh");
+    // let datePromise = gitUserLastCommitAsync("thevaliantjosh");
+    // console.log(datePromise);
+    // datePromise.then(response => console.log(response));
 
 
     // $("#source").on("keyup", function(){
@@ -74,15 +75,18 @@ $(function(){
 
     //We want the value from the form to be inserted into the function
     //How do we store the value from the form?
-
-
-    let userEntered = $("#userName").submit(function(e){
-        // alert("You pressed enter!");
-        e.preventDefault();
-        return $(this).val();
+    // let usersLastCommitDate;
+    // let userName;
+    $("#userNameInput").keyup(function(e){
+        // console.log(e.key)
+        if (e.key === "Enter"){
+            // userName = $(this).val();
+            // usersLastCommitDate = gitUserLastCommitAsync(userName);
+            gitUserLastCommitAsync($(this).val()).then(response => $("#output").text(`${response}`))
+        }
 
     })
-
-    console.log(userEntered);
+    // console.log(userName)
+    // console.log(userEntered);
 
 })

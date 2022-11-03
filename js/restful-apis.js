@@ -126,3 +126,31 @@ const deleteOptions = {
 }
 
 fetch(booksURL +"/1", deleteOptions).then(getBooks);
+
+//Loading Message: setTimeout
+
+//Put the movies in cards: Use Bootstrap
+//Recommend using Fetch
+//Use Promises
+//Form will be able to post a movie (similiar to how we posted a book)
+//Feed into an object
+//Event Driven Ajax Requests
+//Then move on to DELETE
+//we need the ID to delete something
+//Where do you put the ID so when the user clicks on the delete button, it sends the iD to the request
+//When printing on the screen set the ID of the movie to the button
+//button data-id = 1
+//After deleting something, edit will be similiar
+//data atrribute on the div
+/*data property[#ofmovieID]
+
+* put the fetch inside of a function
+*
+*
+*
+*
+*
+*
+*
+*
+* */
